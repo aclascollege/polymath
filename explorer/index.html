@@ -377,8 +377,21 @@ async function main(){
       ${sk.length?`<h3>Skills</h3><div class="prs">${sk.map(s=>`<span class="pr">${s}</span>`).join('')}</div>`:''}
       ${pr.length?`<h3>Prerequisites</h3><div class="prs">${pr.map(p=>{const pc=cm.get(p.prerequisiteId);return`<span class="pr ${p.strength==='strict'?'strict':p.strength==='recommended'?'rec':'help'}" onclick="event.stopPropagation();window._sel&&window._sel('${p.prerequisiteId}')">${pc?.shortName||p.prerequisiteId}</span>`}).join('')}</div>`:''}
       ${un.length?`<h3>Unlocks</h3><div class="prs">${un.map(uid=>{const uc=cm.get(uid);return`<span class="pr rec" onclick="event.stopPropagation();window._sel&&window._sel('${uid}')">${uc?.shortName||uid}</span>`}).join('')}</div>`:''}
+      <a href="${aclasUrl(c)}" target="_blank" style="display:block;text-align:center;margin-top:12px;padding:8px 20px;background:rgba(218,165,32,.12);border:1px solid rgba(218,165,32,.25);border-radius:20px;color:#DAA520;text-decoration:none;font-size:.75rem;font-weight:500;transition:all .15s" onmouseover="this.style.background='rgba(218,165,32,.2)'" onmouseout="this.style.background='rgba(218,165,32,.12)'">🎓 Study at ACLAS College →</a>
       <button class="cls" onclick="document.getElementById('detail-overlay').classList.remove('show')">✕ Close</button>`;
     ov.classList.add('show');window._sel=id=>{select(id);};
+  }
+
+  // 🎓 Map course to ACLAS program page
+  function aclasUrl(c){
+    const base='https://aclas.college';
+    const d=c.degreeLevel;const did=c.disciplineId;
+    if(d==='master'&&did==='disc_bus')return base+'/programs/mba';
+    if(d==='master'&&(did==='disc_cs'||did==='disc_ai'||did==='disc_se'))return base+'/programs/mcs';
+    if(d==='doctorate')return base+'/programs/dba';
+    if(d==='bachelor'&&(did==='disc_cs'||did==='disc_ai'||did==='disc_se'))return base+'/programs#bscs';
+    if(d==='bachelor'&&(did==='disc_bus'||did==='disc_mgmt'||did==='disc_fin'||did==='disc_mkt'))return base+'/programs#bba';
+    return base+'/programs';
   }
 
   // ── Panel ──
