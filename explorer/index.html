@@ -249,12 +249,12 @@ async function L(){
 function NEB(disc){
   const c=document.getElementById('nebula'),x=c.getContext('2d');
   let W,H;function R(){W=c.width=innerWidth;H=c.height=innerHeight}R();addEventListener('resize',R);
-  const torch={x:W/2,y:H*0.08,r:200,cl:"#FFD700",vx:0,vy:0};const blobs=disc.filter(d=>d.level==='detailed_field').map(d=>({x:W*(.15+Math.random()*.7),y:H*(.15+Math.random()*.7),r:120+Math.random()*250,cl:d.color,vx:(Math.random()-.5)*.12,vy:(Math.random()-.5)*.12}));blobs.push(torch);
+  const torch={x:W/2,y:H*0.08,r:250,cl:"#FFB800",vx:0,vy:0};const blobs=disc.filter(d=>d.level==='detailed_field').map(d=>({x:W*(.15+Math.random()*.7),y:H*(.15+Math.random()*.7),r:120+Math.random()*250,cl:d.color,vx:(Math.random()-.5)*.12,vy:(Math.random()-.5)*.12}));blobs.push(torch);
   (function A(){
     x.clearRect(0,0,W,H);
     blobs.forEach(b=>{b.x+=b.vx;b.y+=b.vy;if(b.x<-b.r)b.x=W+b.r;if(b.x>W+b.r)b.x=-b.r;if(b.y<-b.r)b.y=H+b.r;if(b.y>H+b.r)b.y=-b.r;
       const g=x.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);
-      g.addColorStop(0,b.cl+'22');g.addColorStop(.3,b.cl+'10');g.addColorStop(.7,b.cl+'06');g.addColorStop(1,'transparent');
+      g.addColorStop(0,b.cl+'30');g.addColorStop(.3,b.cl+'10');g.addColorStop(.7,b.cl+'06');g.addColorStop(1,'transparent');
       x.fillStyle=g;x.beginPath();x.arc(b.x,b.y,b.r,0,Math.PI*2);x.fill();});
     requestAnimationFrame(A);
   })();
@@ -313,11 +313,12 @@ async function main(){
   });
 
   // Nodes & Links
-  const nodes=D.courses.map(c=>({id:c.id,nm:c.shortName||c.name.slice(0,18),full:c.name,did:c.disciplineId,lvl:c.level,dl:c.degreeLevel,cl:dc(c.disciplineId),cr:c.credits,r:c.level==='doctoral'?8:c.level==='graduate'?7:c.level==='advanced'?6.2:c.level==='intermediate'?5.5:4.5}));
+  const nodes=D.courses.map(c=>({id:c.id,nm:c.shortName||c.name.slice(0,18),full:c.name,did:c.disciplineId,lvl:c.level,dl:c.degreeLevel,cl:dc(c.disciplineId),cr:c.credits,r:c.level==='doctoral'?8:c.level==='graduate'?7:c.level==='advanced'?6.2:c.level==='intermediate'?5.5:4.5,hash:Math.random()}));
   const nm=new Map(nodes.map(n=>[n.id,n]));
   const links=D.prereqs.filter(p=>nm.has(p.courseId)&&nm.has(p.prerequisiteId)).map(p=>({source:p.courseId,target:p.prerequisiteId,st:p.strength}));
 
-  const sim=d3.forceSimulation(nodes).force('link',d3.forceLink(links).id(d=>d.id).distance(d=>d.st==='strict'?80:130).strength(.2)).force('charge',d3.forceManyBody().strength(-380)).force('center',d3.forceCenter(0,-50)).force('collision',d3.forceCollide().radius(d=>d.r+7));
+  // 🗽 Statue of Liberty force layout
+  const sim=d3.forceSimulation(nodes).force('link',d3.forceLink(links).id(d=>d.id).distance(d=>d.st==='strict'?80:130).strength(.2)).force('charge',d3.forceManyBody().strength(-280)).force('center',d3.forceCenter(0,20)).force('collision',d3.forceCollide().radius(d=>d.r+6)).force('x',d3.forceX(d=>{const l=d.lvl;const dl=d.dl;if(l==='doctoral'||dl==='doctorate')return 0;if(l==='graduate'||dl==='master')return (d.hash||0)*60-30;if(l==='advanced')return (d.hash||0)*80-40;return (d.hash||0)*100-50}).strength(d=>d.lvl==='doctoral'?.12:d.lvl==='graduate'?.1:d.lvl==='advanced'?.06:.04)).force('y',d3.forceY(d=>{const l=d.lvl;const dl=d.dl;if(l==='doctoral'||dl==='doctorate')return -H*.38;if(l==='graduate'||dl==='master')return -H*.2;if(l==='advanced')return -H*.02;if(l==='intermediate')return H*.1;return H*.22}).strength(d=>d.lvl==='foundation'?.08:d.lvl==='doctoral'?.15:.05));
 
   // Edges
   const lg=g.append('g').attr('class','links');
