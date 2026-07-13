@@ -79,6 +79,7 @@ canvas{position:fixed;inset:0;pointer-events:none}
 #search-wrap .si{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--dim);font-size:.8rem}
 .top-btn{padding:6px 14px;background:var(--surf);backdrop-filter:blur(20px);border:1px solid var(--bdr);border-radius:24px;color:var(--txt);cursor:pointer;font-size:.7rem;font-family:'Space Grotesk',system-ui,sans-serif;transition:all .15s}
 .top-btn:hover{background:rgba(218,165,32,.15);border-color:var(--acc)}
+.top-btn.active{background:rgba(218,165,32,.18);border-color:rgba(218,165,32,.5);color:var(--acc)}
 
 /* Stats bar */
 #stats{position:fixed;bottom:16px;left:50%;transform:translateX(calc(-50% + 160px));z-index:10;display:flex;gap:6px}
@@ -223,6 +224,7 @@ canvas{position:fixed;inset:0;pointer-events:none}
     <input id="search" placeholder="Search courses, skills, careers…" autocomplete="off">
   </div>
   <button class="top-btn" id="btn-tour">✦ Tour</button>
+  <button class="top-btn" id="btn-motion" title="Toggle rotation">⟳ Rotate</button>
   <button class="top-btn" id="btn-reset">↺ Reset</button>
 </div>
 
@@ -300,10 +302,11 @@ async function main(){
   const svg=d3.select('#graph-svg'),W=innerWidth,H=innerHeight;
   svg.attr('viewBox',`0 0 ${W} ${H}`);
   const g=svg.append('g');
-  const defaultZoom=innerWidth<768?.72:.95;
+  const defaultZoom=innerWidth<768?.62:.82;
+  const defaultCenterY=H/2+72;
   const zoom=d3.zoom().scaleExtent([.1,5]).on('zoom',e=>g.attr('transform',e.transform));
-  svg.call(zoom).call(zoom.transform,d3.zoomIdentity.translate(W/2,H/2+10).scale(defaultZoom));
-  svg.on('dblclick.zoom',null).on('dblclick',()=>svg.transition().duration(600).call(zoom.transform,d3.zoomIdentity.translate(W/2,H/2+10).scale(defaultZoom)));
+  svg.call(zoom).call(zoom.transform,d3.zoomIdentity.translate(W/2,defaultCenterY).scale(defaultZoom));
+  svg.on('dblclick.zoom',null).on('dblclick',()=>svg.transition().duration(600).call(zoom.transform,d3.zoomIdentity.translate(W/2,defaultCenterY).scale(defaultZoom)));
 
   // Glow filters
   const defs=svg.append('defs');
@@ -323,56 +326,61 @@ async function main(){
   function linePoints(a,b,n){return d3.range(n).map(i=>{const t=n===1?.5:i/(n-1);return{x:a.x+(b.x-a.x)*t,y:a.y+(b.y-a.y)*t};});}
   function ellipsePoints(cx,cy,rx,ry,n,a0=0,a1=Math.PI*2){return d3.range(n).map(i=>{const t=n===1?.5:i/(n-1),a=a0+(a1-a0)*t;return{x:cx+Math.cos(a)*rx,y:cy+Math.sin(a)*ry};});}
   function robePoints(n){
-    const pts=[],rows=8,base=Math.floor(n/rows),extra=n%rows;let k=0;
+    const pts=[],rows=9,base=Math.floor(n/rows),extra=n%rows;let k=0;
     for(let row=0;row<rows;row++){
-      const cols=base+(row<extra?1:0),y=-42+row*35,w=70+row*12;
-      for(let col=0;col<cols;col++){const c=col/(cols-1||1)-.5;pts.push({x:c*w*2+((k++%2)-.5)*7,y:y+(stableHash('robe'+row+':'+col)-.5)*10});}
+      const cols=base+(row<extra?1:0),y=-70+row*34,w=58+row*13;
+      for(let col=0;col<cols;col++){const c=col/(cols-1||1)-.5;pts.push({x:c*w*2+((k++%2)-.5)*6,y:y+(stableHash('robe'+row+':'+col)-.5)*9});}
     }
     return pts;
   }
+  function addDepth(pts,key,spread=34){return pts.map((p,i)=>({...p,z:(stableHash(key+i)-.5)*spread}));}
   function libertyAnchors(total){
     const basePts=[
-      ...ellipsePoints(176,-324,24,34,6,-Math.PI*.2,Math.PI*1.65),
-      ...linePoints({x:126,y:-270},{x:70,y:-82},11),
-      ...ellipsePoints(0,-158,42,38,11,-Math.PI*.12,Math.PI*2.12),
-      ...linePoints({x:-55,y:-197},{x:-96,y:-238},2),
-      ...linePoints({x:-28,y:-205},{x:-42,y:-260},2),
-      ...linePoints({x:0,y:-209},{x:0,y:-268},2),
-      ...linePoints({x:28,y:-205},{x:42,y:-260},2),
-      ...linePoints({x:55,y:-197},{x:96,y:-238},2),
-      ...linePoints({x:-67,y:-72},{x:-164,y:54},7),
-      ...linePoints({x:-128,y:8},{x:-188,y:42},4),
-      ...robePoints(32),
-      ...linePoints({x:-176,y:246},{x:176,y:246},6),
-      ...linePoints({x:-206,y:286},{x:206,y:286},7)
-    ];
+      ...addDepth(ellipsePoints(168,-338,24,36,7,-Math.PI*.35,Math.PI*1.5),'torch',18),
+      ...addDepth(linePoints({x:132,y:-288},{x:68,y:-96},12),'raised-arm',22),
+      ...addDepth(ellipsePoints(0,-168,34,38,11,-Math.PI*.08,Math.PI*2.08),'head',20),
+      ...addDepth(linePoints({x:-80,y:-188},{x:-132,y:-224},2),'crown-l3',10),
+      ...addDepth(linePoints({x:-64,y:-202},{x:-104,y:-252},2),'crown-l2',10),
+      ...addDepth(linePoints({x:-32,y:-211},{x:-48,y:-278},2),'crown-l1',10),
+      ...addDepth(linePoints({x:0,y:-216},{x:0,y:-290},2),'crown-c',10),
+      ...addDepth(linePoints({x:32,y:-211},{x:48,y:-278},2),'crown-r1',10),
+      ...addDepth(linePoints({x:64,y:-202},{x:104,y:-252},2),'crown-r2',10),
+      ...addDepth(linePoints({x:80,y:-188},{x:132,y:-224},2),'crown-r3',10),
+      ...addDepth(linePoints({x:-60,y:-90},{x:-170,y:30},9),'left-arm',18),
+      ...addDepth(linePoints({x:-118,y:-12},{x:-186,y:42},5),'tablet',14),
+      ...addDepth(robePoints(24),'robe',62),
+      ...addDepth(linePoints({x:-174,y:242},{x:174,y:242},6),'base-a',16),
+      ...addDepth(linePoints({x:-210,y:286},{x:210,y:286},6),'base-b',16)
+    ].flat();
     if(total<=basePts.length)return basePts.slice(0,total);
     const extraCount=total-basePts.length;
-    const extra=d3.range(extraCount).map(i=>{const t=extraCount===1?.5:i/(extraCount-1),a=t*Math.PI*2;return{x:Math.cos(a)*(58+t*90),y:42+Math.sin(a)*(95+t*135)};});
+    const extra=addDepth(d3.range(extraCount).map(i=>{const t=extraCount===1?.5:i/(extraCount-1),a=t*Math.PI*2;return{x:Math.cos(a)*(58+t*90),y:42+Math.sin(a)*(95+t*135)};}),'extra',48);
     return basePts.concat(extra);
   }
   function libertyGuidePoints(){
-    return [
-      ...ellipsePoints(176,-324,30,42,22,-Math.PI*.2,Math.PI*1.65),
-      ...linePoints({x:126,y:-270},{x:70,y:-82},34),
-      ...ellipsePoints(0,-158,50,46,30,-Math.PI*.12,Math.PI*2.12),
-      ...linePoints({x:-55,y:-197},{x:-96,y:-238},8),
-      ...linePoints({x:-28,y:-205},{x:-42,y:-260},8),
-      ...linePoints({x:0,y:-209},{x:0,y:-268},8),
-      ...linePoints({x:28,y:-205},{x:42,y:-260},8),
-      ...linePoints({x:55,y:-197},{x:96,y:-238},8),
-      ...linePoints({x:-67,y:-72},{x:-164,y:54},24),
-      ...linePoints({x:-128,y:8},{x:-188,y:42},14),
-      ...robePoints(86),
-      ...linePoints({x:-176,y:246},{x:176,y:246},28),
-      ...linePoints({x:-206,y:286},{x:206,y:286},34)
-    ];
+    return addDepth([
+      ...ellipsePoints(168,-338,30,44,28,-Math.PI*.35,Math.PI*1.5),
+      ...linePoints({x:132,y:-288},{x:68,y:-96},42),
+      ...ellipsePoints(0,-168,44,48,34,-Math.PI*.08,Math.PI*2.08),
+      ...linePoints({x:-80,y:-188},{x:-132,y:-224},12),
+      ...linePoints({x:-64,y:-202},{x:-104,y:-252},12),
+      ...linePoints({x:-32,y:-211},{x:-48,y:-278},12),
+      ...linePoints({x:0,y:-216},{x:0,y:-290},12),
+      ...linePoints({x:32,y:-211},{x:48,y:-278},12),
+      ...linePoints({x:64,y:-202},{x:104,y:-252},12),
+      ...linePoints({x:80,y:-188},{x:132,y:-224},12),
+      ...linePoints({x:-60,y:-90},{x:-170,y:30},34),
+      ...linePoints({x:-118,y:-12},{x:-186,y:42},18),
+      ...robePoints(104),
+      ...linePoints({x:-174,y:242},{x:174,y:242},36),
+      ...linePoints({x:-210,y:286},{x:210,y:286},42)
+    ],'guide',50);
   }
   const levelRank={doctorate:0,doctoral:0,master:1,graduate:1,advanced:2,intermediate:3,bachelor:4,foundation:5};
   const shapedNodes=[...nodes].sort((a,b)=>(levelRank[a.dl]??levelRank[a.lvl]??9)-(levelRank[b.dl]??levelRank[b.lvl]??9)||d3.ascending(a.did,b.did)||d3.ascending(a.id,b.id));
   libertyAnchors(nodes.length).forEach((p,i)=>{
     const n=shapedNodes[i];
-    if(n){n.tx=p.x;n.ty=p.y;n.x=p.x+(n.hash-.5)*18;n.y=p.y+(stableHash(n.id+'y')-.5)*18;}
+    if(n){n.tx=p.x;n.ty=p.y;n.tz=p.z||0;n.x=p.x+(n.hash-.5)*14;n.y=p.y+(stableHash(n.id+'y')-.5)*14;n.z=n.tz+(stableHash(n.id+'z')-.5)*18;}
   });
 
   // Statue of Liberty silhouette: prerequisite links still matter, but anchors hold the visible outline.
@@ -383,15 +391,19 @@ async function main(){
     .force('x',d3.forceX(d=>d.tx).strength(2.4))
     .force('y',d3.forceY(d=>d.ty).strength(2.4));
 
-  // A faint guide makes the intended statue readable before the force settles.
-  const guide=g.append('g').attr('class','liberty-guide').attr('opacity',.32);
-  guide.append('path').attr('d','M176 -358 C154 -337 151 -304 176 -284 C202 -304 199 -337 176 -358 M126 -270 L70 -82 M-55 -197 L-96 -238 M-28 -205 L-42 -260 M0 -209 L0 -268 M28 -205 L42 -260 M55 -197 L96 -238 M-67 -72 L-164 54 L-188 42 M70 -82 C118 2 136 132 176 246 L206 286 L-206 286 L-176 246 C-136 132 -118 2 -70 -82 M-42 -158 C-42 -204 42 -204 42 -158 C42 -112 -42 -112 -42 -158').attr('fill','none').attr('stroke','rgba(218,165,32,.45)').attr('stroke-width',2).attr('stroke-linecap','round').attr('stroke-linejoin','round').attr('pointer-events','none');
-  guide.selectAll('circle').data(libertyGuidePoints()).join('circle').attr('cx',d=>d.x).attr('cy',d=>d.y).attr('r',1.15).attr('fill','rgba(218,165,32,.5)').attr('pointer-events','none');
+  // A ghosted statue silhouette carries the icon; course nodes sit on top as data.
+  const libertyD='M168 -384 C139 -354 140 -320 168 -292 C196 -320 197 -354 168 -384 M132 -288 C118 -250 96 -172 68 -96 M56 -102 C122 -6 146 128 174 242 L210 286 L-210 286 L-174 242 C-142 118 -118 12 -60 -90 L-170 30 L-186 42 L-126 -18 M-44 -166 C-44 -214 44 -214 44 -166 C44 -118 -44 -118 -44 -166 M-80 -188 L-132 -224 M-64 -202 L-104 -252 M-32 -211 L-48 -278 M0 -216 L0 -290 M32 -211 L48 -278 M64 -202 L104 -252 M80 -188 L132 -224';
+  const flameD='M168 -382 C144 -350 161 -326 168 -300 C176 -326 198 -350 168 -382 Z';
+  const guide=g.append('g').attr('class','liberty-guide').attr('opacity',.58);
+  const guideShape=guide.append('g').attr('class','liberty-shape').attr('pointer-events','none');
+  guideShape.append('path').attr('d',libertyD).attr('fill','rgba(68,221,187,.075)').attr('stroke','rgba(218,165,32,.68)').attr('stroke-width',2.8).attr('stroke-linecap','round').attr('stroke-linejoin','round');
+  guideShape.append('path').attr('d',flameD).attr('fill','rgba(255,184,0,.24)').attr('stroke','rgba(255,215,0,.85)').attr('stroke-width',1.8).attr('stroke-linejoin','round');
+  const guideDots=guide.selectAll('circle').data(libertyGuidePoints()).join('circle').attr('r',1.1).attr('fill','rgba(218,165,32,.55)').attr('pointer-events','none');
   guide.lower();
 
   // Edges
   const lg=g.append('g').attr('class','links');
-  const link=lg.selectAll('line').data(links).join('line').attr('stroke',d=>d.st==='strict'?'rgba(255,255,255,.08)':d.st==='recommended'?'rgba(255,255,255,.04)':'rgba(255,255,255,.02)').attr('stroke-width',d=>d.st==='strict'?1:d.st==='recommended'?.6:.3);
+  const link=lg.selectAll('line').data(links).join('line').attr('stroke',d=>d.st==='strict'?'rgba(255,255,255,.08)':d.st==='recommended'?'rgba(255,255,255,.04)':'rgba(255,255,255,.02)').attr('stroke-width',d=>d.st==='strict'?1:d.st==='recommended'?.6:.3).attr('pointer-events','none');
 
   // Nodes
   const ng=g.append('g').attr('class','nodes');
@@ -400,7 +412,23 @@ async function main(){
   node.append('circle').attr('r',d=>d.r*2.5).attr('fill','none').attr('stroke',d=>d.cl).attr('stroke-width',1.2).attr('opacity',.12);
   node.append('circle').attr('r',d=>d.r*1.5).attr('fill',d=>d.cl).attr('opacity',.1);
   node.append('circle').attr('r',d=>d.r).attr('fill',d=>d.cl).attr('opacity',.85).attr('filter',d=>'url(#g-'+d.did+')');
-  node.append('text').text(d=>d.nm).attr('dy',d=>d.r+11).attr('text-anchor','middle').attr('fill','rgba(255,255,255,.5)').attr('font-size','8px').attr('font-family','Space Grotesk,system-ui,sans-serif').attr('font-weight','500').attr('pointer-events','none');
+  node.append('text').text(d=>d.nm).attr('dy',d=>d.r+10).attr('text-anchor','middle').attr('fill','rgba(255,255,255,.28)').attr('font-size','7px').attr('font-family','Space Grotesk,system-ui,sans-serif').attr('font-weight','500').attr('pointer-events','none');
+
+  const rot={angle:0,tilt:0,motion:true,dragging:false};
+  function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
+  function project(p){
+    const z=p.z||p.tz||0,ca=Math.cos(rot.angle),sa=Math.sin(rot.angle),ct=Math.cos(rot.tilt),st=Math.sin(rot.tilt);
+    const x1=(p.x||0)*ca+z*sa,z1=z*ca-(p.x||0)*sa,y1=(p.y||0)*ct-z1*st,s=560/(560+z1);
+    return{x:x1*s,y:y1*s,s,depth:z1};
+  }
+  function renderGraph(){
+    const squash=clamp(Math.cos(rot.angle)*.18+.84,.68,1.04),skew=rot.tilt*12;
+    guideShape.attr('transform',`scale(${squash},1) skewY(${skew})`);
+    guideDots.attr('cx',d=>project(d).x).attr('cy',d=>project(d).y).attr('r',d=>1.05*project(d).s).attr('opacity',d=>clamp(.25+project(d).s*.45,.25,.78));
+    link.attr('x1',d=>{const p=project(d.source);d.source.sx=p.x;d.source.sy=p.y;return p.x;}).attr('y1',d=>project(d.source).y).attr('x2',d=>{const p=project(d.target);d.target.sx=p.x;d.target.sy=p.y;return p.x;}).attr('y2',d=>project(d.target).y);
+    node.attr('transform',d=>{const p=project(d);d.sx=p.x;d.sy=p.y;return`translate(${p.x},${p.y}) scale(${clamp(p.s,.82,1.18)})`;}).sort((a,b)=>project(a).depth-project(b).depth);
+  }
+  const rotHit=g.insert('rect',':first-child').attr('x',-1200).attr('y',-900).attr('width',2400).attr('height',1800).attr('fill','transparent').attr('cursor','grab').call(d3.drag().on('start',e=>{rot.dragging=true;rotHit.attr('cursor','grabbing');if(e.sourceEvent)e.sourceEvent.stopPropagation();}).on('drag',e=>{rot.angle=clamp(rot.angle+e.dx/260,-.72,.72);rot.tilt=clamp(rot.tilt-e.dy/520,-.18,.18);renderGraph();}).on('end',()=>{rot.dragging=false;rotHit.attr('cursor','grab');}));
 
   // Interactions
   node.on('pointerenter',function(e,d){
@@ -426,7 +454,7 @@ async function main(){
     zoomTo(id);
   }
 
-  function zoomTo(id){const n=nm.get(id);if(!n||n.x===undefined)return;svg.transition().duration(700).call(zoom.transform,d3.zoomIdentity.translate(W/2-n.x,H/2-n.y).scale(1.3));}
+  function zoomTo(id){const n=nm.get(id);if(!n||n.x===undefined)return;const x=n.sx??n.x,y=n.sy??n.y;svg.transition().duration(700).call(zoom.transform,d3.zoomIdentity.translate(W/2-x,H/2-y).scale(1.3));}
 
   function showDetail(id){
     const c=cm.get(id);if(!c)return;
@@ -495,8 +523,11 @@ async function main(){
   // Search
   document.getElementById('search').addEventListener('input',e=>{const af=document.querySelector('.chip.active')?.dataset.filter||'all';buildList(af,e.target.value);});
 
+  document.getElementById('btn-motion').addEventListener('click',e=>{rot.motion=!rot.motion;e.currentTarget.classList.toggle('active',rot.motion);});
+  document.getElementById('btn-motion').classList.add('active');
+
   // Reset
-  document.getElementById('btn-reset').addEventListener('click',()=>{hil.clear();selNode=null;document.getElementById('detail-overlay').classList.remove('show');node.selectAll('circle').filter((_,i)=>i%3===2).transition().duration(300).attr('opacity',.85);link.transition().duration(300).attr('opacity',.5);svg.transition().duration(600).call(zoom.transform,d3.zoomIdentity.translate(W/2,H/2+10).scale(defaultZoom));buildList();});
+  document.getElementById('btn-reset').addEventListener('click',()=>{hil.clear();selNode=null;rot.angle=0;rot.tilt=0;renderGraph();document.getElementById('detail-overlay').classList.remove('show');node.selectAll('circle').filter((_,i)=>i%3===2).transition().duration(300).attr('opacity',.85);link.transition().duration(300).attr('opacity',.5);svg.transition().duration(600).call(zoom.transform,d3.zoomIdentity.translate(W/2,defaultCenterY).scale(defaultZoom));buildList();});
 
   // Tour
   const tourPath=['course_cs_intro_py','course_cs_oop','course_cs_dsa','course_ai_ml','course_ai_dl','course_mcs_adv_algo','course_mcs_capstone','course_cs_capstone'];
@@ -508,8 +539,9 @@ async function main(){
 
   // Sim tick
   let graphVisible=false;
-  sim.on('tick',()=>{if(!graphVisible){graphVisible=true;document.getElementById('empty-state').style.opacity=0;}link.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);node.attr('transform',d=>`translate(${d.x},${d.y})`);});
+  sim.on('tick',()=>{if(!graphVisible){graphVisible=true;document.getElementById('empty-state').style.opacity=0;}renderGraph();});
   sim.on('end',()=>{PUP(links);document.getElementById('empty-state').style.opacity=0;});
+  d3.timer(t=>{if(rot.motion&&!rot.dragging&&!selNode){rot.angle=Math.sin(t/3600)*.2;rot.tilt=Math.sin(t/5200)*.045;renderGraph();}});
 
   buildLegend();buildList();window._sel=id=>select(id);
 }
