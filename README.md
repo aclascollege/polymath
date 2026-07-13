@@ -30,7 +30,7 @@ Polymath maps the architecture of higher education — across disciplines, degre
 
 ![Constellation graph of global higher education](media/explorer-preview.png)
 
-Every node is a university course, colored by discipline cluster. Every connection is a prerequisite, a credit pathway, or a career link. [Explore it interactively →](https://aclas.college/polymath)
+Every node is a university course, colored by discipline cluster. Every connection is a prerequisite, a credit pathway, or a career link. [Explore it interactively →](https://aclascollege.github.io/polymath/explorer/)
 
 ## Why this exists
 
@@ -185,7 +185,7 @@ const mlPrereqs = prereqs.prerequisites
 
 ### Interactive explorer
 
-Open [`explorer/index.html`](explorer/index.html) in any browser, or visit [aclas.college/polymath](https://aclas.college/polymath). Features:
+Open [`explorer/index.html`](explorer/index.html) in any browser, or visit [aclascollege.github.io/polymath/explorer](https://aclascollege.github.io/polymath/explorer/). Features:
 
 - **Liberty of Knowledge view** — Statue of Liberty-inspired graph of all courses, colored by discipline
 - **Pathway trace** — click any course to highlight prerequisites and unlocks
@@ -245,7 +245,7 @@ This dataset is **multi-licensed**:
 
 ### Attribution
 
-> Polymath Taxonomy (v0.1) · © ACLAS College · https://aclas.college/polymath · licensed under ODbL 1.0 (database) and CC BY-SA 4.0 (content).
+> Polymath Taxonomy (v0.1) · © ACLAS College · https://aclascollege.github.io/polymath/explorer/ · licensed under ODbL 1.0 (database) and CC BY-SA 4.0 (content).
 
 ## Roadmap
 
