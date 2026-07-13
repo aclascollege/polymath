@@ -1,6 +1,6 @@
 {
   "version": "v1",
-  "skillCount": 57,
+  "skillCount": 59,
   "skills": [
     {"id":"skill_python","name":"Python Programming","category":"technical","description":"Write clean, idiomatic Python code using standard libraries and common frameworks","industryDemand":"stable","certifications":["PCAP","PCPP"]},
     {"id":"skill_java","name":"Java Development","category":"technical","description":"Design and implement object-oriented applications in Java with proper patterns","industryDemand":"stable","certifications":["Oracle Java SE"]},
@@ -22,6 +22,8 @@
     {"id":"skill_quantum","name":"Quantum Computing","category":"technical","description":"Understand quantum algorithms, circuits, and their computational advantages","industryDemand":"emerging","certifications":[]},
     {"id":"skill_data_viz","name":"Data Visualization","category":"analytical","description":"Create compelling visual narratives from complex datasets","industryDemand":"stable","certifications":[]},
     {"id":"skill_stats","name":"Statistical Analysis","category":"analytical","description":"Apply probability theory, hypothesis testing, and regression analysis to real data","industryDemand":"stable","certifications":[]},
+    {"id":"skill_statistics","name":"Statistics","category":"analytical","description":"Use descriptive and inferential statistics to summarize data, test hypotheses, and evaluate uncertainty","industryDemand":"stable","certifications":[]},
+    {"id":"skill_analytical","name":"Analytical Reasoning","category":"analytical","description":"Break down complex problems, compare evidence, identify patterns, and draw defensible conclusions","industryDemand":"stable","certifications":[]},
     {"id":"skill_calculus","name":"Calculus & Mathematical Analysis","category":"analytical","description":"Apply differentiation, integration, and series to model continuous systems","industryDemand":"stable","certifications":[]},
     {"id":"skill_linear_algebra","name":"Linear Algebra","category":"analytical","description":"Manipulate vectors, matrices, and tensors; understand eigenvalues and transformations","industryDemand":"stable","certifications":[]},
     {"id":"skill_discrete_math","name":"Discrete Mathematics","category":"analytical","description":"Reason about sets, graphs, combinatorics, and formal logic","industryDemand":"stable","certifications":[]},

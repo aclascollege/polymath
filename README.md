@@ -6,7 +6,7 @@
 
 <p align="center">
   <strong>The Open Taxonomy of Global Higher Education</strong><br>
-  A structured, multi-dimensional knowledge graph of what the world learns at university.
+  An open dataset and knowledge graph for university courses, prerequisites, degree pathways, skills, careers, and global credit frameworks.
 </p>
 
 <p align="center">
@@ -21,6 +21,10 @@
 > *"A polymath is someone whose knowledge spans a significant number of subjects, known to draw on complex bodies of knowledge to solve specific problems."*
 
 Polymath maps the architecture of higher education — across disciplines, degree levels, credit systems, and career pathways — into a single, open, machine-readable knowledge graph.
+
+**SEO keywords:** higher education taxonomy, university course dataset, curriculum knowledge graph, prerequisite graph, academic disciplines, degree pathways, credit transfer systems, ECTS, US credits, ISCED-F, CIP codes, skills taxonomy, career pathways, open education data.
+
+**Current release:** 94 university courses, 90 prerequisite relationships, 15 academic disciplines, 59 skills, 28 career pathways, 5 degree pathways, and 4 global credit / qualification frameworks.
 
 ## See it
 
@@ -71,13 +75,28 @@ Every node is a university course, colored by discipline cluster. Every connecti
 | **Careers** | Professional roles linked to skills and courses | Data Scientist, Financial Analyst, UX Researcher |
 | **Frameworks** | Regional qualification and credit systems | Bologna Process, AQF Level 7, US Semester Credit Hours |
 
-### 📊 Current coverage (v0.1-alpha)
+### 📊 Current coverage (v1)
 
 | Discipline | Courses | Degrees | Skills |
 |---|---|---|---|
-| Computer Science | 38 | 4 | 78 |
-| Business & Management | 28 | 4 | 62 |
-| **Total** | **66** | **8** | **140** |
+| Computer Science | 22 | 2 | Shared skills graph |
+| Management | 13 | 1 | Shared skills graph |
+| Business Administration | 10 | 1 | Shared skills graph |
+| Artificial Intelligence | 9 | 1 | Shared skills graph |
+| Data Science | 7 | - | Shared skills graph |
+| Economics | 7 | - | Shared skills graph |
+| Finance | 6 | - | Shared skills graph |
+| Software Engineering | 5 | - | Shared skills graph |
+| Mathematics | 5 | - | Shared skills graph |
+| Marketing | 5 | - | Shared skills graph |
+| Psychology | 5 | - | Shared skills graph |
+| **Total** | **94** | **5** | **59 skills** |
+
+## Repository topics
+
+Suggested GitHub topics for discovery:
+
+`higher-education` `taxonomy` `knowledge-graph` `curriculum` `open-data` `education-data` `university-courses` `prerequisites` `degree-pathways` `skills-taxonomy` `career-pathways` `ects` `isced-f` `cip-codes` `credit-transfer`
 
 ## Files
 
@@ -166,9 +185,9 @@ const mlPrereqs = prereqs.prerequisites
 
 ### Interactive explorer
 
-Open [`explorer/index.html`](explorer/index.html) in any browser — no build step required. Features:
+Open [`explorer/index.html`](explorer/index.html) in any browser, or visit [aclas.college/polymath](https://aclas.college/polymath). Features:
 
-- **Constellation view** — force-directed graph of all courses, colored by discipline
+- **Liberty of Knowledge view** — Statue of Liberty-inspired graph of all courses, colored by discipline
 - **Pathway trace** — click any course to highlight prerequisites and unlocks
 - **Credit calculator** — convert between US Credits, ECTS, and UK CATS
 - **Career mapper** — select a career to see recommended courses and degrees
@@ -230,12 +249,10 @@ This dataset is **multi-licensed**:
 
 ## Roadmap
 
-- [x] Computer Science course graph (38 courses)
-- [x] Business & Management course graph (28 courses)
+- [x] Computer Science course graph
+- [x] Business, management, finance, and marketing course graph
+- [x] AI, data science, mathematics, economics, and psychology expansion
 - [x] Interactive constellation explorer
-- [ ] Data Science discipline
-- [ ] Psychology discipline
-- [ ] Economics discipline
 - [ ] Community contribution workflow
 - [ ] REST API for programmatic access
 - [ ] Course equivalency mappings between institutions
@@ -258,7 +275,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). We welcome:
   year      = {2026},
   version   = {v0.1},
   publisher = {ACLAS College},
-  url       = {https://github.com/aclas-college/polymath}
+  url       = {https://github.com/aclascollege/polymath}
 }
 ```
 
