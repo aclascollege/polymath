@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://polymath.aclas.college/schema/degrees.schema.json",
+  "title": "Polymath — Degrees",
+  "description": "Standard degree programs and their typical course compositions across global higher education systems.",
+  "type": "object",
+  "required": ["version", "degreeCount", "degrees"],
+  "properties": {
+    "version": { "type": "string" },
+    "degreeCount": { "type": "integer", "minimum": 0 },
+    "degrees": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "level", "disciplineId"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^degree_",
+            "description": "Stable degree identifier, e.g. degree_bscs"
+          },
+          "name": {
+            "type": "string",
+            "description": "Full degree name, e.g. 'Bachelor of Science in Computer Science'"
+          },
+          "shortName": {
+            "type": "string",
+            "description": "Abbreviation, e.g. 'BSc CS'"
+          },
+          "level": {
+            "type": "string",
+            "enum": ["associate", "bachelor", "master", "doctorate"],
+            "description": "ISCED 2011 level: 5=associate, 6=bachelor, 7=master, 8=doctorate"
+          },
+          "disciplineId": {
+            "type": "string",
+            "pattern": "^disc_",
+            "description": "Primary discipline"
+          },
+          "totalCredits": {
+            "type": "object",
+            "required": ["us"],
+            "properties": {
+              "us": { "type": "number", "description": "Total US credits (typical: 120 for bachelor)" },
+              "ects": { "type": "number", "description": "Total ECTS (typical: 180-240 for bachelor)" },
+              "uk": { "type": "number", "description": "Total UK CATS (typical: 360 for bachelor)" }
+            }
+          },
+          "typicalDuration": {
+            "type": "object",
+            "properties": {
+              "years": { "type": "number" },
+              "semesters": { "type": "integer" }
+            }
+          },
+          "coreCourseIds": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^course_" },
+            "description": "Required courses for this degree"
+          },
+          "electiveCourseIds": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^course_" },
+            "description": "Elective options"
+          },
+          "capstoneRequired": {
+            "type": "boolean",
+            "description": "Whether a thesis/capstone project is required"
+          },
+          "regions": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Regions where this degree structure is common, ISO 3166 alpha-2"
+          },
+          "aliases": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Alternative names across countries"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

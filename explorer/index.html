@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymath — Liberty of Knowledge · The Open Taxonomy of Global Higher Education</title>
+<meta name="description" content="Polymath is an open, structured taxonomy of global higher education — a multi-dimensional knowledge graph connecting 94 university courses, 90 prerequisites, 28 career pathways, and 4 global credit frameworks.">
+<meta name="keywords" content="higher education,taxonomy,knowledge graph,university courses,open data,ISCED-F,credit systems,career pathways,ACLAS College">
+<meta name="author" content="ACLAS College">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://aclas.college/polymath">
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Polymath by ACLAS College">
+<meta property="og:title" content="Polymath — The Open Taxonomy of Global Higher Education">
+<meta property="og:description" content="Explore the constellation of global higher education. 94 courses, 15 disciplines, 28 careers — connected in an interactive knowledge graph.">
+<meta property="og:url" content="https://aclas.college/polymath">
+<meta property="og:image" content="https://aclas.college/assets/image/og-polymath.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@aclascollege">
+<meta name="twitter:title" content="Polymath — The Open Taxonomy of Global Higher Education">
+<meta name="twitter:description" content="An interactive knowledge graph of global higher education. Open data, open source.">
+<meta name="twitter:image" content="https://aclas.college/assets/image/og-polymath.png">
+<!-- Structured Data (JSON-LD for SEO/GEO/AEO) -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Dataset","name":"Polymath — The Open Taxonomy of Global Higher Education","description":"An open, structured taxonomy of global higher education. 94 university courses across 12 academic disciplines connected into a multi-dimensional knowledge graph with prerequisites, degrees, skills, careers, and credit frameworks.","url":"https://aclas.college/polymath","version":"v1","license":["https://opendatacommons.org/licenses/odbl/1.0/","https://creativecommons.org/licenses/by-sa/4.0/"],"creator":{"@type":"CollegeOrUniversity","name":"ACLAS College","url":"https://aclas.college","sameAs":["https://twitter.com/aclascollege","https://linkedin.com/school/aclas-college"]},"keywords":["higher education","taxonomy","knowledge graph","university courses","open data","ISCED-F","credit systems","career pathways","curriculum"],"distribution":[{"@type":"DataDownload","encodingFormat":"application/json","contentUrl":"https://github.com/aclas-college/polymath"}],"inLanguage":"en","datePublished":"2026-07-13","temporalCoverage":"2026","spatialCoverage":{"@type":"Place","name":"Global"},"about":[{"@type":"Thing","name":"Global Higher Education"},{"@type":"Thing","name":"University Curriculum"},{"@type":"Thing","name":"Credit Transfer Systems"},{"@type":"Thing","name":"Career Pathways"}],"isAccessibleForFree":true,"maintainer":{"@type":"CollegeOrUniversity","name":"ACLAS College","url":"https://aclas.college"}}
+</script>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<link rel="icon" type="image/png" href="../media/aclas-logo.png">
+<link rel="apple-touch-icon" href="../media/aclas-logo.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#03030c;--surf:rgba(10,10,30,0.88);--bdr:rgba(255,255,255,0.06);
+  --txt:#d0d0e8;--dim:#6a6a90;--acc:#DAA520;
+  --cs:#00D4FF;--ai:#FF4466;--ds:#FF6B9D;--se:#7B61FF;--ma:#44DDBB;
+  --bu:#FFD700;--fi:#FFB347;--mk:#FF69B4;--mg:#FFA07A;--ec:#9ACD32;
+}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--txt)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+canvas{position:fixed;inset:0;pointer-events:none}
+#nebula{z-index:0}#particles{z-index:1}
+#graph{position:fixed;inset:0;z-index:2}
+#graph svg{width:100%;height:100%}
+
+/* Left panel */
+#panel{position:fixed;left:0;top:0;bottom:0;width:320px;z-index:10;background:var(--surf);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-right:1px solid var(--bdr);display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.4,0,.2,1)}
+#panel.collapsed{transform:translateX(-320px)}
+#panel-toggle{position:fixed;left:320px;top:50%;z-index:11;width:24px;height:48px;background:var(--surf);border:1px solid var(--bdr);border-left:none;border-radius:0 8px 8px 0;color:var(--txt);cursor:pointer;font-size:12px;transition:left .35s cubic-bezier(.4,0,.2,1);display:flex;align-items:center;justify-content:center}
+#panel.collapsed+#panel-toggle{left:0}
+#panel-header{padding:16px;border-bottom:1px solid var(--bdr)}
+#panel-header img{height:22px;margin-bottom:6px}
+#panel-header h1{font-size:1rem;font-weight:700;color:var(--acc)}
+#panel-header .sub{font-size:.65rem;color:var(--dim)}
+#panel-filters{display:flex;flex-wrap:wrap;gap:4px;padding:8px 16px;border-bottom:1px solid var(--bdr)}
+.chip{padding:3px 8px;border-radius:12px;font-size:.65rem;cursor:pointer;border:1px solid var(--bdr);color:var(--dim);transition:all .15s;user-select:none;white-space:nowrap}
+.chip.active,.chip:hover{border-color:var(--acc);color:var(--acc);background:rgba(218,165,32,.12)}
+#panel-list{flex:1;overflow-y:auto;overflow-x:hidden}
+#panel-list::-webkit-scrollbar{width:3px}
+#panel-list::-webkit-scrollbar-thumb{background:var(--bdr);border-radius:2px}
+.citem{padding:8px 16px;cursor:pointer;border-left:3px solid transparent;transition:all .12s;font-size:.75rem;display:flex;align-items:center;gap:8px}
+.citem:hover{background:rgba(218,165,32,.06)}
+.citem.sel{background:rgba(218,165,32,.1);border-left-color:var(--acc)}
+.citem .code{font-family:'JetBrains Mono',monospace;font-size:.6rem;color:var(--acc);min-width:40px}
+.citem .info{flex:1;min-width:0}
+.citem .name{font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.citem .meta{font-size:.6rem;color:var(--dim)}
+
+/* Top bar */
+#topbar{position:fixed;top:12px;left:340px;right:12px;z-index:10;display:flex;align-items:center;gap:8px;pointer-events:none}
+#topbar>*{pointer-events:auto}
+#search-wrap{position:relative;flex:1;max-width:420px}
+#search{width:100%;padding:8px 14px 8px 34px;background:var(--surf);backdrop-filter:blur(20px);border:1px solid var(--bdr);border-radius:24px;color:var(--txt);font-size:.78rem;font-family:'Space Grotesk',system-ui,sans-serif;outline:none;transition:all .2s}
+#search:focus{border-color:var(--acc);box-shadow:0 0 20px rgba(218,165,32,.15)}
+#search-wrap .si{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--dim);font-size:.8rem}
+.top-btn{padding:6px 14px;background:var(--surf);backdrop-filter:blur(20px);border:1px solid var(--bdr);border-radius:24px;color:var(--txt);cursor:pointer;font-size:.7rem;font-family:'Space Grotesk',system-ui,sans-serif;transition:all .15s}
+.top-btn:hover{background:rgba(218,165,32,.15);border-color:var(--acc)}
+
+/* Stats bar */
+#stats{position:fixed;bottom:16px;left:50%;transform:translateX(calc(-50% + 160px));z-index:10;display:flex;gap:6px}
+.sp{padding:5px 12px;background:var(--surf);backdrop-filter:blur(20px);border:1px solid var(--bdr);border-radius:20px;font-size:.65rem;display:flex;align-items:center;gap:6px}
+.sp .d{width:6px;height:6px;border-radius:50%}
+.sp .v{font-weight:600;color:var(--txt)}
+.sp .l{color:var(--dim)}
+
+/* Legend */
+#legend{position:fixed;bottom:16px;left:340px;z-index:10;display:flex;gap:8px;flex-wrap:wrap;max-width:50%}
+.litem{display:flex;align-items:center;gap:4px;font-size:.6rem;color:var(--dim);cursor:pointer;transition:color .15s}
+.litem:hover{color:var(--txt)}
+.litem .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+
+/* Detail overlay */
+#detail-overlay{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s}
+#detail-overlay.show{opacity:1;pointer-events:auto}
+#detail-card{background:rgba(14,14,36,.95);backdrop-filter:blur(30px);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:24px;max-width:560px;width:90%;max-height:80vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+#detail-card h2{font-size:1.15rem;font-weight:600;margin-bottom:10px}
+#detail-card .tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+#detail-card .tag{padding:3px 10px;border-radius:12px;font-size:.65rem;font-weight:500}
+.tag.lvl{background:rgba(218,165,32,.15);color:#DAA520}
+.tag.dsc{background:rgba(0,212,255,.1);color:#67e8f9}
+.tag.crd{background:rgba(68,221,187,.1);color:#5eead4}
+.tag.core{background:rgba(255,215,0,.1);color:#fbbf24}
+#detail-card .desc{font-size:.78rem;line-height:1.55;color:var(--dim);margin-bottom:14px}
+#detail-card h3{font-size:.7rem;text-transform:uppercase;letter-spacing:.5px;color:var(--dim);margin:10px 0 6px}
+#detail-card ul{padding-left:16px;font-size:.72rem;color:var(--dim);line-height:1.7}
+#detail-card .prs{display:flex;flex-wrap:wrap;gap:4px}
+#detail-card .pr{font-size:.65rem;padding:3px 8px;background:rgba(255,255,255,.03);border-radius:6px;cursor:pointer;transition:all .12s}
+#detail-card .pr:hover{background:rgba(218,165,32,.15);color:var(--acc)}
+.pr.strict{border-left:2px solid #f87171}.pr.rec{border-left:2px solid #fbbf24}.pr.help{border-left:2px solid #9ca3af}
+#detail-card .cls{display:block;margin:14px auto 0;padding:6px 20px;background:rgba(255,255,255,.04);border:1px solid var(--bdr);border-radius:8px;color:var(--txt);cursor:pointer;font-size:.7rem;font-family:'Space Grotesk',system-ui,sans-serif}
+
+/* Tooltip */
+#tooltip{position:fixed;z-index:200;pointer-events:none;background:rgba(14,14,36,.95);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:8px 14px;font-size:.7rem;opacity:0;transition:opacity .12s;box-shadow:0 8px 30px rgba(0,0,0,.4)}
+#tooltip .ttn{font-weight:600;color:var(--txt)}
+#tooltip .tts{font-size:.6rem;color:var(--dim);margin-top:2px}
+
+/* Tour */
+#tour-overlay{position:fixed;inset:0;z-index:150;background:rgba(0,0,0,.6);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
+#tour-overlay.show{opacity:1;pointer-events:auto}
+#tour-card{background:rgba(14,14,36,.95);border:1px solid rgba(218,165,32,.2);border-radius:20px;padding:28px;max-width:420px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.5),0 0 40px rgba(218,165,32,.1)}
+#tour-card h2{font-size:1.3rem;font-weight:700;color:var(--acc);margin-bottom:10px}
+#tour-card p{font-size:.8rem;color:var(--dim);line-height:1.5;margin-bottom:18px}
+#tour-card button{padding:10px 28px;background:var(--acc);border:none;border-radius:24px;color:#fff;cursor:pointer;font-size:.8rem;font-family:'Space Grotesk',system-ui,sans-serif;font-weight:500;transition:all .15s}
+#tour-card button:hover{box-shadow:0 0 24px rgba(218,165,32,.3);transform:translateY(-1px)}
+#tour-card button.skip{background:transparent;color:var(--dim);margin-left:8px}
+
+/* Empty state */
+#empty-state{position:fixed;inset:0;z-index:5;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:.3}
+#empty-state h2{font-size:1.5rem;font-weight:300;color:var(--dim);letter-spacing:1px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:767px){`n  #mobile-panel-btn{display:flex!important}
+  #panel{width:100%;z-index:20;transform:translateY(calc(100% - 44px));top:auto;bottom:0;height:60%;border-right:none;border-top:1px solid var(--bdr);border-radius:16px 16px 0 0;transition:transform .35s cubic-bezier(.4,0,.2,1)}
+  #panel:not(.collapsed){transform:translateY(0)}
+  #panel-header{padding:10px 16px 6px;text-align:center}
+  #panel-header img{height:18px;margin-bottom:2px}
+  #panel-header h1{font-size:.9rem}
+  #panel-header .sub{display:none}
+  .panel-handle{display:flex;justify-content:center;padding:6px 0 2px}
+  .panel-handle::after{content:'';width:36px;height:4px;background:rgba(255,255,255,.12);border-radius:2px}
+  #panel-toggle{display:none}
+  #mobile-panel-btn{display:none;position:fixed;bottom:16px;right:16px;z-index:25;width:44px;height:44px;border-radius:50%;background:var(--acc);color:#fff;border:none;font-size:1.1rem;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(218,165,32,.4)}
+  #topbar{left:8px;right:8px;top:8px;gap:6px}
+  #search-wrap{flex:1;max-width:none}
+  #search{padding:8px 12px 8px 30px;font-size:.7rem;border-radius:20px}
+  #search-wrap .si{left:10px;font-size:.7rem}
+  .top-btn{padding:5px 10px;font-size:.63rem;border-radius:16px}
+  #legend{display:none}
+  #stats{left:50%;transform:translateX(-50%);bottom:8px;gap:3px;flex-wrap:wrap;justify-content:center}
+  .sp{padding:3px 8px;font-size:.58rem;border-radius:14px;gap:4px}
+  .sp .l{display:none}
+  #detail-card{max-height:85vh;padding:16px;border-radius:14px}
+  #detail-card h2{font-size:.95rem}
+  .citem{font-size:.7rem;padding:6px 12px}
+}
+
+@media(min-width:768px) and (max-width:1279px){
+  #panel{width:280px}
+  #panel-toggle{left:280px}
+  #panel.collapsed+#panel-toggle{left:0;border-radius:0 8px 8px 0}
+  #topbar{left:300px;right:12px}
+  #legend{left:300px;bottom:56px}
+  #stats{transform:translateX(calc(-50% + 140px))}
+  #detail-card{max-width:480px}
+}
+
+@media(min-width:1280px){
+  #mobile-panel-btn{display:none!important}
+}
+
+@media(max-width:1279px){
+  .panel-handle{display:block!important}
+}
+@media(min-width:768px){
+  .panel-handle{display:none}
+}
+
+
+#panel-socials{display:flex;gap:8px;margin-top:8px;padding-top:8px;border-top:1px solid var(--bdr)}
+#panel-socials a{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.04);color:var(--dim);text-decoration:none;font-size:.75rem;transition:all .15s}
+#panel-socials a:hover{background:var(--acc);color:#fff}
+@media(max-width:767px){#panel-socials{justify-content:center}}</style>
+</head>
+<body>
+<button id="mobile-panel-btn" onclick="togglePanel()">☰</button>
+
+<canvas id="nebula"></canvas>
+<canvas id="particles"></canvas>
+<div id="graph"><svg id="graph-svg"></svg></div>
+
+<div id="empty-state"><h2>🗽 Liberty of Knowledge</h2></div>
+
+<div id="panel">
+  <div id="panel-header"><div class="panel-handle"></div>
+    <img src="../media/aclas-logo.png" alt="ACLAS College">
+    <h1>🗽 Polymath</h1>
+    <div class="sub">Liberty of Knowledge · Global Higher Education</div><div id="panel-socials"><a href="https://aclas.college" target="_blank" title="ACLAS College">🏠</a><a href="https://twitter.com/aclascollege" target="_blank" title="Twitter/X">𝕏</a><a href="https://linkedin.com/school/aclas-college" target="_blank" title="LinkedIn">💼</a><a href="https://github.com/aclas-college/polymath" target="_blank" title="GitHub">⌂</a></div>
+  </div>
+  <div id="panel-filters">
+    <div class="chip active" data-filter="all">All (94)</div>
+    <div class="chip" data-filter="disc_cs">CS</div>
+    <div class="chip" data-filter="disc_bus">Business</div>
+    <div class="chip" data-filter="disc_fin">Finance</div>
+    <div class="chip" data-filter="disc_ai">AI</div>
+    <div class="chip" data-filter="disc_ds">Data</div>
+    <div class="chip" data-filter="disc_math">Math</div>
+    <div class="chip" data-filter="bachelor">BSc</div>
+    <div class="chip" data-filter="master">MSc</div>
+    <div class="chip" data-filter="doctorate">PhD</div>
+  </div>
+  <div id="panel-list"></div>
+</div>
+<button id="panel-toggle" onclick="togglePanel()">◀</button>
+
+<div id="topbar">
+  <div id="search-wrap">
+    <span class="si">⌕</span>
+    <input id="search" placeholder="Search courses, skills, careers…" autocomplete="off">
+  </div>
+  <button class="top-btn" id="btn-tour">✦ Tour</button>
+  <button class="top-btn" id="btn-reset">↺ Reset</button>
+</div>
+
+<div id="legend"></div>
+<div id="stats">
+  <div class="sp"><span class="d" style="background:var(--acc)"></span><span class="v" id="st-c">94</span><span class="l">Courses</span></div>
+  <div class="sp"><span class="d" style="background:var(--cs)"></span><span class="v" id="st-p">90</span><span class="l">Prereqs</span></div>
+  <div class="sp"><span class="d" style="background:var(--se)"></span><span class="v">15</span><span class="l">Disciplines</span></div>
+  <div class="sp"><span class="d" style="background:var(--bu)"></span><span class="v">28</span><span class="l">Careers</span></div>
+</div>
+
+<div id="detail-overlay"><div id="detail-card"></div></div>
+<div id="tooltip"></div>
+<div id="tour-overlay"><div id="tour-card"><h2>✦ Constellation Tour</h2><p>Fly through the knowledge graph — from foundational courses to advanced research, tracing how higher education connects across disciplines.</p><button id="tour-start">Begin Tour</button><button class="skip" id="tour-skip">Skip</button></div></div>
+
+<script>
+// ═══ DATA ═══
+async function L(){
+  const b='../data/';
+  const[d,c,p,s,ca]=await Promise.all([fetch(b+'disciplines.json').then(r=>r.json()),fetch(b+'courses.json').then(r=>r.json()),fetch(b+'prerequisites.json').then(r=>r.json()),fetch(b+'skills.json').then(r=>r.json()),fetch(b+'careers.json').then(r=>r.json())]);
+  return{disc:d.disciplines,courses:c.courses,prereqs:p.prerequisites,skills:s.skills,careers:ca.careers};
+}
+
+// ═══ NEBULA ═══
+function NEB(disc){
+  const c=document.getElementById('nebula'),x=c.getContext('2d');
+  let W,H;function R(){W=c.width=innerWidth;H=c.height=innerHeight}R();addEventListener('resize',R);
+  const torch={x:W/2,y:H*0.08,r:200,cl:"#FFD700",vx:0,vy:0};const blobs=disc.filter(d=>d.level==='detailed_field').map(d=>({x:W*(.15+Math.random()*.7),y:H*(.15+Math.random()*.7),r:120+Math.random()*250,cl:d.color,vx:(Math.random()-.5)*.12,vy:(Math.random()-.5)*.12}));blobs.push(torch);
+  (function A(){
+    x.clearRect(0,0,W,H);
+    blobs.forEach(b=>{b.x+=b.vx;b.y+=b.vy;if(b.x<-b.r)b.x=W+b.r;if(b.x>W+b.r)b.x=-b.r;if(b.y<-b.r)b.y=H+b.r;if(b.y>H+b.r)b.y=-b.r;
+      const g=x.createRadialGradient(b.x,b.y,0,b.x,b.y,b.r);
+      g.addColorStop(0,b.cl+'22');g.addColorStop(.3,b.cl+'10');g.addColorStop(.7,b.cl+'06');g.addColorStop(1,'transparent');
+      x.fillStyle=g;x.beginPath();x.arc(b.x,b.y,b.r,0,Math.PI*2);x.fill();});
+    requestAnimationFrame(A);
+  })();
+  return blobs;
+}
+
+// ═══ PARTICLES ═══
+let pls=[],plinks=[];
+function PINIT(){
+  const c=document.getElementById('particles'),x=c.getContext('2d');
+  let W,H;function R(){W=c.width=innerWidth;H=c.height=innerHeight}R();addEventListener('resize',R);
+  (function A(){
+    x.clearRect(0,0,W,H);
+    pls.forEach(p=>{p.t+=p.sp;if(p.t>1){p.t=0;p.li=(p.li+1)%plinks.length;if(!plinks.length)return;const l=plinks[p.li%plinks.length];if(!l.s||!l.t)return;p.sx=l.s.x;p.sy=l.s.y;p.tx=l.t.x;p.ty=l.t.y}
+      const px=p.sx+(p.tx-p.sx)*p.t,py=p.sy+(p.ty-p.sy)*p.t,a=Math.sin(p.t*Math.PI)*p.al;
+      x.beginPath();x.arc(px,py,p.r,0,Math.PI*2);x.fillStyle=`rgba(${p.cl},${a})`;x.fill();});
+    requestAnimationFrame(A);
+  })();
+}
+function PUP(links){
+  plinks=links.filter(l=>l.source.x!==undefined).map(l=>({s:l.source,t:l.target}));
+  pls=[];const mx=Math.min(plinks.length*3,180);
+  for(let i=0;i<mx;i++){const l=plinks[i%plinks.length];if(!l)continue;
+    pls.push({sx:0,sy:0,tx:0,ty:0,t:Math.random(),sp:.002+Math.random()*.006,r:.8+Math.random()*1.5,li:i,al:.3+Math.random()*.4,cl:'218,165,32'});}
+}
+
+// ═══ MAIN ═══
+let selNode=null,hil=new Set(),panelOpen=true;
+function togglePanel(){panelOpen=!panelOpen;var p=document.getElementById('panel');p.classList.toggle('collapsed',!panelOpen);var t=document.getElementById('panel-toggle');if(t)t.textContent=panelOpen?'◀':'▶';var m=document.getElementById('mobile-panel-btn');if(m)m.textContent=panelOpen?'✕':'☰'}
+
+async function main(){
+  const D=await L();
+  const dm=new Map(D.disc.map(d=>[d.id,d])),cm=new Map(D.courses.map(c=>[c.id,c])),sm=new Map(D.skills.map(s=>[s.id,s]));
+  const dc=id=>dm.get(id)?.color||'#888';
+
+  NEB(D.disc);PINIT();
+
+  const po=new Map(),dp=new Map();
+  D.prereqs.forEach(p=>{if(!dp.has(p.courseId))dp.set(p.courseId,[]);dp.get(p.courseId).push(p);if(!po.has(p.prerequisiteId))po.set(p.prerequisiteId,[]);po.get(p.prerequisiteId).push(p.courseId);});
+
+  // ── SVG ──
+  const svg=d3.select('#graph-svg'),W=innerWidth,H=innerHeight;
+  svg.attr('viewBox',`0 0 ${W} ${H}`);
+  const g=svg.append('g');
+  const zoom=d3.zoom().scaleExtent([.1,5]).on('zoom',e=>g.attr('transform',e.transform));
+  svg.call(zoom).call(zoom.transform,d3.zoomIdentity.translate(W/2,H/2).scale(.5));
+  svg.on('dblclick.zoom',null).on('dblclick',()=>svg.transition().duration(600).call(zoom.transform,d3.zoomIdentity.translate(W/2,H/2).scale(.5)));
+
+  // Glow filters
+  const defs=svg.append('defs');
+  D.disc.filter(d=>d.level==='detailed_field').forEach(d=>{
+    const f=defs.append('filter').attr('id','g-'+d.id).attr('x','-50%').attr('y','-50%').attr('width','200%').attr('height','200%');
+    f.append('feGaussianBlur').attr('stdDeviation','3.5').attr('result','b');
+    f.append('feComponentTransfer').attr('in','b').attr('result','g1').append('feFuncA').attr('type','linear').attr('slope','.7');
+    const m=f.append('feMerge');m.append('feMergeNode').attr('in','g1');m.append('feMergeNode').attr('in','SourceGraphic');
+  });
+
+  // Nodes & Links
+  const nodes=D.courses.map(c=>({id:c.id,nm:c.shortName||c.name.slice(0,18),full:c.name,did:c.disciplineId,lvl:c.level,dl:c.degreeLevel,cl:dc(c.disciplineId),cr:c.credits,r:c.level==='doctoral'?8:c.level==='graduate'?7:c.level==='advanced'?6.2:c.level==='intermediate'?5.5:4.5}));
+  const nm=new Map(nodes.map(n=>[n.id,n]));
+  const links=D.prereqs.filter(p=>nm.has(p.courseId)&&nm.has(p.prerequisiteId)).map(p=>({source:p.courseId,target:p.prerequisiteId,st:p.strength}));
+
+  const sim=d3.forceSimulation(nodes).force('link',d3.forceLink(links).id(d=>d.id).distance(d=>d.st==='strict'?80:130).strength(.2)).force('charge',d3.forceManyBody().strength(-380)).force('center',d3.forceCenter(0,-50)).force('collision',d3.forceCollide().radius(d=>d.r+7));
+
+  // Edges
+  const lg=g.append('g').attr('class','links');
+  const link=lg.selectAll('line').data(links).join('line').attr('stroke',d=>d.st==='strict'?'rgba(255,255,255,.08)':d.st==='recommended'?'rgba(255,255,255,.04)':'rgba(255,255,255,.02)').attr('stroke-width',d=>d.st==='strict'?1:d.st==='recommended'?.6:.3);
+
+  // Nodes
+  const ng=g.append('g').attr('class','nodes');
+  const node=ng.selectAll('g').data(nodes).join('g').attr('cursor','pointer').call(d3.drag().on('start',(e,d)=>{if(!e.active)sim.alphaTarget(.3).restart();d.fx=d.x;d.fy=d.y;}).on('drag',(e,d)=>{d.fx=e.x;d.fy=e.y;}).on('end',(e,d)=>{if(!e.active)sim.alphaTarget(0);d.fx=null;d.fy=null;}));
+
+  node.append('circle').attr('r',d=>d.r*2.5).attr('fill','none').attr('stroke',d=>d.cl).attr('stroke-width',1.2).attr('opacity',.12);
+  node.append('circle').attr('r',d=>d.r*1.5).attr('fill',d=>d.cl).attr('opacity',.1);
+  node.append('circle').attr('r',d=>d.r).attr('fill',d=>d.cl).attr('opacity',.85).attr('filter',d=>'url(#g-'+d.did+')');
+  node.append('text').text(d=>d.nm).attr('dy',d=>d.r+11).attr('text-anchor','middle').attr('fill','rgba(255,255,255,.5)').attr('font-size','8px').attr('font-family','Space Grotesk,system-ui,sans-serif').attr('font-weight','500').attr('pointer-events','none');
+
+  // Interactions
+  node.on('pointerenter',function(e,d){
+    node.selectAll('circle').filter((_,i)=>i%3===2).transition().duration(180).attr('opacity',n=>n===d||hil.has(n.id)?1:.18);
+    link.transition().duration(180).attr('opacity',l=>l.source.id===d.id||l.target.id===d.id?.7:.015);
+    const tip=document.getElementById('tooltip'),di=dm.get(d.did);
+    tip.innerHTML=`<div class="ttn">${d.full}</div><div class="tts">${d.dl} · ${di?.name||''} · ${d.cr?.us||'?'} US cr</div>`;
+    tip.style.left=(e.clientX+16)+'px';tip.style.top=(e.clientY-36)+'px';tip.style.opacity=1;
+  }).on('pointerleave',function(){
+    node.selectAll('circle').filter((_,i)=>i%3===2).transition().duration(180).attr('opacity',n=>hil.size?hil.has(n.id)?1:.18:.85);
+    link.transition().duration(180).attr('opacity',hil.size?.015:.5);
+    document.getElementById('tooltip').style.opacity=0;
+  }).on('click',function(e,d){select(d.id);});
+
+  function select(id){
+    selNode=id;hil.clear();
+    if(dp.has(id))dp.get(id).forEach(p=>hil.add(p.prerequisiteId));
+    if(po.has(id))po.get(id).forEach(c=>hil.add(c));
+    hil.add(id);
+    node.selectAll('circle').filter((_,i)=>i%3===2).transition().duration(250).attr('opacity',n=>hil.has(n.id)?1:.12);
+    link.transition().duration(250).attr('opacity',l=>hil.has(l.source.id)||hil.has(l.target.id)?.65:.01);
+    showDetail(id);
+    zoomTo(id);
+  }
+
+  function zoomTo(id){const n=nm.get(id);if(!n||n.x===undefined)return;svg.transition().duration(700).call(zoom.transform,d3.zoomIdentity.translate(W/2-n.x,H/2-n.y).scale(1.3));}
+
+  function showDetail(id){
+    const c=cm.get(id);if(!c)return;
+    const di=dm.get(c.disciplineId),pr=dp.get(id)||[],un=po.get(id)||[],sk=(c.skills||[]).map(s=>sm.get(s)?.name||s).filter(Boolean);
+    const ov=document.getElementById('detail-overlay'),card=document.getElementById('detail-card');
+    card.innerHTML=`
+      <h2 style="color:${di?.color||'#fff'}">${c.name}</h2>
+      <div class="tags">
+        <span class="tag lvl">${c.degreeLevel||c.level}</span>
+        <span class="tag dsc">${di?.name||c.disciplineId}</span>
+        <span class="tag crd">${c.credits?.us||0} US / ${c.credits?.ects||0} ECTS</span>
+        <span class="tag core">${c.isCore?'Core':'Elective'}</span>
+        ${c.typicalYear?`<span class="tag crd">Y${c.typicalYear}</span>`:''}
+      </div>
+      <div class="desc">${c.description||''}</div>
+      ${c.learningOutcomes?.length?`<h3>Learning Outcomes</h3><ul>${c.learningOutcomes.map(o=>`<li>${o}</li>`).join('')}</ul>`:''}
+      ${sk.length?`<h3>Skills</h3><div class="prs">${sk.map(s=>`<span class="pr">${s}</span>`).join('')}</div>`:''}
+      ${pr.length?`<h3>Prerequisites</h3><div class="prs">${pr.map(p=>{const pc=cm.get(p.prerequisiteId);return`<span class="pr ${p.strength==='strict'?'strict':p.strength==='recommended'?'rec':'help'}" onclick="event.stopPropagation();window._sel&&window._sel('${p.prerequisiteId}')">${pc?.shortName||p.prerequisiteId}</span>`}).join('')}</div>`:''}
+      ${un.length?`<h3>Unlocks</h3><div class="prs">${un.map(uid=>{const uc=cm.get(uid);return`<span class="pr rec" onclick="event.stopPropagation();window._sel&&window._sel('${uid}')">${uc?.shortName||uid}</span>`}).join('')}</div>`:''}
+      <button class="cls" onclick="document.getElementById('detail-overlay').classList.remove('show')">✕ Close</button>`;
+    ov.classList.add('show');window._sel=id=>{select(id);};
+  }
+
+  // ── Panel ──
+  function buildList(filter='all',q=''){
+    const list=document.getElementById('panel-list');list.innerHTML='';
+    let fd=D.courses;
+    if(filter!=='all'){
+      if(['bachelor','master','doctorate'].includes(filter))fd=fd.filter(c=>c.degreeLevel===filter);
+      else fd=fd.filter(c=>c.disciplineId===filter||(c.crossDisciplineIds||[]).includes(filter));
+    }
+    if(q){const ql=q.toLowerCase();fd=fd.filter(c=>c.name.toLowerCase().includes(ql)||c.id.toLowerCase().includes(ql)||(c.tags||[]).some(t=>t.toLowerCase().includes(ql)));}
+    fd.forEach(c=>{const di=dm.get(c.disciplineId);
+      const el=document.createElement('div');el.className='citem'+(selNode===c.id?' sel':'');
+      el.style.borderLeftColor=di?.color||'transparent';
+      el.innerHTML=`<span class="code">${c.shortName||c.id.slice(-6)}</span><div class="info"><div class="name">${c.name}</div><div class="meta">${c.degreeLevel} · ${di?.name||''} · ${c.credits?.us||'?'}UScr</div></div>`;
+      el.onclick=()=>select(c.id);list.append(el);});
+    document.getElementById('st-c').textContent=fd.length;
+  }
+
+  function buildLegend(){
+    const lg=document.getElementById('legend');
+    D.disc.filter(d=>d.level==='detailed_field').forEach(d=>{const cnt=D.courses.filter(c=>c.disciplineId===d.id).length;
+      const el=document.createElement('div');el.className='litem';
+      el.innerHTML=`<span class="dot" style="background:${d.color}"></span>${d.name} (${cnt})`;
+      el.onclick=()=>{document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));const chip=document.querySelector(`[data-filter="${d.id}"]`);if(chip)chip.classList.add('active');buildList(d.id,document.getElementById('search').value);};
+      lg.append(el);});
+  }
+
+  // Filters
+  document.getElementById('panel-filters').addEventListener('click',e=>{const ch=e.target.closest('.chip');if(!ch)return;document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));ch.classList.add('active');buildList(ch.dataset.filter,document.getElementById('search').value);});
+
+  // Search
+  document.getElementById('search').addEventListener('input',e=>{const af=document.querySelector('.chip.active')?.dataset.filter||'all';buildList(af,e.target.value);});
+
+  // Reset
+  document.getElementById('btn-reset').addEventListener('click',()=>{hil.clear();selNode=null;document.getElementById('detail-overlay').classList.remove('show');node.selectAll('circle').filter((_,i)=>i%3===2).transition().duration(300).attr('opacity',.85);link.transition().duration(300).attr('opacity',.5);svg.transition().duration(600).call(zoom.transform,d3.zoomIdentity.translate(W/2,H/2).scale(.5));buildList();});
+
+  // Tour
+  const tourPath=['course_cs_intro_py','course_cs_oop','course_cs_dsa','course_ai_ml','course_ai_dl','course_mcs_adv_algo','course_mcs_capstone','course_cs_capstone'];
+  let tourIdx=0,tourTimer=null;
+  document.getElementById('btn-tour').addEventListener('click',()=>document.getElementById('tour-overlay').classList.add('show'));
+  document.getElementById('tour-skip').addEventListener('click',()=>{document.getElementById('tour-overlay').classList.remove('show');});
+  document.getElementById('tour-start').addEventListener('click',()=>{document.getElementById('tour-overlay').classList.remove('show');tourIdx=0;runTour();});
+  function runTour(){if(tourIdx>=tourPath.length)return;select(tourPath[tourIdx]);tourIdx++;tourTimer=setTimeout(runTour,2800);}
+
+  // Sim tick
+  sim.on('tick',()=>{link.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);node.attr('transform',d=>`translate(${d.x},${d.y})`);});
+  sim.on('end',()=>{PUP(links);document.getElementById('empty-state').style.opacity=0;});
+
+  buildLegend();buildList();window._sel=id=>select(id);
+}
+
+main().catch(console.error);
+</script>
+</body>
+</html>

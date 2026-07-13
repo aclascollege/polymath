@@ -1,0 +1,567 @@
+{
+  "version": "v1",
+  "edgeCount": 90,
+  "prerequisites": [
+    {
+      "courseId": "course_cs_oop",
+      "prerequisiteId": "course_cs_intro_py",
+      "strength": "strict",
+      "reason": "Must master basic programming syntax and control flow before object-oriented design"
+    },
+    {
+      "courseId": "course_cs_dsa",
+      "prerequisiteId": "course_cs_oop",
+      "strength": "strict",
+      "reason": "Data structures require understanding of classes, objects, and interfaces"
+    },
+    {
+      "courseId": "course_cs_dsa",
+      "prerequisiteId": "course_cs_discrete",
+      "strength": "recommended",
+      "reason": "Discrete math provides the logical and set-theoretic foundation for algorithm analysis",
+      "crossDiscipline": true
+    },
+    {
+      "courseId": "course_cs_arch",
+      "prerequisiteId": "course_cs_intro_py",
+      "strength": "recommended",
+      "reason": "Basic programming maturity needed to understand hardware-software interface"
+    },
+    {
+      "courseId": "course_cs_os",
+      "prerequisiteId": "course_cs_arch",
+      "strength": "strict",
+      "reason": "Operating systems manage the hardware resources studied in computer architecture"
+    },
+    {
+      "courseId": "course_cs_os",
+      "prerequisiteId": "course_cs_dsa",
+      "strength": "helpful",
+      "reason": "OS implements scheduling and memory management using data structures"
+    },
+    {
+      "courseId": "course_cs_db",
+      "prerequisiteId": "course_cs_dsa",
+      "strength": "strict",
+      "reason": "Database internals (B-trees, hashing, query optimization) require data structures knowledge"
+    },
+    {
+      "courseId": "course_cs_networks",
+      "prerequisiteId": "course_cs_os",
+      "strength": "recommended",
+      "reason": "Network stacks interact with operating system kernel subsystems"
+    },
+    {
+      "courseId": "course_se_web",
+      "prerequisiteId": "course_cs_intro_py",
+      "strength": "strict",
+      "reason": "Web development requires programming fundamentals"
+    },
+    {
+      "courseId": "course_se_web",
+      "prerequisiteId": "course_cs_db",
+      "strength": "recommended",
+      "reason": "Most web apps are database-driven"
+    },
+    {
+      "courseId": "course_se_mobile",
+      "prerequisiteId": "course_cs_oop",
+      "strength": "recommended",
+      "reason": "Mobile development uses OOP patterns extensively"
+    },
+    {
+      "courseId": "course_se_cloud",
+      "prerequisiteId": "course_cs_networks",
+      "strength": "recommended",
+      "reason": "Cloud architecture builds on networking fundamentals"
+    },
+    {
+      "courseId": "course_se_cloud",
+      "prerequisiteId": "course_cs_os",
+      "strength": "helpful",
+      "reason": "Virtualization concepts derive from OS principles"
+    },
+    {
+      "courseId": "course_se_cyber",
+      "prerequisiteId": "course_cs_networks",
+      "strength": "strict",
+      "reason": "Cybersecurity requires deep understanding of network protocols"
+    },
+    {
+      "courseId": "course_se_cyber",
+      "prerequisiteId": "course_cs_os",
+      "strength": "recommended",
+      "reason": "OS security is fundamental to system hardening"
+    },
+    {
+      "courseId": "course_ai_ml",
+      "prerequisiteId": "course_math_linalg",
+      "strength": "strict",
+      "reason": "Machine learning algorithms are expressed in linear algebra",
+      "crossDiscipline": true
+    },
+    {
+      "courseId": "course_ai_ml",
+      "prerequisiteId": "course_math_stats",
+      "strength": "strict",
+      "reason": "ML is built on probability and statistical inference",
+      "crossDiscipline": true
+    },
+    {
+      "courseId": "course_ai_ml",
+      "prerequisiteId": "course_cs_intro_py",
+      "strength": "strict",
+      "reason": "ML implementation requires programming proficiency"
+    },
+    {
+      "courseId": "course_ai_dl",
+      "prerequisiteId": "course_ai_ml",
+      "strength": "strict",
+      "reason": "Deep learning extends classical ML with neural architectures"
+    },
+    {
+      "courseId": "course_ai_nlp",
+      "prerequisiteId": "course_ai_ml",
+      "strength": "strict",
+      "reason": "NLP builds on ML foundations for text processing"
+    },
+    {
+      "courseId": "course_ai_nlp",
+      "prerequisiteId": "course_ai_dl",
+      "strength": "recommended",
+      "reason": "Modern NLP uses transformer architectures from deep learning"
+    },
+    {
+      "courseId": "course_ai_cv",
+      "prerequisiteId": "course_ai_ml",
+      "strength": "strict",
+      "reason": "Computer vision applies ML to image data"
+    },
+    {
+      "courseId": "course_ai_cv",
+      "prerequisiteId": "course_ai_dl",
+      "strength": "recommended",
+      "reason": "CNN architectures are fundamental to modern vision systems"
+    },
+    {
+      "courseId": "course_mcs_dist_sys",
+      "prerequisiteId": "course_cs_os",
+      "strength": "strict",
+      "reason": "Distributed systems extend OS concurrency to networked nodes"
+    },
+    {
+      "courseId": "course_mcs_dist_sys",
+      "prerequisiteId": "course_cs_networks",
+      "strength": "strict",
+      "reason": "Distributed systems run over network infrastructure"
+    },
+    {
+      "courseId": "course_cs_theory",
+      "prerequisiteId": "course_cs_discrete",
+      "strength": "strict",
+      "reason": "Theory of computation is formalized in discrete mathematics",
+      "crossDiscipline": true
+    },
+    {
+      "courseId": "course_ds_mining",
+      "prerequisiteId": "course_cs_db",
+      "strength": "strict",
+      "reason": "Data mining starts from database query foundations"
+    },
+    {
+      "courseId": "course_ds_mining",
+      "prerequisiteId": "course_math_stats",
+      "strength": "strict",
+      "reason": "Statistical analysis drives pattern discovery",
+      "crossDiscipline": true
+    },
+    {
+      "courseId": "course_ds_bigdata",
+      "prerequisiteId": "course_cs_db",
+      "strength": "strict",
+      "reason": "Big data technologies extend database concepts to distributed scale"
+    },
+    {
+      "courseId": "course_ds_bigdata",
+      "prerequisiteId": "course_mcs_dist_sys",
+      "strength": "recommended",
+      "reason": "Hadoop/Spark are distributed computing frameworks"
+    },
+    {
+      "courseId": "course_cs_hci",
+      "prerequisiteId": "course_cs_intro_py",
+      "strength": "recommended",
+      "reason": "HCI requires basic programming for prototyping"
+    },
+    {
+      "courseId": "course_cs_graphics",
+      "prerequisiteId": "course_math_linalg",
+      "strength": "strict",
+      "reason": "Computer graphics is built on linear transformations and matrix math",
+      "crossDiscipline": true
+    },
+    {
+      "courseId": "course_cs_graphics",
+      "prerequisiteId": "course_cs_dsa",
+      "strength": "recommended",
+      "reason": "Spatial data structures (BVH, octrees) are core to rendering"
+    },
+    {
+      "courseId": "course_cs_capstone",
+      "prerequisiteId": "course_cs_db",
+      "strength": "recommended",
+      "reason": "Most capstone projects involve database-backed applications"
+    },
+    {
+      "courseId": "course_math_calc2",
+      "prerequisiteId": "course_math_calc1",
+      "strength": "strict",
+      "reason": "Calculus II extends single-variable to multi-variable and series"
+    },
+    {
+      "courseId": "course_math_linalg",
+      "prerequisiteId": "course_math_calc1",
+      "strength": "helpful",
+      "reason": "Some linear algebra concepts use calculus for motivation"
+    },
+    {
+      "courseId": "course_math_stats",
+      "prerequisiteId": "course_math_calc2",
+      "strength": "recommended",
+      "reason": "Continuous probability uses integration from calculus"
+    },
+    {
+      "courseId": "course_bus_finacc",
+      "prerequisiteId": "course_bus_mgmt",
+      "strength": "helpful",
+      "reason": "Management context helps understand financial reporting purpose"
+    },
+    {
+      "courseId": "course_bus_macro",
+      "prerequisiteId": "course_bus_micro",
+      "strength": "recommended",
+      "reason": "Macro aggregates build on micro foundations"
+    },
+    {
+      "courseId": "course_bus_stats",
+      "prerequisiteId": "course_math_stats",
+      "strength": "recommended",
+      "reason": "Business statistics applies probability theory to business data",
+      "crossDiscipline": true
+    },
+    {
+      "courseId": "course_bus_corpfin",
+      "prerequisiteId": "course_bus_finacc",
+      "strength": "strict",
+      "reason": "Corporate finance decisions depend on reading financial statements"
+    },
+    {
+      "courseId": "course_bus_corpfin",
+      "prerequisiteId": "course_bus_stats",
+      "strength": "recommended",
+      "reason": "Risk and return analysis requires statistical methods"
+    },
+    {
+      "courseId": "course_bus_mkt",
+      "prerequisiteId": "course_bus_mgmt",
+      "strength": "recommended",
+      "reason": "Marketing strategy connects to overall business strategy"
+    },
+    {
+      "courseId": "course_bus_ops",
+      "prerequisiteId": "course_bus_stats",
+      "strength": "strict",
+      "reason": "Operations management relies on statistical process control"
+    },
+    {
+      "courseId": "course_bus_law",
+      "prerequisiteId": "course_bus_mgmt",
+      "strength": "helpful",
+      "reason": "Business context aids understanding of legal frameworks"
+    },
+    {
+      "courseId": "course_bus_strategy",
+      "prerequisiteId": "course_bus_mkt",
+      "strength": "strict",
+      "reason": "Strategic management integrates marketing, operations, and finance perspectives"
+    },
+    {
+      "courseId": "course_bus_strategy",
+      "prerequisiteId": "course_bus_corpfin",
+      "strength": "strict",
+      "reason": "Strategy evaluation requires financial analysis"
+    },
+    {
+      "courseId": "course_bus_strategy",
+      "prerequisiteId": "course_bus_ops",
+      "strength": "strict",
+      "reason": "Strategy implementation must account for operational capabilities"
+    },
+    {
+      "courseId": "course_bus_intl",
+      "prerequisiteId": "course_bus_macro",
+      "strength": "strict",
+      "reason": "International business requires macroeconomic understanding",
+      "crossDiscipline": true
+    },
+    {
+      "courseId": "course_bus_intl",
+      "prerequisiteId": "course_bus_mkt",
+      "strength": "recommended",
+      "reason": "International market entry strategies build on marketing principles"
+    },
+    {
+      "courseId": "course_bus_entrep",
+      "prerequisiteId": "course_bus_mkt",
+      "strength": "recommended",
+      "reason": "Entrepreneurship requires customer discovery and market validation"
+    },
+    {
+      "courseId": "course_bus_entrep",
+      "prerequisiteId": "course_bus_corpfin",
+      "strength": "helpful",
+      "reason": "Startup financing draws on corporate finance concepts"
+    },
+    {
+      "courseId": "course_bus_ethics",
+      "prerequisiteId": "course_bus_law",
+      "strength": "recommended",
+      "reason": "Ethical frameworks complement legal analysis in business decisions"
+    },
+    {
+      "courseId": "course_bus_invest",
+      "prerequisiteId": "course_bus_corpfin",
+      "strength": "strict",
+      "reason": "Investment analysis extends corporate finance to portfolio decisions"
+    },
+    {
+      "courseId": "course_bus_consumer",
+      "prerequisiteId": "course_bus_mkt",
+      "strength": "strict",
+      "reason": "Consumer behavior research underpins marketing strategy"
+    },
+    {
+      "courseId": "course_bus_analytics",
+      "prerequisiteId": "course_bus_stats",
+      "strength": "strict",
+      "reason": "Business analytics applies statistical methods to business problems"
+    },
+    {
+      "courseId": "course_bus_ecom",
+      "prerequisiteId": "course_se_web",
+      "strength": "helpful",
+      "reason": "Understanding web technology aids e-commerce platform decisions",
+      "crossDiscipline": true
+    },
+    {
+      "courseId": "course_cs_mit_algo",
+      "prerequisiteId": "course_cs_dsa",
+      "strength": "strict",
+      "reason": "Advanced algorithms requires mastery of fundamental data structures and algorithm analysis"
+    },
+    {
+      "courseId": "course_cs_mit_sys",
+      "prerequisiteId": "course_cs_os",
+      "strength": "strict",
+      "reason": "System engineering builds on operating system concepts"
+    },
+    {
+      "courseId": "course_cs_mit_sys",
+      "prerequisiteId": "course_cs_networks",
+      "strength": "recommended",
+      "reason": "Network protocols are key case studies in system design"
+    },
+    {
+      "courseId": "course_cs_mit_dist",
+      "prerequisiteId": "course_mcs_dist_sys",
+      "strength": "recommended",
+      "reason": "MIT 6.824 extends distributed systems theory with hands-on implementation"
+    },
+    {
+      "courseId": "course_cs_mit_dist",
+      "prerequisiteId": "course_cs_os",
+      "strength": "strict",
+      "reason": "Distributed systems require OS-level concurrency understanding"
+    },
+    {
+      "courseId": "course_cs_mit_sec",
+      "prerequisiteId": "course_cs_os",
+      "strength": "strict",
+      "reason": "System security builds on OS architecture"
+    },
+    {
+      "courseId": "course_cs_mit_sec",
+      "prerequisiteId": "course_cs_networks",
+      "strength": "strict",
+      "reason": "Network security requires protocol understanding"
+    },
+    {
+      "courseId": "course_cs_harv_ml",
+      "prerequisiteId": "course_math_linalg",
+      "strength": "strict",
+      "reason": "ML algorithms use linear algebra extensively",
+      "crossDiscipline": true
+    },
+    {
+      "courseId": "course_cs_harv_ml",
+      "prerequisiteId": "course_math_stats",
+      "strength": "strict",
+      "reason": "Statistical foundations are essential for ML",
+      "crossDiscipline": true
+    },
+    {
+      "courseId": "course_cs_stan_ai",
+      "prerequisiteId": "course_ai_ml",
+      "strength": "strict",
+      "reason": "Stanford CS221 assumes prior ML knowledge"
+    },
+    {
+      "courseId": "course_cs_stan_nlp",
+      "prerequisiteId": "course_ai_dl",
+      "strength": "strict",
+      "reason": "CS224N requires deep learning foundations"
+    },
+    {
+      "courseId": "course_cs_stan_nlp",
+      "prerequisiteId": "course_ai_ml",
+      "strength": "recommended",
+      "reason": "ML fundamentals support NLP understanding"
+    },
+    {
+      "courseId": "course_cs_stan_rl",
+      "prerequisiteId": "course_ai_ml",
+      "strength": "strict",
+      "reason": "RL builds on supervised and unsupervised ML paradigms"
+    },
+    {
+      "courseId": "course_cs_stan_rl",
+      "prerequisiteId": "course_math_stats",
+      "strength": "recommended",
+      "reason": "Probability theory underlies MDP formalization",
+      "crossDiscipline": true
+    },
+    {
+      "courseId": "course_ds_stan_stats",
+      "prerequisiteId": "course_math_stats",
+      "strength": "strict",
+      "reason": "Statistical learning extends probability and statistics",
+      "crossDiscipline": true
+    },
+    {
+      "courseId": "course_ds_stan_stats",
+      "prerequisiteId": "course_ds_intro",
+      "strength": "recommended",
+      "reason": "Data wrangling experience aids statistical modeling"
+    },
+    {
+      "courseId": "course_psych_stan_social",
+      "prerequisiteId": "course_psych_harv_intro",
+      "strength": "recommended",
+      "reason": "Social psych extends introductory psychological science"
+    },
+    {
+      "courseId": "course_psych_mit_cog",
+      "prerequisiteId": "course_psych_harv_intro",
+      "strength": "recommended",
+      "reason": "Cognitive science requires basic psychology understanding"
+    },
+    {
+      "courseId": "course_econ_mit_micro",
+      "prerequisiteId": "course_bus_micro",
+      "strength": "strict",
+      "reason": "Graduate micro requires undergraduate micro foundations",
+      "crossDiscipline": true
+    },
+    {
+      "courseId": "course_econ_mit_micro",
+      "prerequisiteId": "course_math_calc2",
+      "strength": "strict",
+      "reason": "Advanced micro uses multivariable calculus",
+      "crossDiscipline": true
+    },
+    {
+      "courseId": "course_econ_harv_behavioral",
+      "prerequisiteId": "course_bus_micro",
+      "strength": "strict",
+      "reason": "Behavioral econ critiques and extends standard microeconomics",
+      "crossDiscipline": true
+    },
+    {
+      "courseId": "course_econ_stan_econometrics",
+      "prerequisiteId": "course_math_stats",
+      "strength": "strict",
+      "reason": "Econometrics requires probability and statistics",
+      "crossDiscipline": true
+    },
+    {
+      "courseId": "course_econ_stan_econometrics",
+      "prerequisiteId": "course_bus_micro",
+      "strength": "recommended",
+      "reason": "Economic intuition aids causal model specification",
+      "crossDiscipline": true
+    },
+    {
+      "courseId": "course_bus_harv_neg",
+      "prerequisiteId": "course_bus_negotiation",
+      "strength": "recommended",
+      "reason": "HBS negotiation builds on foundational bargaining skills"
+    },
+    {
+      "courseId": "course_bus_stan_entrep",
+      "prerequisiteId": "course_bus_entrep",
+      "strength": "recommended",
+      "reason": "Stanford GSB extends entrepreneurial foundations"
+    },
+    {
+      "courseId": "course_cs_mit_theory",
+      "prerequisiteId": "course_cs_discrete",
+      "strength": "strict",
+      "reason": "Theory builds on discrete math",
+      "crossDiscipline": true
+    },
+    {
+      "courseId": "course_cs_mit_theory",
+      "prerequisiteId": "course_cs_oop",
+      "strength": "recommended",
+      "reason": "Programming maturity for proofs"
+    },
+    {
+      "courseId": "course_cs_stan_dm",
+      "prerequisiteId": "course_cs_db",
+      "strength": "strict",
+      "reason": "Big data builds on databases"
+    },
+    {
+      "courseId": "course_econ_stan_game",
+      "prerequisiteId": "course_bus_micro",
+      "strength": "recommended",
+      "reason": "Game theory extends micro",
+      "crossDiscipline": true
+    },
+    {
+      "courseId": "course_psych_stan_neuro",
+      "prerequisiteId": "course_psych_harv_intro",
+      "strength": "recommended",
+      "reason": "Neuro builds on psych"
+    },
+    {
+      "courseId": "course_psych_ox_perception",
+      "prerequisiteId": "course_psych_harv_intro",
+      "strength": "recommended",
+      "reason": "Perception needs psych foundation"
+    },
+    {
+      "courseId": "course_bus_stan_design",
+      "prerequisiteId": "course_bus_mgmt",
+      "strength": "recommended",
+      "reason": "Design thinking in org context"
+    },
+    {
+      "courseId": "course_ds_mit_causal",
+      "prerequisiteId": "course_math_stats",
+      "strength": "strict",
+      "reason": "Causal inference is statistical",
+      "crossDiscipline": true
+    }
+  ]
+}

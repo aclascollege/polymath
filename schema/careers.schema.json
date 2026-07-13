@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://polymath.aclas.college/schema/careers.schema.json",
+  "title": "Polymath — Careers",
+  "description": "Career paths and occupations that degree programs and courses prepare students for. Aligned with ISCO-08 where applicable.",
+  "type": "object",
+  "required": ["version", "careerCount", "careers"],
+  "properties": {
+    "version": { "type": "string" },
+    "careerCount": { "type": "integer", "minimum": 0 },
+    "careers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "category"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^career_",
+            "description": "Stable career identifier"
+          },
+          "title": {
+            "type": "string",
+            "description": "Job title, e.g. 'Software Engineer'"
+          },
+          "category": {
+            "type": "string",
+            "description": "Industry/career category"
+          },
+          "iscoCode": {
+            "type": "string",
+            "description": "ISCO-08 occupation code"
+          },
+          "description": {
+            "type": "string",
+            "description": "What this role does day-to-day"
+          },
+          "typicalDegreeLevel": {
+            "type": "string",
+            "enum": ["associate", "bachelor", "master", "doctorate", "any"],
+            "description": "Typical minimum degree level for entry"
+          },
+          "requiredSkillIds": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^skill_" },
+            "description": "Core skills needed for this career"
+          },
+          "recommendedCourseIds": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^course_" },
+            "description": "Courses that prepare for this career"
+          },
+          "salaryBand": {
+            "type": "object",
+            "properties": {
+              "currency": { "type": "string" },
+              "entry": { "type": "integer" },
+              "mid": { "type": "integer" },
+              "senior": { "type": "integer" }
+            },
+            "description": "Typical salary ranges (USD)"
+          },
+          "growthOutlook": {
+            "type": "string",
+            "enum": ["rapid", "above_average", "average", "below_average", "declining"],
+            "description": "Projected job market growth"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

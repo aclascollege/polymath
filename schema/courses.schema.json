@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://polymath.aclas.college/schema/courses.schema.json",
+  "title": "Polymath — Courses",
+  "description": "Standardized university-level courses across global higher education. Each course is a node in the knowledge constellation.",
+  "type": "object",
+  "required": ["version", "courseCount", "courses"],
+  "properties": {
+    "version": { "type": "string" },
+    "courseCount": { "type": "integer", "minimum": 0 },
+    "courses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "disciplineId", "level", "credits"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^course_",
+            "description": "Stable course identifier, e.g. course_cs_dsa"
+          },
+          "name": {
+            "type": "string",
+            "description": "Full course name, e.g. 'Data Structures & Algorithms'"
+          },
+          "shortName": {
+            "type": "string",
+            "description": "Abbreviated name for graph labels, e.g. 'DSA'"
+          },
+          "disciplineId": {
+            "type": "string",
+            "pattern": "^disc_",
+            "description": "Primary discipline this course belongs to"
+          },
+          "crossDisciplineIds": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^disc_" },
+            "description": "Secondary disciplines this course also serves"
+          },
+          "level": {
+            "type": "string",
+            "enum": ["foundation", "intermediate", "advanced", "graduate", "doctoral"],
+            "description": "Academic level within the discipline"
+          },
+          "degreeLevel": {
+            "type": "string",
+            "enum": ["associate", "bachelor", "master", "doctorate"],
+            "description": "Typical degree program this course appears in"
+          },
+          "credits": {
+            "type": "object",
+            "required": ["us", "ects"],
+            "properties": {
+              "us": {
+                "type": "number",
+                "description": "US semester credit hours (typical: 3-4)"
+              },
+              "ects": {
+                "type": "number",
+                "description": "European ECTS credits (typical: 5-7.5)"
+              },
+              "uk": {
+                "type": "number",
+                "description": "UK CATS credits (typical: 10-20)"
+              },
+              "china": {
+                "type": "number",
+                "description": "Chinese credit hours (typical: 2-4)"
+              }
+            },
+            "description": "Credit values across global systems"
+          },
+          "description": {
+            "type": "string",
+            "description": "What students learn in this course, 1-3 sentences"
+          },
+          "learningOutcomes": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Specific, measurable things a student can do after completing this course"
+          },
+          "skills": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^skill_" },
+            "description": "Skills this course develops (references skills.json)"
+          },
+          "careerPaths": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^career_" },
+            "description": "Career paths this course supports (references careers.json)"
+          },
+          "typicalYear": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 8,
+            "description": "Typical year of study (1=first year bachelor, 5=first year master, etc.)"
+          },
+          "isCore": {
+            "type": "boolean",
+            "description": "Whether this is a core/required course (vs elective)"
+          },
+          "tags": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Searchable tags, e.g. 'AI', 'quantum', 'startup'"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

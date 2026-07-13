@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://polymath.aclas.college/schema/prerequisites.schema.json",
+  "title": "Polymath — Prerequisites",
+  "description": "Directed prerequisite edges between courses. courseId depends on prerequisiteId (courseId ← prerequisiteId). Unlike K-12 micro-topic deps, these are course-level and cross-disciplinary.",
+  "type": "object",
+  "required": ["version", "edgeCount", "prerequisites"],
+  "properties": {
+    "version": { "type": "string" },
+    "edgeCount": { "type": "integer", "minimum": 0 },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["courseId", "prerequisiteId", "strength"],
+        "properties": {
+          "courseId": {
+            "type": "string",
+            "pattern": "^course_",
+            "description": "The course that requires prior knowledge"
+          },
+          "prerequisiteId": {
+            "type": "string",
+            "pattern": "^course_",
+            "description": "The course that must be completed first"
+          },
+          "strength": {
+            "type": "string",
+            "enum": ["strict", "recommended", "helpful"],
+            "description": "strict=hard requirement, recommended=strongly advised, helpful=background knowledge"
+          },
+          "reason": {
+            "type": "string",
+            "description": "One-line explanation for the dependency"
+          },
+          "crossDiscipline": {
+            "type": "boolean",
+            "default": false,
+            "description": "True when prerequisite crosses discipline boundaries (e.g. Math for CS)"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

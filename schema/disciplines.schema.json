@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://polymath.aclas.college/schema/disciplines.schema.json",
+  "title": "Polymath — Disciplines",
+  "description": "Academic disciplines and fields of study in global higher education, aligned with ISCED-F 2013 and CIP 2020.",
+  "type": "object",
+  "required": ["version", "disciplineCount", "disciplines"],
+  "properties": {
+    "version": { "type": "string" },
+    "disciplineCount": { "type": "integer", "minimum": 0 },
+    "disciplines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "iscedCode", "level"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^disc_",
+            "description": "Stable discipline identifier, e.g. disc_cs"
+          },
+          "name": {
+            "type": "string",
+            "description": "Human-readable discipline name"
+          },
+          "iscedCode": {
+            "type": "string",
+            "description": "ISCED-F 2013 code, e.g. '0611' for Computer use"
+          },
+          "cipCode": {
+            "type": "string",
+            "description": "CIP 2020 code, e.g. '11.0101' for Computer Science"
+          },
+          "level": {
+            "type": "string",
+            "enum": ["broad_field", "narrow_field", "detailed_field"],
+            "description": "Granularity level per ISCED-F hierarchy"
+          },
+          "parentId": {
+            "type": "string",
+            "pattern": "^disc_",
+            "description": "Parent discipline for hierarchical grouping"
+          },
+          "description": {
+            "type": "string",
+            "description": "What this discipline studies and why it matters"
+          },
+          "aliases": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Alternative names across regions (e.g. 'Informatics', 'Computing')"
+          },
+          "color": {
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$",
+            "description": "Hex color for visualization consistency"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

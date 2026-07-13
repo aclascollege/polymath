@@ -1,0 +1,216 @@
+{
+  "version": "v1",
+  "disciplineCount": 15,
+  "disciplines": [
+    {
+      "id": "disc_cs",
+      "name": "Computer Science",
+      "iscedCode": "0613",
+      "cipCode": "11.0101",
+      "level": "detailed_field",
+      "parentId": "disc_ict",
+      "description": "The study of computation, algorithms, data structures, and the design of software systems. Covers both theoretical foundations and practical software engineering.",
+      "aliases": [
+        "Computing",
+        "Informatics",
+        "Computer Studies"
+      ],
+      "color": "#00D4FF"
+    },
+    {
+      "id": "disc_se",
+      "name": "Software Engineering",
+      "iscedCode": "0613",
+      "cipCode": "14.0903",
+      "level": "detailed_field",
+      "parentId": "disc_ict",
+      "description": "The systematic application of engineering principles to the design, development, testing, and maintenance of software.",
+      "aliases": [
+        "Software Development",
+        "Application Engineering"
+      ],
+      "color": "#7B61FF"
+    },
+    {
+      "id": "disc_ds",
+      "name": "Data Science",
+      "iscedCode": "0610",
+      "cipCode": "30.7001",
+      "level": "detailed_field",
+      "parentId": "disc_ict",
+      "description": "The interdisciplinary study of extracting knowledge and insights from structured and unstructured data using scientific methods, algorithms, and systems.",
+      "aliases": [
+        "Data Analytics",
+        "Big Data",
+        "Machine Learning"
+      ],
+      "color": "#FF6B9D"
+    },
+    {
+      "id": "disc_ai",
+      "name": "Artificial Intelligence",
+      "iscedCode": "0610",
+      "cipCode": "11.0102",
+      "level": "detailed_field",
+      "parentId": "disc_ict",
+      "description": "The study of intelligent agents — systems that perceive their environment and take actions to maximize chances of achieving goals.",
+      "aliases": [
+        "Machine Intelligence",
+        "Cognitive Computing"
+      ],
+      "color": "#FF4444"
+    },
+    {
+      "id": "disc_math",
+      "name": "Mathematics",
+      "iscedCode": "0541",
+      "cipCode": "27.0101",
+      "level": "detailed_field",
+      "parentId": "disc_natsci",
+      "description": "The abstract science of number, quantity, and space. Foundational to all quantitative disciplines.",
+      "aliases": [
+        "Maths",
+        "Applied Mathematics"
+      ],
+      "color": "#44DDBB"
+    },
+    {
+      "id": "disc_bus",
+      "name": "Business Administration",
+      "iscedCode": "0413",
+      "cipCode": "52.0101",
+      "level": "detailed_field",
+      "parentId": "disc_broad_bus",
+      "description": "The management of business operations and decision-making, covering finance, marketing, strategy, organizational behavior, and operations.",
+      "aliases": [
+        "Business Management",
+        "Commerce",
+        "Business Studies"
+      ],
+      "color": "#FFD700"
+    },
+    {
+      "id": "disc_fin",
+      "name": "Finance",
+      "iscedCode": "0412",
+      "cipCode": "52.0801",
+      "level": "detailed_field",
+      "parentId": "disc_broad_bus",
+      "description": "The study of investments, money management, financial markets, and the valuation of assets.",
+      "aliases": [
+        "Financial Management",
+        "Investment Analysis"
+      ],
+      "color": "#FFB347"
+    },
+    {
+      "id": "disc_mkt",
+      "name": "Marketing",
+      "iscedCode": "0414",
+      "cipCode": "52.1401",
+      "level": "detailed_field",
+      "parentId": "disc_broad_bus",
+      "description": "The study of creating, communicating, and delivering value to customers, including market research, branding, and digital strategy.",
+      "aliases": [
+        "Marketing Management",
+        "Digital Marketing",
+        "Brand Management"
+      ],
+      "color": "#FF69B4"
+    },
+    {
+      "id": "disc_mgmt",
+      "name": "Management",
+      "iscedCode": "0413",
+      "cipCode": "52.0201",
+      "level": "detailed_field",
+      "parentId": "disc_broad_bus",
+      "description": "The study of leading organizations, teams, and people — covering strategy, operations, human resources, and organizational behavior.",
+      "aliases": [
+        "Strategic Management",
+        "Organizational Leadership"
+      ],
+      "color": "#FFA07A"
+    },
+    {
+      "id": "disc_econ",
+      "name": "Economics",
+      "iscedCode": "0311",
+      "cipCode": "45.0601",
+      "level": "detailed_field",
+      "parentId": "disc_socsci",
+      "description": "The study of scarcity, resource allocation, and decision-making at individual, firm, and societal levels.",
+      "aliases": [
+        "Economic Science",
+        "Political Economy"
+      ],
+      "color": "#9ACD32"
+    },
+    {
+      "id": "disc_ict",
+      "name": "Information & Communication Technologies",
+      "iscedCode": "06",
+      "cipCode": "11",
+      "level": "broad_field",
+      "description": "The broad field encompassing computer science, software engineering, data science, AI, networking, and cybersecurity.",
+      "aliases": [
+        "ICT",
+        "Computing & IT"
+      ],
+      "color": "#00CED1"
+    },
+    {
+      "id": "disc_broad_bus",
+      "name": "Business, Administration & Law",
+      "iscedCode": "04",
+      "cipCode": "52",
+      "level": "broad_field",
+      "description": "The broad field encompassing business administration, finance, marketing, management, accounting, and commercial law.",
+      "aliases": [
+        "Business & Commerce",
+        "Business Studies"
+      ],
+      "color": "#DAA520"
+    },
+    {
+      "id": "disc_psych",
+      "name": "Psychology",
+      "iscedCode": "0313",
+      "cipCode": "42.0101",
+      "level": "detailed_field",
+      "parentId": "disc_socsci",
+      "description": "The scientific study of mind, brain, and behavior — encompassing cognition, development, social interaction, neuroscience, and mental health.",
+      "aliases": [
+        "Psychological Science",
+        "Behavioral Science"
+      ],
+      "color": "#E879F9"
+    },
+    {
+      "id": "disc_socsci",
+      "name": "Social Sciences",
+      "iscedCode": "03",
+      "cipCode": "45",
+      "level": "broad_field",
+      "description": "The broad field encompassing economics, psychology, sociology, political science, and anthropology — studying human society and social relationships.",
+      "aliases": [
+        "Social Studies",
+        "Behavioral Sciences"
+      ],
+      "color": "#C084FC"
+    },
+    {
+      "id": "disc_natsci",
+      "name": "Natural Sciences",
+      "iscedCode": "05",
+      "cipCode": "27",
+      "level": "broad_field",
+      "description": "The broad field encompassing mathematics, physics, chemistry, biology, and earth sciences — studying the natural world through observation and experiment.",
+      "aliases": [
+        "Science",
+        "Physical Sciences"
+      ],
+      "color": "#34D399"
+    }
+  ]
+}

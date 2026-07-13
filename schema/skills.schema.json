@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://polymath.aclas.college/schema/skills.schema.json",
+  "title": "Polymath — Skills",
+  "description": "Concrete, verifiable skills that courses develop. Bridges academic learning to industry-recognized competencies.",
+  "type": "object",
+  "required": ["version", "skillCount", "skills"],
+  "properties": {
+    "version": { "type": "string" },
+    "skillCount": { "type": "integer", "minimum": 0 },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "category"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^skill_",
+            "description": "Stable skill identifier"
+          },
+          "name": {
+            "type": "string",
+            "description": "Skill name, e.g. 'Python Programming'"
+          },
+          "category": {
+            "type": "string",
+            "enum": ["technical", "analytical", "communication", "leadership", "research", "creative", "domain"],
+            "description": "Broad skill category"
+          },
+          "description": {
+            "type": "string",
+            "description": "What proficiency looks like"
+          },
+          "industryDemand": {
+            "type": "string",
+            "enum": ["emerging", "growing", "stable", "declining"],
+            "description": "Current industry demand trend"
+          },
+          "certifications": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Industry certifications that validate this skill"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

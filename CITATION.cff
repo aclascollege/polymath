@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use Polymath in your research or product, please cite it as follows."
+title: "Polymath: The Open Taxonomy of Global Higher Education"
+authors:
+  - name: "ACLAS College"
+    website: "https://aclas.college"
+version: "v1"
+date-released: "2026-07-13"
+url: "https://github.com/aclas-college/polymath"
+license: "ODbL-1.0"
+type: dataset
+abstract: >
+  Polymath is an open, structured taxonomy of global higher education.
+  It maps 100+ university courses across 12 academic disciplines into a
+  multi-dimensional knowledge graph — connecting courses, prerequisites,
+  degrees, skills, careers, and qualification frameworks (ECTS, US Credits, AQF).
+  Designed for machine consumption and interactive exploration.
+keywords:
+  - higher education
+  - taxonomy
+  - knowledge graph
+  - curriculum
+  - university courses
+  - credit systems
+  - ISCED-F
+  - academic disciplines
+  - career pathways
+  - open data

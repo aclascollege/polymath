@@ -1,0 +1,27 @@
+## ODbL 1.0 — Open Database License
+
+This database (the collection, its structure, entity IDs, and entity-to-entity relationships) is made available under the Open Database License version 1.0 (ODbL 1.0).
+
+Full text: https://opendatacommons.org/licenses/odbl/1.0/
+
+### Summary (not a substitute for the license)
+
+**You are free:**
+- To Share: copy, distribute, and use the database.
+- To Create: produce works from the database.
+- To Adapt: modify, transform, and build upon the database.
+
+**Under the following conditions:**
+- Attribution: You must attribute any public use of the database, or works produced from the database, in the manner specified in the ODbL.
+- Share-Alike: If you publicly use any adapted version of this database, or works produced from an adapted database, you must also offer that adapted database under the ODbL.
+- Keep open: If you redistribute the database, or an adapted version of it, you may use technological measures that restrict the work (such as DRM) only if you also redistribute a version without such measures.
+
+### Important distinction
+
+ODbL distinguishes between a **Derivative Database** (an adaptation of the taxonomy itself — must stay open under ODbL) and a **Produced Work** (using the database inside your application or service — stays yours). You can build commercial products on Polymath without open-sourcing your product; you need only contribute back improvements to the taxonomy itself.
+
+### Attribution text
+
+> Polymath Taxonomy (v1) · © ACLAS College · https://aclas.college/polymath · licensed under ODbL 1.0 (database) and CC BY-SA 4.0 (content).
+
+See CITATION.cff for formal citation.

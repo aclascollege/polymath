@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://polymath.aclas.college/schema/frameworks.schema.json",
+  "title": "Polymath — Qualification Frameworks",
+  "description": "National and regional qualification frameworks that map degree levels across global education systems.",
+  "type": "object",
+  "required": ["version", "frameworkCount", "frameworks"],
+  "properties": {
+    "version": { "type": "string" },
+    "frameworkCount": { "type": "integer", "minimum": 0 },
+    "frameworks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "region", "levels"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^fw_",
+            "description": "Stable framework identifier"
+          },
+          "name": {
+            "type": "string",
+            "description": "Framework name, e.g. 'Bologna Process / EQF'"
+          },
+          "region": {
+            "type": "string",
+            "description": "ISO 3166 alpha-2 or 'EU', 'GLOBAL'"
+          },
+          "description": {
+            "type": "string",
+            "description": "What this framework governs"
+          },
+          "levels": {
+            "type": "object",
+            "patternProperties": {
+              "^[1-8]$": {
+                "type": "object",
+                "properties": {
+                  "label": { "type": "string" },
+                  "degreeLevel": {
+                    "type": "string",
+                    "enum": ["secondary", "associate", "bachelor", "master", "doctorate"]
+                  },
+                  "typicalCredits": { "type": "number" },
+                  "description": { "type": "string" }
+                }
+              }
+            },
+            "description": "Level number → qualification mapping"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

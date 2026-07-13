@@ -1,0 +1,3300 @@
+{
+  "version": "v1",
+  "courseCount": 94,
+  "courses": [
+    {
+      "id": "course_cs_intro_py",
+      "name": "Introduction to Programming",
+      "shortName": "CS101",
+      "disciplineId": "disc_cs",
+      "level": "foundation",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Learn computational thinking and programming fundamentals using Python. Covers variables, control flow, functions, data structures, and basic algorithms. No prior programming experience required.",
+      "learningOutcomes": [
+        "Write Python programs using variables, loops, and conditionals",
+        "Decompose problems into functions",
+        "Read and write data to files",
+        "Debug simple programs using error messages",
+        "Use lists, dictionaries, and sets appropriately"
+      ],
+      "skills": [
+        "skill_python"
+      ],
+      "careerPaths": [],
+      "typicalYear": 1,
+      "isCore": true,
+      "tags": [
+        "python",
+        "beginner",
+        "coding"
+      ]
+    },
+    {
+      "id": "course_cs_oop",
+      "name": "Object-Oriented Programming",
+      "shortName": "CS102",
+      "disciplineId": "disc_cs",
+      "level": "foundation",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Master object-oriented design principles using Java. Covers classes, inheritance, polymorphism, interfaces, generics, and design patterns.",
+      "learningOutcomes": [
+        "Design class hierarchies with proper encapsulation",
+        "Apply SOLID principles to software design",
+        "Implement common design patterns (Singleton, Factory, Observer)",
+        "Write unit tests with JUnit",
+        "Build a multi-class application from requirements"
+      ],
+      "skills": [
+        "skill_java"
+      ],
+      "careerPaths": [],
+      "typicalYear": 1,
+      "isCore": true,
+      "tags": [
+        "java",
+        "oop",
+        "design"
+      ]
+    },
+    {
+      "id": "course_cs_dsa",
+      "name": "Data Structures & Algorithms",
+      "shortName": "CS201",
+      "disciplineId": "disc_cs",
+      "level": "intermediate",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 4,
+        "ects": 7.5,
+        "uk": 20,
+        "china": 4
+      },
+      "description": "Comprehensive study of fundamental data structures and algorithms. Analyze time/space complexity and implement solutions to classic computational problems.",
+      "learningOutcomes": [
+        "Analyze algorithm complexity using Big-O notation",
+        "Implement and choose appropriate data structures (arrays, trees, graphs, hash tables)",
+        "Apply sorting, searching, and graph traversal algorithms",
+        "Solve dynamic programming problems",
+        "Prove algorithm correctness using invariants"
+      ],
+      "skills": [
+        "skill_algorithms"
+      ],
+      "careerPaths": [
+        "career_swe",
+        "career_data_scientist"
+      ],
+      "typicalYear": 2,
+      "isCore": true,
+      "tags": [
+        "algorithms",
+        "data-structures",
+        "interviews"
+      ]
+    },
+    {
+      "id": "course_cs_discrete",
+      "name": "Discrete Mathematics for CS",
+      "shortName": "CS202",
+      "disciplineId": "disc_cs",
+      "crossDisciplineIds": [
+        "disc_math"
+      ],
+      "level": "foundation",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Mathematical foundations for computer science: logic, set theory, combinatorics, graph theory, and basic probability.",
+      "learningOutcomes": [
+        "Construct formal proofs using mathematical induction",
+        "Model problems using graph theory",
+        "Apply combinatorics to counting problems",
+        "Use propositional and predicate logic for reasoning",
+        "Analyze recurrence relations"
+      ],
+      "skills": [],
+      "careerPaths": [],
+      "typicalYear": 2,
+      "isCore": true,
+      "tags": [
+        "math",
+        "logic",
+        "proofs"
+      ]
+    },
+    {
+      "id": "course_cs_arch",
+      "name": "Computer Architecture",
+      "shortName": "CS210",
+      "disciplineId": "disc_cs",
+      "level": "intermediate",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "How computers work at the hardware-software interface: digital logic, CPU design, memory hierarchy, pipelining, and assembly language.",
+      "learningOutcomes": [
+        "Write and debug assembly language programs",
+        "Explain CPU pipelining and superscalar execution",
+        "Design cache memory hierarchies",
+        "Understand virtual memory and TLB operation",
+        "Evaluate I/O and bus architectures"
+      ],
+      "skills": [],
+      "careerPaths": [
+        "career_swe"
+      ],
+      "typicalYear": 2,
+      "isCore": true,
+      "tags": [
+        "hardware",
+        "cpu",
+        "assembly",
+        "memory"
+      ]
+    },
+    {
+      "id": "course_cs_os",
+      "name": "Operating Systems",
+      "shortName": "CS310",
+      "disciplineId": "disc_cs",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Operating system design and implementation: processes, threads, synchronization, memory management, file systems, and virtualization.",
+      "learningOutcomes": [
+        "Implement multi-threaded programs with proper synchronization",
+        "Explain process scheduling algorithms",
+        "Design memory allocation strategies",
+        "Implement a simple file system",
+        "Analyze OS security vulnerabilities"
+      ],
+      "skills": [],
+      "careerPaths": [
+        "career_swe",
+        "career_devops"
+      ],
+      "typicalYear": 3,
+      "isCore": true,
+      "tags": [
+        "os",
+        "linux",
+        "concurrency"
+      ]
+    },
+    {
+      "id": "course_cs_db",
+      "name": "Database Systems",
+      "shortName": "CS220",
+      "disciplineId": "disc_cs",
+      "crossDisciplineIds": [
+        "disc_ds"
+      ],
+      "level": "intermediate",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Relational database theory and practice: ER modeling, normalization, SQL, transactions, indexing, and NoSQL alternatives.",
+      "learningOutcomes": [
+        "Design normalized relational schemas",
+        "Write complex SQL queries with joins and subqueries",
+        "Implement transaction processing with ACID guarantees",
+        "Choose appropriate indexing strategies",
+        "Compare relational and NoSQL databases for different use cases"
+      ],
+      "skills": [
+        "skill_sql"
+      ],
+      "careerPaths": [
+        "career_swe",
+        "career_data_engineer"
+      ],
+      "typicalYear": 2,
+      "isCore": true,
+      "tags": [
+        "sql",
+        "databases",
+        "nosql"
+      ]
+    },
+    {
+      "id": "course_cs_networks",
+      "name": "Computer Networks",
+      "shortName": "CS320",
+      "disciplineId": "disc_cs",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "TCP/IP protocol stack, routing, congestion control, application-layer protocols, network security, and emerging network architectures.",
+      "learningOutcomes": [
+        "Explain the TCP/IP layered architecture",
+        "Implement a reliable transport protocol",
+        "Configure routing protocols (OSPF, BGP)",
+        "Analyze network security threats and defenses",
+        "Design RESTful APIs over HTTP"
+      ],
+      "skills": [],
+      "careerPaths": [
+        "career_swe",
+        "career_devops"
+      ],
+      "typicalYear": 3,
+      "isCore": true,
+      "tags": [
+        "networking",
+        "tcp-ip",
+        "http",
+        "security"
+      ]
+    },
+    {
+      "id": "course_se_intro",
+      "name": "Software Engineering",
+      "shortName": "SE201",
+      "disciplineId": "disc_se",
+      "level": "intermediate",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Professional software development practices: requirements engineering, Agile/Scrum, version control, testing, CI/CD, and software architecture.",
+      "learningOutcomes": [
+        "Write user stories and acceptance criteria",
+        "Use Git for collaborative version control",
+        "Design software using UML diagrams",
+        "Implement test-driven development (TDD)",
+        "Set up a CI/CD pipeline"
+      ],
+      "skills": [
+        "skill_git",
+        "skill_testing"
+      ],
+      "careerPaths": [
+        "career_swe",
+        "career_devops"
+      ],
+      "typicalYear": 2,
+      "isCore": true,
+      "tags": [
+        "agile",
+        "git",
+        "devops",
+        "testing"
+      ]
+    },
+    {
+      "id": "course_se_web",
+      "name": "Web Development",
+      "shortName": "SE220",
+      "disciplineId": "disc_se",
+      "level": "intermediate",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Full-stack web application development: HTML, CSS, JavaScript, React, Node.js, REST APIs, authentication, and deployment.",
+      "learningOutcomes": [
+        "Build responsive web interfaces with HTML/CSS/JavaScript",
+        "Develop Single Page Applications with React",
+        "Create RESTful APIs with Node.js and Express",
+        "Implement user authentication with JWT",
+        "Deploy applications to cloud platforms"
+      ],
+      "skills": [
+        "skill_web_dev"
+      ],
+      "careerPaths": [
+        "career_swe"
+      ],
+      "typicalYear": 2,
+      "isCore": true,
+      "tags": [
+        "web",
+        "react",
+        "node",
+        "fullstack"
+      ]
+    },
+    {
+      "id": "course_se_mobile",
+      "name": "Mobile App Development",
+      "shortName": "SE310",
+      "disciplineId": "disc_se",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Native and cross-platform mobile development for iOS and Android. Covers UI design patterns, device APIs, app store deployment.",
+      "learningOutcomes": [
+        "Build cross-platform apps with React Native or Flutter",
+        "Integrate device sensors (GPS, camera, accelerometer)",
+        "Manage app state and offline data",
+        "Publish apps to Apple App Store and Google Play",
+        "Design for accessibility and localization"
+      ],
+      "skills": [
+        "skill_mobile"
+      ],
+      "careerPaths": [
+        "career_swe"
+      ],
+      "typicalYear": 3,
+      "isCore": false,
+      "tags": [
+        "mobile",
+        "ios",
+        "android",
+        "react-native"
+      ]
+    },
+    {
+      "id": "course_se_cloud",
+      "name": "Cloud Computing",
+      "shortName": "SE330",
+      "disciplineId": "disc_se",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Cloud-native application design on AWS/Azure/GCP: virtualization, containers, serverless, microservices, and infrastructure-as-code.",
+      "learningOutcomes": [
+        "Deploy containerized applications with Docker and Kubernetes",
+        "Design serverless architectures with AWS Lambda",
+        "Implement auto-scaling and load balancing",
+        "Write infrastructure-as-code with Terraform",
+        "Monitor and optimize cloud costs"
+      ],
+      "skills": [
+        "skill_cloud"
+      ],
+      "careerPaths": [
+        "career_devops"
+      ],
+      "typicalYear": 4,
+      "isCore": false,
+      "tags": [
+        "aws",
+        "docker",
+        "kubernetes",
+        "cloud"
+      ]
+    },
+    {
+      "id": "course_se_cyber",
+      "name": "Cybersecurity Fundamentals",
+      "shortName": "SE340",
+      "disciplineId": "disc_se",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Principles of information security: cryptography, network security, application security, threat modeling, and incident response.",
+      "learningOutcomes": [
+        "Apply symmetric and asymmetric encryption algorithms",
+        "Conduct basic penetration testing",
+        "Model threats using STRIDE methodology",
+        "Implement secure authentication and authorization",
+        "Respond to security incidents following NIST framework"
+      ],
+      "skills": [],
+      "careerPaths": [],
+      "typicalYear": 4,
+      "isCore": false,
+      "tags": [
+        "security",
+        "cryptography",
+        "pentesting"
+      ]
+    },
+    {
+      "id": "course_ai_ml",
+      "name": "Machine Learning",
+      "shortName": "AI301",
+      "disciplineId": "disc_ai",
+      "crossDisciplineIds": [
+        "disc_ds",
+        "disc_cs"
+      ],
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 4,
+        "ects": 7.5,
+        "uk": 20,
+        "china": 4
+      },
+      "description": "Supervised and unsupervised learning algorithms: regression, classification, clustering, ensemble methods, and model evaluation. Hands-on with scikit-learn and TensorFlow.",
+      "learningOutcomes": [
+        "Implement linear and logistic regression from scratch",
+        "Apply decision trees, random forests, and gradient boosting",
+        "Build and train neural networks with TensorFlow/Keras",
+        "Evaluate models using cross-validation and appropriate metrics",
+        "Deploy ML models as REST APIs"
+      ],
+      "skills": [
+        "skill_ml",
+        "skill_python"
+      ],
+      "careerPaths": [
+        "career_ml_engineer",
+        "career_data_scientist"
+      ],
+      "typicalYear": 3,
+      "isCore": true,
+      "tags": [
+        "machine-learning",
+        "ai",
+        "tensorflow",
+        "scikit-learn"
+      ]
+    },
+    {
+      "id": "course_ai_dl",
+      "name": "Deep Learning",
+      "shortName": "AI401",
+      "disciplineId": "disc_ai",
+      "crossDisciplineIds": [
+        "disc_cs"
+      ],
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 4,
+        "ects": 7.5,
+        "uk": 20,
+        "china": 4
+      },
+      "description": "Advanced neural network architectures: CNNs, RNNs, LSTMs, Transformers, GANs. Focus on computer vision, NLP, and generative AI applications.",
+      "learningOutcomes": [
+        "Design and train convolutional neural networks for image tasks",
+        "Implement sequence models for text and time-series data",
+        "Build Transformer-based architectures from scratch",
+        "Fine-tune large pre-trained models (transfer learning)",
+        "Train generative adversarial networks"
+      ],
+      "skills": [],
+      "careerPaths": [
+        "career_ml_engineer"
+      ],
+      "typicalYear": 5,
+      "isCore": true,
+      "tags": [
+        "deep-learning",
+        "transformers",
+        "cnn",
+        "pytorch"
+      ]
+    },
+    {
+      "id": "course_ai_nlp",
+      "name": "Natural Language Processing",
+      "shortName": "AI410",
+      "disciplineId": "disc_ai",
+      "crossDisciplineIds": [
+        "disc_ds"
+      ],
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Computational processing of human language: tokenization, embeddings, sequence labeling, parsing, machine translation, and large language models.",
+      "learningOutcomes": [
+        "Implement word embeddings (Word2Vec, GloVe)",
+        "Build named entity recognition and POS tagging systems",
+        "Design neural machine translation models",
+        "Fine-tune large language models for downstream tasks",
+        "Evaluate NLP systems with BLEU, ROUGE, and perplexity"
+      ],
+      "skills": [
+        "skill_nlp"
+      ],
+      "careerPaths": [
+        "career_ml_engineer"
+      ],
+      "typicalYear": 5,
+      "isCore": false,
+      "tags": [
+        "nlp",
+        "transformers",
+        "llm",
+        "bert"
+      ]
+    },
+    {
+      "id": "course_ai_cv",
+      "name": "Computer Vision",
+      "shortName": "AI420",
+      "disciplineId": "disc_ai",
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Image and video understanding: filtering, feature detection, object recognition, segmentation, 3D reconstruction, and video analysis.",
+      "learningOutcomes": [
+        "Implement image filtering and edge detection",
+        "Build object detection systems (YOLO, R-CNN)",
+        "Design semantic segmentation models",
+        "Apply 3D reconstruction from stereo imagery",
+        "Deploy real-time video processing pipelines"
+      ],
+      "skills": [],
+      "careerPaths": [
+        "career_ml_engineer"
+      ],
+      "typicalYear": 5,
+      "isCore": false,
+      "tags": [
+        "computer-vision",
+        "cnn",
+        "image-processing"
+      ]
+    },
+    {
+      "id": "course_ds_intro",
+      "name": "Introduction to Data Science",
+      "shortName": "DS201",
+      "disciplineId": "disc_ds",
+      "crossDisciplineIds": [
+        "disc_cs"
+      ],
+      "level": "intermediate",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Data science workflow: data wrangling, exploratory analysis, visualization, statistical inference, and communicating results. Heavy use of Python (pandas, matplotlib, seaborn).",
+      "learningOutcomes": [
+        "Clean and transform messy real-world datasets",
+        "Conduct exploratory data analysis with appropriate visualizations",
+        "Apply statistical hypothesis testing",
+        "Build and interpret linear regression models",
+        "Communicate findings through data storytelling"
+      ],
+      "skills": [
+        "skill_python"
+      ],
+      "careerPaths": [
+        "career_data_scientist"
+      ],
+      "typicalYear": 2,
+      "isCore": true,
+      "tags": [
+        "data-science",
+        "pandas",
+        "statistics",
+        "visualization"
+      ]
+    },
+    {
+      "id": "course_ds_bigdata",
+      "name": "Big Data Technologies",
+      "shortName": "DS310",
+      "disciplineId": "disc_ds",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Distributed data processing: Hadoop, Spark, streaming systems, data lakes, and MLOps pipelines at scale.",
+      "learningOutcomes": [
+        "Write MapReduce jobs and Spark transformations",
+        "Design data pipelines with Apache Kafka",
+        "Build ETL workflows for data warehouses",
+        "Implement MLOps practices (model versioning, monitoring)",
+        "Optimize Spark jobs for cluster performance"
+      ],
+      "skills": [],
+      "careerPaths": [
+        "career_data_engineer"
+      ],
+      "typicalYear": 3,
+      "isCore": true,
+      "tags": [
+        "spark",
+        "hadoop",
+        "kafka",
+        "big-data"
+      ]
+    },
+    {
+      "id": "course_ds_mining",
+      "name": "Data Mining",
+      "shortName": "DS320",
+      "disciplineId": "disc_ds",
+      "crossDisciplineIds": [
+        "disc_ai"
+      ],
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Discovering patterns in large datasets: association rules, clustering, anomaly detection, recommendation systems, and graph mining.",
+      "learningOutcomes": [
+        "Implement Apriori and FP-Growth for association mining",
+        "Apply k-means, DBSCAN, and hierarchical clustering",
+        "Build collaborative filtering recommendation systems",
+        "Detect anomalies using statistical and ML methods",
+        "Mine graph data for community detection"
+      ],
+      "skills": [
+        "skill_ml"
+      ],
+      "careerPaths": [
+        "career_data_scientist"
+      ],
+      "typicalYear": 4,
+      "isCore": false,
+      "tags": [
+        "data-mining",
+        "clustering",
+        "recommendations"
+      ]
+    },
+    {
+      "id": "course_math_calc1",
+      "name": "Calculus I",
+      "shortName": "MATH101",
+      "disciplineId": "disc_math",
+      "crossDisciplineIds": [
+        "disc_cs"
+      ],
+      "level": "foundation",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 4,
+        "ects": 7.5,
+        "uk": 20,
+        "china": 4
+      },
+      "description": "Single-variable calculus: limits, derivatives, integrals, and the Fundamental Theorem. Applications to optimization and modeling.",
+      "learningOutcomes": [
+        "Compute limits and derivatives of elementary functions",
+        "Apply differentiation to optimization problems",
+        "Evaluate definite and indefinite integrals",
+        "Solve differential equations for growth and decay models",
+        "Use Taylor series to approximate functions"
+      ],
+      "skills": [
+        "skill_calculus"
+      ],
+      "careerPaths": [],
+      "typicalYear": 1,
+      "isCore": true,
+      "tags": [
+        "calculus",
+        "derivatives",
+        "integrals"
+      ]
+    },
+    {
+      "id": "course_math_calc2",
+      "name": "Calculus II",
+      "shortName": "MATH102",
+      "disciplineId": "disc_math",
+      "crossDisciplineIds": [
+        "disc_cs",
+        "disc_econ"
+      ],
+      "level": "foundation",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 4,
+        "ects": 7.5,
+        "uk": 20,
+        "china": 4
+      },
+      "description": "Multi-variable calculus and vector analysis: partial derivatives, multiple integrals, line and surface integrals, and vector fields.",
+      "learningOutcomes": [
+        "Compute partial derivatives and gradients",
+        "Evaluate double and triple integrals in various coordinate systems",
+        "Apply Green's, Stokes', and Divergence theorems",
+        "Optimize functions of several variables with constraints",
+        "Model physical systems using vector calculus"
+      ],
+      "skills": [
+        "skill_calculus"
+      ],
+      "careerPaths": [],
+      "typicalYear": 1,
+      "isCore": true,
+      "tags": [
+        "calculus",
+        "multivariable",
+        "vectors"
+      ]
+    },
+    {
+      "id": "course_math_linalg",
+      "name": "Linear Algebra",
+      "shortName": "MATH201",
+      "disciplineId": "disc_math",
+      "crossDisciplineIds": [
+        "disc_cs",
+        "disc_ai",
+        "disc_ds"
+      ],
+      "level": "intermediate",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Vector spaces, matrices, linear transformations, eigenvalues, and applications in CS, data science, and engineering.",
+      "learningOutcomes": [
+        "Solve systems of linear equations using matrix methods",
+        "Compute eigenvalues and eigenvectors",
+        "Apply SVD and PCA for dimensionality reduction",
+        "Understand vector spaces and linear transformations abstractly",
+        "Use linear algebra in machine learning contexts"
+      ],
+      "skills": [
+        "skill_linear_algebra"
+      ],
+      "careerPaths": [
+        "career_ml_engineer",
+        "career_data_scientist"
+      ],
+      "typicalYear": 2,
+      "isCore": true,
+      "tags": [
+        "linear-algebra",
+        "matrices",
+        "svd",
+        "pca"
+      ]
+    },
+    {
+      "id": "course_math_stats",
+      "name": "Probability & Statistics",
+      "shortName": "MATH210",
+      "disciplineId": "disc_math",
+      "crossDisciplineIds": [
+        "disc_ds",
+        "disc_econ",
+        "disc_bus"
+      ],
+      "level": "intermediate",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Probability theory, random variables, distributions, hypothesis testing, confidence intervals, and Bayesian inference.",
+      "learningOutcomes": [
+        "Compute probabilities using Bayes' theorem",
+        "Model random variables with common distributions",
+        "Construct confidence intervals and perform hypothesis tests",
+        "Apply Bayesian inference to update beliefs with data",
+        "Use R or Python for statistical computing"
+      ],
+      "skills": [],
+      "careerPaths": [
+        "career_data_scientist"
+      ],
+      "typicalYear": 2,
+      "isCore": true,
+      "tags": [
+        "probability",
+        "statistics",
+        "bayesian",
+        "hypothesis-testing"
+      ]
+    },
+    {
+      "id": "course_math_numerical",
+      "name": "Numerical Methods",
+      "shortName": "MATH301",
+      "disciplineId": "disc_math",
+      "crossDisciplineIds": [
+        "disc_cs",
+        "disc_ai"
+      ],
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Numerical algorithms for solving mathematical problems on computers: root finding, interpolation, numerical integration, ODE solvers, and optimization.",
+      "learningOutcomes": [
+        "Implement Newton-Raphson and bisection methods",
+        "Apply Gaussian quadrature for numerical integration",
+        "Solve ODEs with Runge-Kutta methods",
+        "Implement gradient descent variants for optimization",
+        "Analyze numerical stability and error propagation"
+      ],
+      "skills": [
+        "skill_python"
+      ],
+      "careerPaths": [
+        "career_ml_engineer"
+      ],
+      "typicalYear": 3,
+      "isCore": false,
+      "tags": [
+        "numerical-methods",
+        "optimization",
+        "ode"
+      ]
+    },
+    {
+      "id": "course_bus_mgmt",
+      "name": "Principles of Management",
+      "shortName": "BUS101",
+      "disciplineId": "disc_mgmt",
+      "level": "foundation",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Foundational management concepts: planning, organizing, leading, controlling. Evolution of management theory and modern organizational practices.",
+      "learningOutcomes": [
+        "Analyze organizational structures and design choices",
+        "Apply motivation theories to workplace scenarios",
+        "Develop strategic plans using SWOT analysis",
+        "Evaluate leadership styles for different contexts",
+        "Design performance management systems"
+      ],
+      "skills": [
+        "skill_leadership"
+      ],
+      "careerPaths": [],
+      "typicalYear": 1,
+      "isCore": true,
+      "tags": [
+        "management",
+        "leadership",
+        "organization"
+      ]
+    },
+    {
+      "id": "course_bus_finacc",
+      "name": "Financial Accounting",
+      "shortName": "BUS110",
+      "disciplineId": "disc_fin",
+      "level": "foundation",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "The language of business: recording transactions, preparing financial statements (balance sheet, income statement, cash flow), and interpreting financial health.",
+      "learningOutcomes": [
+        "Record business transactions using double-entry bookkeeping",
+        "Prepare and analyze financial statements",
+        "Apply GAAP/IFRS accounting standards",
+        "Calculate financial ratios for business analysis",
+        "Evaluate a company's financial health from its statements"
+      ],
+      "skills": [
+        "skill_accounting"
+      ],
+      "careerPaths": [],
+      "typicalYear": 1,
+      "isCore": true,
+      "tags": [
+        "accounting",
+        "financial-statements",
+        "gaap"
+      ]
+    },
+    {
+      "id": "course_bus_micro",
+      "name": "Microeconomics",
+      "shortName": "ECON101",
+      "disciplineId": "disc_econ",
+      "crossDisciplineIds": [
+        "disc_bus"
+      ],
+      "level": "foundation",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Individual and firm decision-making: supply and demand, market equilibrium, elasticity, production costs, market structures, and welfare economics.",
+      "learningOutcomes": [
+        "Analyze market equilibrium shifts using supply and demand",
+        "Compute price elasticity of demand",
+        "Compare perfect competition, monopoly, and oligopoly outcomes",
+        "Evaluate policies using consumer and producer surplus",
+        "Apply game theory to strategic interactions"
+      ],
+      "skills": [],
+      "careerPaths": [],
+      "typicalYear": 1,
+      "isCore": true,
+      "tags": [
+        "economics",
+        "markets",
+        "supply-demand"
+      ]
+    },
+    {
+      "id": "course_bus_macro",
+      "name": "Macroeconomics",
+      "shortName": "ECON102",
+      "disciplineId": "disc_econ",
+      "crossDisciplineIds": [
+        "disc_bus"
+      ],
+      "level": "foundation",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Economy-wide phenomena: GDP, inflation, unemployment, monetary and fiscal policy, international trade, and economic growth.",
+      "learningOutcomes": [
+        "Calculate and interpret GDP and its components",
+        "Analyze inflation and unemployment tradeoffs",
+        "Evaluate monetary policy tools (interest rates, QE)",
+        "Model economic growth using Solow framework",
+        "Assess the impact of fiscal policy on aggregate demand"
+      ],
+      "skills": [],
+      "careerPaths": [],
+      "typicalYear": 1,
+      "isCore": true,
+      "tags": [
+        "macroeconomics",
+        "gdp",
+        "inflation",
+        "monetary-policy"
+      ]
+    },
+    {
+      "id": "course_bus_stats",
+      "name": "Business Statistics",
+      "shortName": "BUS201",
+      "disciplineId": "disc_bus",
+      "level": "intermediate",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Statistical methods for business decision-making: descriptive statistics, probability, sampling, regression analysis, and forecasting.",
+      "learningOutcomes": [
+        "Summarize business data with descriptive statistics",
+        "Apply probability distributions to risk analysis",
+        "Build regression models for business forecasting",
+        "Design and analyze business surveys",
+        "Present statistical findings to non-technical stakeholders"
+      ],
+      "skills": [],
+      "careerPaths": [
+        "career_business_analyst"
+      ],
+      "typicalYear": 2,
+      "isCore": true,
+      "tags": [
+        "statistics",
+        "regression",
+        "forecasting",
+        "excel"
+      ]
+    },
+    {
+      "id": "course_bus_corpfin",
+      "name": "Corporate Finance",
+      "shortName": "FIN301",
+      "disciplineId": "disc_fin",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Financial decision-making in corporations: capital budgeting, cost of capital, capital structure, dividend policy, and valuation.",
+      "learningOutcomes": [
+        "Evaluate investment projects using NPV, IRR, and payback",
+        "Calculate weighted average cost of capital (WACC)",
+        "Analyze optimal capital structure (Modigliani-Miller)",
+        "Value companies using DCF and comparable multiples",
+        "Assess dividend and share repurchase policies"
+      ],
+      "skills": [],
+      "careerPaths": [
+        "career_investment_banker"
+      ],
+      "typicalYear": 3,
+      "isCore": true,
+      "tags": [
+        "corporate-finance",
+        "valuation",
+        "npv",
+        "wacc"
+      ]
+    },
+    {
+      "id": "course_bus_mkt",
+      "name": "Marketing Management",
+      "shortName": "MKT201",
+      "disciplineId": "disc_mkt",
+      "level": "intermediate",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Marketing strategy and execution: segmentation, targeting, positioning, the marketing mix (4Ps), brand building, and customer relationship management.",
+      "learningOutcomes": [
+        "Segment markets and develop buyer personas",
+        "Design positioning strategies and value propositions",
+        "Develop integrated marketing communication plans",
+        "Analyze customer lifetime value (CLV)",
+        "Create go-to-market strategies for new products"
+      ],
+      "skills": [
+        "skill_strategy"
+      ],
+      "careerPaths": [],
+      "typicalYear": 2,
+      "isCore": true,
+      "tags": [
+        "marketing",
+        "branding",
+        "4ps",
+        "segmentation"
+      ]
+    },
+    {
+      "id": "course_bus_orgbh",
+      "name": "Organizational Behavior",
+      "shortName": "BUS210",
+      "disciplineId": "disc_mgmt",
+      "level": "intermediate",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Human behavior in organizations: personality, perception, motivation, team dynamics, power, conflict, and organizational culture.",
+      "learningOutcomes": [
+        "Analyze individual behavior using personality frameworks (Big Five, MBTI)",
+        "Design effective team structures and processes",
+        "Manage organizational conflict constructively",
+        "Assess and shape organizational culture",
+        "Develop inclusive leadership practices"
+      ],
+      "skills": [
+        "skill_leadership"
+      ],
+      "careerPaths": [],
+      "typicalYear": 2,
+      "isCore": true,
+      "tags": [
+        "behavior",
+        "teams",
+        "culture",
+        "leadership"
+      ]
+    },
+    {
+      "id": "course_bus_ops",
+      "name": "Operations Management",
+      "shortName": "BUS310",
+      "disciplineId": "disc_mgmt",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Designing and managing production and service operations: process analysis, quality management, supply chain, lean, and Six Sigma.",
+      "learningOutcomes": [
+        "Analyze process flows using Little's Law and queuing theory",
+        "Apply Six Sigma DMAIC methodology",
+        "Design lean production systems",
+        "Optimize inventory management (EOQ, safety stock)",
+        "Manage global supply chain risks"
+      ],
+      "skills": [
+        "skill_operations"
+      ],
+      "careerPaths": [],
+      "typicalYear": 3,
+      "isCore": true,
+      "tags": [
+        "operations",
+        "six-sigma",
+        "lean",
+        "supply-chain"
+      ]
+    },
+    {
+      "id": "course_bus_law",
+      "name": "Business Law",
+      "shortName": "BUS220",
+      "disciplineId": "disc_bus",
+      "level": "intermediate",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Legal environment of business: contracts, torts, agency, business organizations, intellectual property, employment law, and international trade law.",
+      "learningOutcomes": [
+        "Analyze contract formation and enforceability",
+        "Distinguish business organizational forms (LLC, Corp, Partnership)",
+        "Evaluate intellectual property protection strategies",
+        "Apply employment law to hiring and termination decisions",
+        "Assess legal risks in international business transactions"
+      ],
+      "skills": [],
+      "careerPaths": [],
+      "typicalYear": 2,
+      "isCore": true,
+      "tags": [
+        "law",
+        "contracts",
+        "ip",
+        "employment"
+      ]
+    },
+    {
+      "id": "course_bus_strategy",
+      "name": "Strategic Management",
+      "shortName": "BUS401",
+      "disciplineId": "disc_mgmt",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Capstone: formulating and implementing business strategy. Industry analysis, competitive advantage, corporate strategy, and strategic change.",
+      "learningOutcomes": [
+        "Conduct industry analysis using Porter's Five Forces",
+        "Identify sources of sustainable competitive advantage",
+        "Evaluate strategic options (cost leadership, differentiation, focus)",
+        "Design corporate diversification and M&A strategies",
+        "Develop strategy implementation and change management plans"
+      ],
+      "skills": [
+        "skill_strategy",
+        "skill_leadership"
+      ],
+      "careerPaths": [],
+      "typicalYear": 4,
+      "isCore": true,
+      "tags": [
+        "strategy",
+        "competitive-advantage",
+        "porter",
+        "capstone"
+      ]
+    },
+    {
+      "id": "course_bus_intl",
+      "name": "International Business",
+      "shortName": "BUS320",
+      "disciplineId": "disc_bus",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Business in a global context: cross-cultural management, international trade theory, foreign market entry strategies, global supply chains, and exchange rate risk.",
+      "learningOutcomes": [
+        "Analyze country attractiveness for market entry",
+        "Design market entry strategies (export, JV, FDI)",
+        "Manage cross-cultural teams across time zones",
+        "Hedge foreign exchange risk",
+        "Navigate international trade regulations and tariffs"
+      ],
+      "skills": [],
+      "careerPaths": [],
+      "typicalYear": 3,
+      "isCore": true,
+      "tags": [
+        "international",
+        "global",
+        "trade",
+        "cross-cultural"
+      ]
+    },
+    {
+      "id": "course_bus_entrep",
+      "name": "Entrepreneurship",
+      "shortName": "BUS330",
+      "disciplineId": "disc_bus",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Creating and growing new ventures: opportunity recognition, business model design, lean startup methodology, fundraising, and scaling.",
+      "learningOutcomes": [
+        "Identify and validate business opportunities",
+        "Design and test business models using Lean Canvas",
+        "Develop financial projections and pitch decks",
+        "Navigate venture capital and angel fundraising",
+        "Build minimum viable products (MVPs) and iterate"
+      ],
+      "skills": [
+        "skill_entrepreneurship"
+      ],
+      "careerPaths": [
+        "career_product_manager"
+      ],
+      "typicalYear": 3,
+      "isCore": false,
+      "tags": [
+        "startup",
+        "lean",
+        "fundraising",
+        "mvp"
+      ]
+    },
+    {
+      "id": "course_bus_hr",
+      "name": "Human Resource Management",
+      "shortName": "BUS340",
+      "disciplineId": "disc_mgmt",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Strategic HR: talent acquisition, performance management, compensation, training & development, labor relations, and HR analytics.",
+      "learningOutcomes": [
+        "Design competency-based recruitment and selection processes",
+        "Develop performance appraisal and feedback systems",
+        "Structure competitive compensation and benefits packages",
+        "Create learning and development programs",
+        "Apply HR analytics to workforce planning"
+      ],
+      "skills": [
+        "skill_hr",
+        "skill_leadership"
+      ],
+      "careerPaths": [],
+      "typicalYear": 3,
+      "isCore": false,
+      "tags": [
+        "hr",
+        "talent",
+        "compensation",
+        "recruiting"
+      ]
+    },
+    {
+      "id": "course_bus_supply",
+      "name": "Supply Chain Management",
+      "shortName": "BUS350",
+      "disciplineId": "disc_mgmt",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "End-to-end supply chain: procurement, logistics, inventory, demand planning, supplier relationships, and sustainable supply chain practices.",
+      "learningOutcomes": [
+        "Design supply chain networks for cost and resilience",
+        "Apply demand forecasting methods",
+        "Optimize inventory with EOQ and newsvendor models",
+        "Evaluate supplier performance and manage relationships",
+        "Implement sustainable and ethical sourcing practices"
+      ],
+      "skills": [
+        "skill_supply_chain"
+      ],
+      "careerPaths": [],
+      "typicalYear": 4,
+      "isCore": false,
+      "tags": [
+        "supply-chain",
+        "logistics",
+        "procurement",
+        "inventory"
+      ]
+    },
+    {
+      "id": "course_bus_ethics",
+      "name": "Business Ethics",
+      "shortName": "BUS360",
+      "disciplineId": "disc_bus",
+      "level": "intermediate",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Ethical decision-making in business: CSR, stakeholder theory, corporate governance, sustainability, and ethical leadership.",
+      "learningOutcomes": [
+        "Apply ethical frameworks (utilitarian, deontological, virtue) to business dilemmas",
+        "Evaluate corporate social responsibility initiatives",
+        "Design ethical compliance programs",
+        "Analyze conflicts of interest and whistleblowing cases",
+        "Assess the ethics of AI and data use in business"
+      ],
+      "skills": [
+        "skill_critical_thinking"
+      ],
+      "careerPaths": [],
+      "typicalYear": 2,
+      "isCore": true,
+      "tags": [
+        "ethics",
+        "csr",
+        "governance",
+        "sustainability"
+      ]
+    },
+    {
+      "id": "course_bus_digital_mkt",
+      "name": "Digital Marketing",
+      "shortName": "MKT310",
+      "disciplineId": "disc_mkt",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Digital marketing channels and strategy: SEO, SEM, social media, content marketing, email marketing, analytics, and marketing automation.",
+      "learningOutcomes": [
+        "Develop SEO strategies and optimize content for search engines",
+        "Design and manage Google Ads and social media campaigns",
+        "Build email marketing automation workflows",
+        "Analyze digital marketing metrics (CTR, CAC, ROAS, LTV)",
+        "Create data-driven marketing dashboards"
+      ],
+      "skills": [
+        "skill_digital_marketing"
+      ],
+      "careerPaths": [],
+      "typicalYear": 3,
+      "isCore": false,
+      "tags": [
+        "digital-marketing",
+        "seo",
+        "sem",
+        "social-media"
+      ]
+    },
+    {
+      "id": "course_bus_invest",
+      "name": "Investment Analysis",
+      "shortName": "FIN401",
+      "disciplineId": "disc_fin",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Security analysis and portfolio management: equity valuation, fixed income, derivatives, modern portfolio theory, and behavioral finance.",
+      "learningOutcomes": [
+        "Value equities using DCF, DDM, and relative valuation",
+        "Analyze fixed income securities (duration, convexity, yield curves)",
+        "Construct efficient portfolios using Markowitz optimization",
+        "Price options using Black-Scholes and binomial models",
+        "Identify behavioral biases affecting investment decisions"
+      ],
+      "skills": [],
+      "careerPaths": [
+        "career_investment_banker",
+        "career_portfolio_manager"
+      ],
+      "typicalYear": 4,
+      "isCore": false,
+      "tags": [
+        "investing",
+        "portfolio",
+        "options",
+        "behavioral-finance"
+      ]
+    },
+    {
+      "id": "course_bus_consumer",
+      "name": "Consumer Behavior",
+      "shortName": "MKT320",
+      "disciplineId": "disc_mkt",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Psychology of consumer decision-making: perception, motivation, attitudes, social influences, cultural factors, and behavioral economics in marketing.",
+      "learningOutcomes": [
+        "Model consumer decision-making processes",
+        "Apply behavioral economics principles (nudging, framing, anchoring) to marketing",
+        "Analyze social and cultural influences on consumption",
+        "Design experiments to test consumer hypotheses",
+        "Segment consumers by psychographic and behavioral variables"
+      ],
+      "skills": [],
+      "careerPaths": [],
+      "typicalYear": 3,
+      "isCore": false,
+      "tags": [
+        "consumer-psychology",
+        "behavioral-economics",
+        "segmentation"
+      ]
+    },
+    {
+      "id": "course_bus_leadership",
+      "name": "Leadership",
+      "shortName": "BUS410",
+      "disciplineId": "disc_mgmt",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Leadership theory and practice: trait, behavioral, contingency, transformational, and servant leadership. Personal leadership development.",
+      "learningOutcomes": [
+        "Assess personal leadership style using validated instruments",
+        "Apply situational leadership to team contexts",
+        "Develop emotional intelligence competencies",
+        "Design vision and change communication strategies",
+        "Build high-trust, high-performance team cultures"
+      ],
+      "skills": [
+        "skill_leadership"
+      ],
+      "careerPaths": [],
+      "typicalYear": 4,
+      "isCore": true,
+      "tags": [
+        "leadership",
+        "emotional-intelligence",
+        "teams"
+      ]
+    },
+    {
+      "id": "course_bus_project",
+      "name": "Project Management",
+      "shortName": "BUS420",
+      "disciplineId": "disc_mgmt",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Managing projects from initiation to closure: scope, schedule, budget, risk, quality, stakeholder management. Aligned with PMBOK and Agile frameworks.",
+      "learningOutcomes": [
+        "Develop project charters and scope statements",
+        "Build and critical-path-analyze project schedules (WBS, Gantt)",
+        "Estimate and manage project budgets",
+        "Identify and mitigate project risks",
+        "Tailor project methodology (Waterfall, Agile, Hybrid) to context"
+      ],
+      "skills": [
+        "skill_project_mgmt"
+      ],
+      "careerPaths": [],
+      "typicalYear": 4,
+      "isCore": false,
+      "tags": [
+        "project-management",
+        "pmbok",
+        "agile",
+        "scrum"
+      ]
+    },
+    {
+      "id": "course_bus_analytics",
+      "name": "Business Analytics",
+      "shortName": "BUS430",
+      "disciplineId": "disc_bus",
+      "crossDisciplineIds": [
+        "disc_ds"
+      ],
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Data-driven business decision-making: descriptive, predictive, and prescriptive analytics using tools like Excel, SQL, Tableau, and Python.",
+      "learningOutcomes": [
+        "Build interactive dashboards with Tableau or Power BI",
+        "Apply predictive models to business problems (churn, LTV, demand)",
+        "Use optimization models for resource allocation decisions",
+        "Communicate analytical insights to executives",
+        "Design A/B tests and analyze experimental results"
+      ],
+      "skills": [
+        "skill_sql"
+      ],
+      "careerPaths": [
+        "career_business_analyst"
+      ],
+      "typicalYear": 4,
+      "isCore": false,
+      "tags": [
+        "analytics",
+        "tableau",
+        "ab-testing",
+        "dashboards"
+      ]
+    },
+    {
+      "id": "course_bus_negotiation",
+      "name": "Negotiation & Conflict Resolution",
+      "shortName": "BUS440",
+      "disciplineId": "disc_mgmt",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Theory and practice of negotiation: distributive and integrative bargaining, BATNA analysis, power dynamics, cross-cultural negotiation, and mediation.",
+      "learningOutcomes": [
+        "Prepare negotiation strategies using BATNA and ZOPA frameworks",
+        "Apply integrative (win-win) bargaining techniques",
+        "Manage power asymmetries in negotiations",
+        "Navigate cross-cultural negotiation differences",
+        "Mediate disputes as a neutral third party"
+      ],
+      "skills": [
+        "skill_negotiation"
+      ],
+      "careerPaths": [],
+      "typicalYear": 4,
+      "isCore": false,
+      "tags": [
+        "negotiation",
+        "bargaining",
+        "conflict",
+        "mediation"
+      ]
+    },
+    {
+      "id": "course_bus_ecom",
+      "name": "E-Commerce",
+      "shortName": "MKT330",
+      "disciplineId": "disc_mkt",
+      "crossDisciplineIds": [
+        "disc_se"
+      ],
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Digital commerce: platform business models, payment systems, conversion optimization, marketplace dynamics, and e-commerce analytics.",
+      "learningOutcomes": [
+        "Design e-commerce platform strategies (B2C, B2B, C2C, D2C)",
+        "Optimize conversion funnels and checkout flows",
+        "Integrate payment gateways and manage fraud risk",
+        "Analyze marketplace network effects",
+        "Apply SEO and CRO to e-commerce sites"
+      ],
+      "skills": [
+        "skill_digital_marketing"
+      ],
+      "careerPaths": [
+        "career_product_manager"
+      ],
+      "typicalYear": 3,
+      "isCore": false,
+      "tags": [
+        "ecommerce",
+        "conversion",
+        "platforms",
+        "marketplace"
+      ]
+    },
+    {
+      "id": "course_bus_fintech",
+      "name": "FinTech",
+      "shortName": "FIN410",
+      "disciplineId": "disc_fin",
+      "crossDisciplineIds": [
+        "disc_cs"
+      ],
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Technology-driven financial innovation: blockchain, cryptocurrencies, robo-advisory, P2P lending, crowdfunding, and regulatory technology (RegTech).",
+      "learningOutcomes": [
+        "Explain blockchain consensus mechanisms and smart contracts",
+        "Evaluate DeFi protocols and their risks",
+        "Design robo-advisory algorithms for portfolio management",
+        "Analyze regulatory frameworks for FinTech (KYC, AML, PSD2)",
+        "Assess the disruption potential of embedded finance"
+      ],
+      "skills": [
+        "skill_fintech",
+        "skill_blockchain"
+      ],
+      "careerPaths": [
+        "career_product_manager"
+      ],
+      "typicalYear": 4,
+      "isCore": false,
+      "tags": [
+        "fintech",
+        "blockchain",
+        "defi",
+        "crypto"
+      ]
+    },
+    {
+      "id": "course_mcs_adv_algo",
+      "name": "Advanced Algorithms",
+      "shortName": "MCS501",
+      "disciplineId": "disc_cs",
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Graduate-level algorithm design: network flows, linear programming, approximation algorithms, randomized algorithms, and parameterized complexity.",
+      "learningOutcomes": [
+        "Design approximation algorithms for NP-hard problems",
+        "Apply linear programming duality to optimization",
+        "Implement randomized algorithms with provable guarantees",
+        "Analyze online algorithms with competitive ratios",
+        "Prove lower bounds for algorithmic problems"
+      ],
+      "skills": [
+        "skill_algorithms",
+        "skill_research"
+      ],
+      "careerPaths": [
+        "career_ml_engineer"
+      ],
+      "typicalYear": 5,
+      "isCore": true,
+      "tags": [
+        "algorithms",
+        "complexity",
+        "optimization",
+        "graduate"
+      ]
+    },
+    {
+      "id": "course_mcs_dist_sys",
+      "name": "Distributed Systems",
+      "shortName": "MCS510",
+      "disciplineId": "disc_cs",
+      "crossDisciplineIds": [
+        "disc_se"
+      ],
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Design and implementation of distributed systems: consensus, replication, consistency models, distributed transactions, and fault tolerance.",
+      "learningOutcomes": [
+        "Implement consensus algorithms (Paxos, Raft)",
+        "Design eventually-consistent distributed databases",
+        "Handle network partitions with CAP theorem awareness",
+        "Build fault-tolerant systems with replication",
+        "Analyze distributed system performance bottlenecks"
+      ],
+      "skills": [],
+      "careerPaths": [
+        "career_swe"
+      ],
+      "typicalYear": 5,
+      "isCore": true,
+      "tags": [
+        "distributed-systems",
+        "consensus",
+        "cap",
+        "fault-tolerance"
+      ]
+    },
+    {
+      "id": "course_mcs_ai_ethics",
+      "name": "AI Ethics & Society",
+      "shortName": "MCS520",
+      "disciplineId": "disc_ai",
+      "crossDisciplineIds": [
+        "disc_bus"
+      ],
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Ethical implications of AI: fairness, accountability, transparency, privacy, bias, alignment, and the societal impact of automation.",
+      "learningOutcomes": [
+        "Audit ML models for fairness using demographic parity and equalized odds",
+        "Apply explainability techniques (LIME, SHAP)",
+        "Design AI governance frameworks for organizations",
+        "Evaluate the societal impact of autonomous systems",
+        "Develop ethical guidelines for responsible AI deployment"
+      ],
+      "skills": [],
+      "careerPaths": [],
+      "typicalYear": 5,
+      "isCore": false,
+      "tags": [
+        "ai-ethics",
+        "fairness",
+        "explainability",
+        "governance"
+      ]
+    },
+    {
+      "id": "course_mba_acct",
+      "name": "Managerial Accounting",
+      "shortName": "MBA501",
+      "disciplineId": "disc_fin",
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Using accounting information for internal decision-making: cost behavior, CVP analysis, budgeting, variance analysis, and performance measurement.",
+      "learningOutcomes": [
+        "Analyze cost behavior (fixed, variable, mixed)",
+        "Apply CVP analysis for break-even and target profit planning",
+        "Design master budgets and flexible budgets",
+        "Compute and interpret cost and revenue variances",
+        "Design balanced scorecard performance systems"
+      ],
+      "skills": [
+        "skill_accounting"
+      ],
+      "careerPaths": [],
+      "typicalYear": 5,
+      "isCore": true,
+      "tags": [
+        "accounting",
+        "costing",
+        "budgeting",
+        "variance"
+      ]
+    },
+    {
+      "id": "course_mba_fin_mgmt",
+      "name": "Financial Management",
+      "shortName": "MBA510",
+      "disciplineId": "disc_fin",
+      "crossDisciplineIds": [
+        "disc_mgmt"
+      ],
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Advanced corporate financial strategy: capital structure theory, M&A, corporate restructuring, risk management, and value-based management.",
+      "learningOutcomes": [
+        "Value companies for M&A using DCF and transaction comparables",
+        "Structure leveraged buyouts and analyze LBO models",
+        "Design corporate hedging strategies with derivatives",
+        "Apply real options analysis to strategic investments",
+        "Develop value-based management systems (EVA, shareholder value)"
+      ],
+      "skills": [],
+      "careerPaths": [
+        "career_investment_banker"
+      ],
+      "typicalYear": 5,
+      "isCore": true,
+      "tags": [
+        "finance",
+        "ma",
+        "lbo",
+        "derivatives"
+      ]
+    },
+    {
+      "id": "course_mba_mkt_strat",
+      "name": "Marketing Strategy",
+      "shortName": "MBA520",
+      "disciplineId": "disc_mkt",
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Strategic marketing at the C-suite level: brand equity, pricing strategy, channel strategy, customer experience design, and marketing ROI.",
+      "learningOutcomes": [
+        "Measure and manage brand equity",
+        "Design value-based pricing strategies",
+        "Optimize omni-channel distribution",
+        "Calculate marketing ROI and customer acquisition cost",
+        "Develop customer experience (CX) strategies"
+      ],
+      "skills": [
+        "skill_strategy"
+      ],
+      "careerPaths": [],
+      "typicalYear": 5,
+      "isCore": true,
+      "tags": [
+        "marketing-strategy",
+        "brand",
+        "pricing",
+        "cx"
+      ]
+    },
+    {
+      "id": "course_dba_research",
+      "name": "Research Methods in Business",
+      "shortName": "DBA601",
+      "disciplineId": "disc_bus",
+      "level": "doctoral",
+      "degreeLevel": "doctorate",
+      "credits": {
+        "us": 3,
+        "ects": 7.5,
+        "uk": 20,
+        "china": 3
+      },
+      "description": "Doctoral-level research design: qualitative, quantitative, and mixed methods. Literature review, hypothesis development, measurement, and research ethics.",
+      "learningOutcomes": [
+        "Design rigorous research studies (experimental, quasi-experimental, case study)",
+        "Develop testable hypotheses from theory",
+        "Construct and validate measurement instruments",
+        "Apply advanced statistical methods (SEM, HLM, panel data)",
+        "Write research proposals aligned with journal standards"
+      ],
+      "skills": [
+        "skill_research"
+      ],
+      "careerPaths": [],
+      "typicalYear": 6,
+      "isCore": true,
+      "tags": [
+        "research-methods",
+        "statistics",
+        "phd",
+        "methodology"
+      ]
+    },
+    {
+      "id": "course_dba_strat_lead",
+      "name": "Strategic Leadership & Governance",
+      "shortName": "DBA610",
+      "disciplineId": "disc_mgmt",
+      "level": "doctoral",
+      "degreeLevel": "doctorate",
+      "credits": {
+        "us": 3,
+        "ects": 7.5,
+        "uk": 20,
+        "china": 3
+      },
+      "description": "Executive-level strategic leadership: board governance, stakeholder management, corporate political activity, strategic change, and CEO succession.",
+      "learningOutcomes": [
+        "Analyze board composition and governance effectiveness",
+        "Design stakeholder engagement strategies",
+        "Evaluate strategic change initiatives through case analysis",
+        "Develop CEO succession planning frameworks",
+        "Apply upper echelons theory to strategic decisions"
+      ],
+      "skills": [
+        "skill_leadership",
+        "skill_strategy"
+      ],
+      "careerPaths": [],
+      "typicalYear": 6,
+      "isCore": true,
+      "tags": [
+        "governance",
+        "board",
+        "ceo",
+        "strategy"
+      ]
+    },
+    {
+      "id": "course_cs_theory",
+      "name": "Theory of Computation",
+      "shortName": "CS330",
+      "disciplineId": "disc_cs",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Formal models of computation: finite automata, pushdown automata, Turing machines, computability, and complexity classes (P, NP, PSPACE).",
+      "learningOutcomes": [
+        "Prove language regularity/non-regularity using pumping lemma",
+        "Construct Turing machines for computational problems",
+        "Classify problems as decidable, recognizable, or undecidable",
+        "Prove NP-completeness via polynomial-time reduction",
+        "Explain the P vs NP problem and its implications"
+      ],
+      "skills": [],
+      "careerPaths": [],
+      "typicalYear": 3,
+      "isCore": true,
+      "tags": [
+        "theory",
+        "computation",
+        "turing",
+        "np-complete"
+      ]
+    },
+    {
+      "id": "course_cs_compilers",
+      "name": "Compiler Design",
+      "shortName": "CS410",
+      "disciplineId": "disc_cs",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 4,
+        "ects": 7.5,
+        "uk": 20,
+        "china": 4
+      },
+      "description": "Building compilers: lexical analysis, parsing, semantic analysis, intermediate representation, code optimization, and code generation.",
+      "learningOutcomes": [
+        "Implement a lexer using regular expressions and finite automata",
+        "Build recursive-descent and LR parsers for context-free grammars",
+        "Design intermediate representations (AST, TAC, SSA)",
+        "Apply dataflow analysis for code optimization",
+        "Generate target machine code from IR"
+      ],
+      "skills": [],
+      "careerPaths": [
+        "career_swe"
+      ],
+      "typicalYear": 4,
+      "isCore": false,
+      "tags": [
+        "compilers",
+        "parsing",
+        "optimization",
+        "code-generation"
+      ]
+    },
+    {
+      "id": "course_cs_hci",
+      "name": "Human-Computer Interaction",
+      "shortName": "CS420",
+      "disciplineId": "disc_cs",
+      "crossDisciplineIds": [
+        "disc_se"
+      ],
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "User-centered design: usability principles, interaction design, prototyping, evaluation methods, accessibility, and emerging interaction paradigms.",
+      "learningOutcomes": [
+        "Conduct user research (interviews, surveys, observation)",
+        "Create wireframes, prototypes, and interaction flows",
+        "Apply usability heuristics and conduct heuristic evaluations",
+        "Design and run usability tests with quantitative metrics",
+        "Implement accessible interfaces following WCAG guidelines"
+      ],
+      "skills": [
+        "skill_ux"
+      ],
+      "careerPaths": [
+        "career_swe"
+      ],
+      "typicalYear": 4,
+      "isCore": false,
+      "tags": [
+        "hci",
+        "ux",
+        "usability",
+        "design"
+      ]
+    },
+    {
+      "id": "course_cs_graphics",
+      "name": "Computer Graphics",
+      "shortName": "CS430",
+      "disciplineId": "disc_cs",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Real-time rendering: rasterization, shading, ray tracing, geometric modeling, animation, and GPU programming with OpenGL/WebGL.",
+      "learningOutcomes": [
+        "Implement the 3D rendering pipeline (model, view, projection transforms)",
+        "Write vertex and fragment shaders in GLSL",
+        "Apply Phong and PBR shading models",
+        "Implement shadow mapping and environment mapping",
+        "Build a simple ray tracer from scratch"
+      ],
+      "skills": [],
+      "careerPaths": [
+        "career_swe"
+      ],
+      "typicalYear": 4,
+      "isCore": false,
+      "tags": [
+        "graphics",
+        "opengl",
+        "shaders",
+        "rendering"
+      ]
+    },
+    {
+      "id": "course_cs_capstone",
+      "name": "Computer Science Capstone",
+      "shortName": "CS490",
+      "disciplineId": "disc_cs",
+      "crossDisciplineIds": [
+        "disc_se"
+      ],
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 4,
+        "ects": 7.5,
+        "uk": 20,
+        "china": 4
+      },
+      "description": "Team-based capstone project: full software development lifecycle from requirements to deployment. Work with external stakeholders on a real-world problem.",
+      "learningOutcomes": [
+        "Deliver a complete software product from concept to deployment",
+        "Collaborate effectively in an Agile team",
+        "Present technical work to non-technical stakeholders",
+        "Manage project scope, timeline, and risks",
+        "Document system architecture and user guides"
+      ],
+      "skills": [
+        "skill_project_mgmt"
+      ],
+      "careerPaths": [
+        "career_swe"
+      ],
+      "typicalYear": 4,
+      "isCore": true,
+      "tags": [
+        "capstone",
+        "project",
+        "team",
+        "deployment"
+      ]
+    },
+    {
+      "id": "course_mcs_capstone",
+      "name": "MCS Thesis / Capstone",
+      "shortName": "MCS590",
+      "disciplineId": "disc_cs",
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 6,
+        "ects": 12,
+        "uk": 30,
+        "china": 6
+      },
+      "description": "Master's thesis or applied project: original research or significant software system development under faculty supervision.",
+      "learningOutcomes": [
+        "Formulate a research question or engineering problem",
+        "Conduct a systematic literature review",
+        "Design and execute a rigorous methodology",
+        "Present findings in a formal thesis defense",
+        "Produce publishable-quality research or production-ready software"
+      ],
+      "skills": [
+        "skill_research"
+      ],
+      "careerPaths": [
+        "career_swe"
+      ],
+      "typicalYear": 6,
+      "isCore": true,
+      "tags": [
+        "thesis",
+        "research",
+        "capstone",
+        "graduate"
+      ]
+    },
+    {
+      "id": "course_mba_capstone",
+      "name": "MBA Capstone / Consulting Project",
+      "shortName": "MBA590",
+      "disciplineId": "disc_bus",
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 6,
+        "ects": 12,
+        "uk": 30,
+        "china": 6
+      },
+      "description": "Applied strategic consulting project for a real organization. Teams diagnose problems, analyze data, and present actionable recommendations to C-suite.",
+      "learningOutcomes": [
+        "Diagnose complex organizational problems",
+        "Collect and analyze business data from multiple sources",
+        "Develop strategic recommendations with implementation roadmaps",
+        "Present findings to executive leadership",
+        "Manage client relationships and expectations"
+      ],
+      "skills": [
+        "skill_strategy"
+      ],
+      "careerPaths": [],
+      "typicalYear": 6,
+      "isCore": true,
+      "tags": [
+        "capstone",
+        "consulting",
+        "strategy",
+        "mba"
+      ]
+    },
+    {
+      "id": "course_dba_dissertation",
+      "name": "DBA Dissertation",
+      "shortName": "DBA690",
+      "disciplineId": "disc_bus",
+      "level": "doctoral",
+      "degreeLevel": "doctorate",
+      "credits": {
+        "us": 12,
+        "ects": 30,
+        "uk": 60,
+        "china": 12
+      },
+      "description": "Original doctoral research contributing to business theory and practice. Independent research culminating in a dissertation defense.",
+      "learningOutcomes": [
+        "Identify a significant gap in business literature",
+        "Design and execute original empirical research",
+        "Contribute novel theoretical insights to the field",
+        "Defend dissertation before an academic committee",
+        "Publish findings in peer-reviewed journals"
+      ],
+      "skills": [
+        "skill_research"
+      ],
+      "careerPaths": [],
+      "typicalYear": 8,
+      "isCore": true,
+      "tags": [
+        "dissertation",
+        "research",
+        "doctoral",
+        "dba"
+      ]
+    },
+    {
+      "id": "course_cs_mit_algo",
+      "name": "Design & Analysis of Algorithms",
+      "shortName": "6.046",
+      "disciplineId": "disc_cs",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 4,
+        "ects": 7.5,
+        "uk": 20,
+        "china": 4
+      },
+      "description": "Advanced techniques for algorithm design and analysis: divide-and-conquer, dynamic programming, amortized analysis, randomization, network flow, linear programming, and approximation algorithms. Modeled after MIT 6.046.",
+      "learningOutcomes": [
+        "Analyze algorithm complexity using advanced asymptotic techniques",
+        "Apply network flow and linear programming to optimization problems",
+        "Design approximation algorithms for NP-hard problems",
+        "Implement randomized algorithms with provable guarantees",
+        "Prove correctness and optimality of greedy algorithms"
+      ],
+      "skills": [
+        "skill_algorithms",
+        "skill_python"
+      ],
+      "tags": [
+        "algorithms",
+        "complexity",
+        "np-complete",
+        "mit"
+      ],
+      "typicalYear": 3,
+      "isCore": true
+    },
+    {
+      "id": "course_cs_mit_sys",
+      "name": "Computer System Engineering",
+      "shortName": "6.033",
+      "disciplineId": "disc_cs",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 4,
+        "ects": 7.5,
+        "uk": 20,
+        "china": 4
+      },
+      "description": "Principles of computer system design: modularity, abstraction, naming, networking, fault tolerance, security, and real-world case studies including the Internet, DNS, and cloud systems. Modeled after MIT 6.033.",
+      "learningOutcomes": [
+        "Design modular systems with clean abstractions",
+        "Analyze system trade-offs in performance, reliability, and security",
+        "Apply fault-tolerance techniques including replication and consensus",
+        "Evaluate real-world systems through case-study methodology",
+        "Design naming and addressing schemes for distributed systems"
+      ],
+      "skills": [
+        "skill_system_design",
+        "skill_distributed_sys"
+      ],
+      "tags": [
+        "systems",
+        "design",
+        "mit",
+        "fault-tolerance"
+      ],
+      "typicalYear": 3,
+      "isCore": true
+    },
+    {
+      "id": "course_cs_mit_dist",
+      "name": "Distributed Systems Engineering",
+      "shortName": "6.824",
+      "disciplineId": "disc_cs",
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 4,
+        "ects": 7.5,
+        "uk": 20,
+        "china": 4
+      },
+      "description": "Engineering distributed systems: RPC, threads, concurrency control, replication, consensus (Raft/Paxos), fault tolerance, and distributed transactions. Heavy implementation focus — students build a key-value store. Modeled after MIT 6.824.",
+      "learningOutcomes": [
+        "Implement the Raft consensus algorithm",
+        "Design linearizable distributed storage systems",
+        "Apply two-phase commit for distributed transactions",
+        "Debug distributed race conditions and deadlocks",
+        "Evaluate consistency vs availability trade-offs (CAP)"
+      ],
+      "skills": [
+        "skill_distributed_sys",
+        "skill_system_design"
+      ],
+      "tags": [
+        "distributed-systems",
+        "raft",
+        "consensus",
+        "mit",
+        "graduate"
+      ],
+      "typicalYear": 5,
+      "isCore": true
+    },
+    {
+      "id": "course_cs_mit_sec",
+      "name": "Computer Systems Security",
+      "shortName": "6.858",
+      "disciplineId": "disc_cs",
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 4,
+        "ects": 7.5,
+        "uk": 20,
+        "china": 4
+      },
+      "description": "Security architecture and engineering: threat modeling, privilege separation, capability systems, information flow control, sandboxing, and web security. Includes hands-on security lab projects. Modeled after MIT 6.858.",
+      "learningOutcomes": [
+        "Conduct systematic threat modeling using STRIDE and attack trees",
+        "Design privilege-separated system architectures",
+        "Implement information flow control mechanisms",
+        "Analyze web application vulnerabilities (XSS, CSRF, SQLi)",
+        "Build secure sandbox environments"
+      ],
+      "skills": [
+        "skill_cyber",
+        "skill_system_design"
+      ],
+      "tags": [
+        "security",
+        "mit",
+        "threat-modeling",
+        "graduate"
+      ],
+      "typicalYear": 5,
+      "isCore": false
+    },
+    {
+      "id": "course_cs_harv_cs50",
+      "name": "Introduction to Computer Science",
+      "shortName": "CS50",
+      "disciplineId": "disc_cs",
+      "level": "foundation",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 4,
+        "ects": 7.5,
+        "uk": 20,
+        "china": 4
+      },
+      "description": "Harvard's legendary introduction to the intellectual enterprises of computer science and the art of programming. Covers C, Python, SQL, HTML/CSS/JavaScript, algorithms, data structures, and computational thinking. Modeled after Harvard CS50.",
+      "learningOutcomes": [
+        "Write programs in C, Python, and JavaScript",
+        "Design and query SQL databases",
+        "Implement fundamental algorithms and data structures",
+        "Build full-stack web applications",
+        "Think algorithmically and solve problems efficiently"
+      ],
+      "skills": [
+        "skill_python",
+        "skill_sql",
+        "skill_algorithms"
+      ],
+      "tags": [
+        "cs50",
+        "harvard",
+        "intro",
+        "programming",
+        "c"
+      ],
+      "typicalYear": 1,
+      "isCore": true
+    },
+    {
+      "id": "course_cs_harv_ml",
+      "name": "Machine Learning",
+      "shortName": "CS181",
+      "disciplineId": "disc_ai",
+      "crossDisciplineIds": [
+        "disc_cs",
+        "disc_ds"
+      ],
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 4,
+        "ects": 7.5,
+        "uk": 20,
+        "china": 4
+      },
+      "description": "A comprehensive introduction to machine learning: supervised and unsupervised learning, Bayesian methods, kernel methods, neural networks, and reinforcement learning. Modeled after Harvard CS181.",
+      "learningOutcomes": [
+        "Derive and implement Bayesian and frequentist ML algorithms",
+        "Apply kernel methods including SVMs and Gaussian processes",
+        "Design and train deep neural networks for classification and regression",
+        "Evaluate bias-variance trade-offs in model selection",
+        "Implement reinforcement learning algorithms"
+      ],
+      "skills": [
+        "skill_ml",
+        "skill_python",
+        "skill_deep_learning"
+      ],
+      "tags": [
+        "machine-learning",
+        "harvard",
+        "bayesian",
+        "kernels"
+      ],
+      "typicalYear": 3,
+      "isCore": true
+    },
+    {
+      "id": "course_cs_stan_ai",
+      "name": "Artificial Intelligence: Principles & Techniques",
+      "shortName": "CS221",
+      "disciplineId": "disc_ai",
+      "crossDisciplineIds": [
+        "disc_cs"
+      ],
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Survey of modern AI: search, Markov decision processes, game playing, constraint satisfaction, Bayesian networks, and logic. Emphasis on practical implementation. Modeled after Stanford CS221.",
+      "learningOutcomes": [
+        "Implement A* search and adversarial search algorithms",
+        "Model sequential decision problems as MDPs",
+        "Design Bayesian networks for probabilistic reasoning",
+        "Apply constraint satisfaction for scheduling and planning",
+        "Build game-playing agents using minimax and Monte Carlo tree search"
+      ],
+      "skills": [
+        "skill_python",
+        "skill_ml"
+      ],
+      "tags": [
+        "ai",
+        "stanford",
+        "search",
+        "mdp",
+        "bayesian"
+      ],
+      "typicalYear": 5,
+      "isCore": true
+    },
+    {
+      "id": "course_cs_stan_nlp",
+      "name": "Natural Language Processing with Deep Learning",
+      "shortName": "CS224N",
+      "disciplineId": "disc_ai",
+      "crossDisciplineIds": [
+        "disc_cs"
+      ],
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Cutting-edge NLP with deep learning: word vectors, RNNs, LSTMs, attention, Transformers, BERT, GPT architectures, and large language models. Modeled after Stanford CS224N.",
+      "learningOutcomes": [
+        "Implement word2vec and GloVe embeddings",
+        "Design sequence-to-sequence models with attention",
+        "Build and fine-tune Transformer architectures",
+        "Pre-train and adapt large language models",
+        "Evaluate NLP systems on benchmarks (GLUE, SuperGLUE)"
+      ],
+      "skills": [
+        "skill_nlp",
+        "skill_deep_learning",
+        "skill_python"
+      ],
+      "tags": [
+        "nlp",
+        "transformers",
+        "stanford",
+        "llm",
+        "attention"
+      ],
+      "typicalYear": 5,
+      "isCore": false
+    },
+    {
+      "id": "course_cs_stan_rl",
+      "name": "Reinforcement Learning",
+      "shortName": "CS234",
+      "disciplineId": "disc_ai",
+      "crossDisciplineIds": [
+        "disc_cs"
+      ],
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Theoretical and practical reinforcement learning: MDPs, value iteration, policy gradients, Q-learning, deep RL, exploration, and applications to robotics and games. Modeled after Stanford CS234.",
+      "learningOutcomes": [
+        "Implement value iteration and policy iteration algorithms",
+        "Apply deep Q-networks (DQN) to complex environments",
+        "Design policy gradient methods (REINFORCE, PPO)",
+        "Balance exploration vs exploitation in online learning",
+        "Evaluate RL agents in simulated environments (Gym)"
+      ],
+      "skills": [
+        "skill_ml",
+        "skill_deep_learning",
+        "skill_python"
+      ],
+      "tags": [
+        "reinforcement-learning",
+        "stanford",
+        "deep-rl",
+        "mdp"
+      ],
+      "typicalYear": 5,
+      "isCore": false
+    },
+    {
+      "id": "course_ds_harv_data",
+      "name": "Introduction to Data Science",
+      "shortName": "DS101",
+      "disciplineId": "disc_ds",
+      "level": "foundation",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 4,
+        "ects": 7.5,
+        "uk": 20,
+        "china": 4
+      },
+      "description": "The data science lifecycle: data wrangling, exploratory analysis, statistical modeling, machine learning, and communication of results. Heavy use of R and Python. Modeled after Harvard Data Science course.",
+      "learningOutcomes": [
+        "Wrangle messy real-world datasets into analysis-ready form",
+        "Perform exploratory data analysis with ggplot2 and matplotlib",
+        "Fit and interpret regression and classification models",
+        "Communicate data insights through visualizations and reports",
+        "Apply the full data science workflow to a capstone project"
+      ],
+      "skills": [
+        "skill_python",
+        "skill_sql",
+        "skill_stats"
+      ],
+      "tags": [
+        "data-science",
+        "harvard",
+        "r",
+        "eda",
+        "modeling"
+      ],
+      "typicalYear": 1,
+      "isCore": true
+    },
+    {
+      "id": "course_ds_stan_stats",
+      "name": "Statistical Learning",
+      "shortName": "STATS216",
+      "disciplineId": "disc_ds",
+      "crossDisciplineIds": [
+        "disc_ai"
+      ],
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "Modern statistical learning methods: regularization, splines, GAMs, trees, random forests, boosting, SVMs, and deep learning. Emphasis on statistical foundations. Modeled after Stanford Stats 216 / ISLR.",
+      "learningOutcomes": [
+        "Apply ridge regression and LASSO for high-dimensional data",
+        "Build tree-based ensembles (random forest, gradient boosting)",
+        "Analyze the bias-variance trade-off in model selection",
+        "Implement cross-validation and bootstrap for model assessment",
+        "Interpret black-box models using SHAP and LIME"
+      ],
+      "skills": [
+        "skill_stats",
+        "skill_ml",
+        "skill_python"
+      ],
+      "tags": [
+        "statistical-learning",
+        "stanford",
+        "regularization",
+        "ensemble"
+      ],
+      "typicalYear": 5,
+      "isCore": false
+    },
+    {
+      "id": "course_psych_harv_intro",
+      "name": "Introduction to Psychology",
+      "shortName": "PSYCH1",
+      "disciplineId": "disc_psych",
+      "level": "foundation",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "A comprehensive survey of psychological science: brain and behavior, sensation and perception, learning and memory, cognition, development, social psychology, personality, and psychopathology. Modeled after Harvard's introductory psychology course.",
+      "learningOutcomes": [
+        "Describe major theoretical perspectives in psychology",
+        "Explain the neural basis of behavior and cognition",
+        "Evaluate research methods and experimental designs",
+        "Apply psychological principles to everyday situations",
+        "Critically analyze claims about human behavior using evidence"
+      ],
+      "skills": [
+        "skill_critical_thinking",
+        "skill_research"
+      ],
+      "tags": [
+        "psychology",
+        "harvard",
+        "intro",
+        "mind",
+        "behavior"
+      ],
+      "typicalYear": 1,
+      "isCore": true
+    },
+    {
+      "id": "course_psych_stan_social",
+      "name": "Social Psychology",
+      "shortName": "PSYCH215",
+      "disciplineId": "disc_psych",
+      "level": "intermediate",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "How social situations shape human behavior: conformity, obedience, persuasion, group dynamics, prejudice, attraction, and altruism. Classic experiments and modern replications. Modeled after Stanford social psychology.",
+      "learningOutcomes": [
+        "Analyze classic social psychology experiments (Milgram, Asch, Zimbardo)",
+        "Apply attribution theory to explain social judgments",
+        "Design experiments to test social influence hypotheses",
+        "Evaluate the replication crisis and open science practices",
+        "Develop interventions to reduce prejudice and discrimination"
+      ],
+      "skills": [
+        "skill_critical_thinking",
+        "skill_research"
+      ],
+      "tags": [
+        "social-psychology",
+        "stanford",
+        "conformity",
+        "prejudice"
+      ],
+      "typicalYear": 2,
+      "isCore": true
+    },
+    {
+      "id": "course_psych_mit_cog",
+      "name": "Cognitive Science",
+      "shortName": "9.012",
+      "disciplineId": "disc_psych",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 4,
+        "ects": 7.5,
+        "uk": 20,
+        "china": 4
+      },
+      "description": "The interdisciplinary study of mind and intelligence: perception, attention, memory, language, reasoning, decision-making, and consciousness. Integrates psychology, neuroscience, computer science, and philosophy. Modeled after MIT 9.012.",
+      "learningOutcomes": [
+        "Model cognitive processes using computational frameworks",
+        "Analyze perceptual illusions to understand sensory processing",
+        "Compare theories of memory encoding, storage, and retrieval",
+        "Evaluate the modularity of mind hypothesis",
+        "Apply Bayesian models to understand human reasoning"
+      ],
+      "skills": [
+        "skill_critical_thinking",
+        "skill_research"
+      ],
+      "tags": [
+        "cognitive-science",
+        "mit",
+        "perception",
+        "memory",
+        "consciousness"
+      ],
+      "typicalYear": 3,
+      "isCore": false
+    },
+    {
+      "id": "course_econ_mit_micro",
+      "name": "Microeconomic Theory & Public Policy",
+      "shortName": "14.121",
+      "disciplineId": "disc_econ",
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 4,
+        "ects": 7.5,
+        "uk": 20,
+        "china": 4
+      },
+      "description": "Advanced microeconomic theory: consumer and producer theory, general equilibrium, welfare economics, market failures, game theory, and mechanism design. Applications to public policy. Modeled after MIT 14.121.",
+      "learningOutcomes": [
+        "Derive demand functions from utility maximization",
+        "Analyze general equilibrium in competitive markets",
+        "Design mechanisms for efficient resource allocation",
+        "Apply game theory to strategic interactions and auctions",
+        "Evaluate public policies using welfare economics frameworks"
+      ],
+      "skills": [
+        "skill_econ_analysis"
+      ],
+      "tags": [
+        "microeconomics",
+        "mit",
+        "game-theory",
+        "welfare",
+        "mechanism-design"
+      ],
+      "typicalYear": 5,
+      "isCore": true
+    },
+    {
+      "id": "course_econ_harv_behavioral",
+      "name": "Behavioral Economics",
+      "shortName": "ECON2070",
+      "disciplineId": "disc_econ",
+      "crossDisciplineIds": [
+        "disc_psych"
+      ],
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "How psychological factors influence economic decision-making: heuristics, biases, framing, prospect theory, nudging, and time inconsistency. Policy applications. Modeled after Harvard's behavioral economics course.",
+      "learningOutcomes": [
+        "Identify cognitive biases (anchoring, availability, representativeness)",
+        "Apply prospect theory to decisions under risk",
+        "Design nudges and choice architecture for policy",
+        "Analyze intertemporal choice and self-control problems",
+        "Evaluate the ethics of behavioral interventions"
+      ],
+      "skills": [
+        "skill_critical_thinking",
+        "skill_econ_analysis"
+      ],
+      "tags": [
+        "behavioral-economics",
+        "harvard",
+        "nudge",
+        "biases",
+        "prospect-theory"
+      ],
+      "typicalYear": 3,
+      "isCore": false
+    },
+    {
+      "id": "course_econ_stan_econometrics",
+      "name": "Econometrics: Causal Inference",
+      "shortName": "ECON270",
+      "disciplineId": "disc_econ",
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 4,
+        "ects": 7.5,
+        "uk": 20,
+        "china": 4
+      },
+      "description": "Modern causal inference methods: randomized experiments, matching, difference-in-differences, instrumental variables, regression discontinuity, and synthetic control. Heavy use of R and Stata. Modeled after Stanford econometrics.",
+      "learningOutcomes": [
+        "Design and analyze randomized controlled experiments",
+        "Apply difference-in-differences for policy evaluation",
+        "Implement instrumental variables for endogenous regressors",
+        "Use regression discontinuity for quasi-experimental designs",
+        "Critique causal claims in published economic research"
+      ],
+      "skills": [
+        "skill_stats",
+        "skill_econ_analysis"
+      ],
+      "tags": [
+        "econometrics",
+        "stanford",
+        "causal-inference",
+        "rcts",
+        "policy"
+      ],
+      "typicalYear": 5,
+      "isCore": true
+    },
+    {
+      "id": "course_bus_harv_neg",
+      "name": "Negotiation & Deal-Making",
+      "shortName": "HBS2001",
+      "disciplineId": "disc_mgmt",
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "The art and science of negotiation: distributive and integrative bargaining, BATNA analysis, coalition dynamics, cross-cultural negotiation, and deal design. Case-method teaching. Modeled after Harvard Business School's legendary negotiation course.",
+      "learningOutcomes": [
+        "Prepare and execute multi-issue negotiation strategies",
+        "Analyze BATNA and reservation points systematically",
+        "Build and sustain coalitions in multi-party negotiations",
+        "Navigate cross-cultural negotiation differences",
+        "Structure complex deal terms for mutual gain"
+      ],
+      "skills": [
+        "skill_negotiation"
+      ],
+      "tags": [
+        "negotiation",
+        "harvard",
+        "deal-making",
+        "batna",
+        "hbs"
+      ],
+      "typicalYear": 5,
+      "isCore": false
+    },
+    {
+      "id": "course_bus_stan_entrep",
+      "name": "Entrepreneurship & Venture Creation",
+      "shortName": "GSB301",
+      "disciplineId": "disc_bus",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 6,
+        "uk": 15,
+        "china": 3
+      },
+      "description": "From idea to venture: opportunity recognition, customer discovery, lean startup methodology, business model design, fundraising, and scaling. Students develop and pitch their own venture. Modeled after Stanford GSB entrepreneurship course.",
+      "learningOutcomes": [
+        "Identify and validate entrepreneurial opportunities",
+        "Conduct customer discovery interviews (minimum 20)",
+        "Design and iterate business models using Lean Canvas",
+        "Build and present compelling pitch decks to investors",
+        "Navigate venture capital term sheets and cap tables"
+      ],
+      "skills": [
+        "skill_entrepreneurship"
+      ],
+      "tags": [
+        "entrepreneurship",
+        "stanford",
+        "lean-startup",
+        "venture-capital",
+        "pitch"
+      ],
+      "typicalYear": 4,
+      "isCore": false
+    },
+    {
+      "id": "course_cs_mit_theory",
+      "name": "Automata, Computability & Complexity",
+      "shortName": "6.045",
+      "disciplineId": "disc_cs",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 4,
+        "ects": 7.5
+      },
+      "description": "MIT 6.045: Turing machines, decidability, P vs NP, polynomial-time reductions, limits of computation.",
+      "learningOutcomes": [
+        "Prove undecidability via reduction",
+        "Classify P, NP, PSPACE problems",
+        "Construct polynomial-time reductions",
+        "Explain Cook-Levin theorem"
+      ],
+      "skills": [
+        "skill_algorithms"
+      ],
+      "tags": [
+        "theory",
+        "complexity",
+        "mit"
+      ],
+      "typicalYear": 3,
+      "isCore": true
+    },
+    {
+      "id": "course_cs_stan_dm",
+      "name": "Mining Massive Datasets",
+      "shortName": "CS246",
+      "disciplineId": "disc_ds",
+      "crossDisciplineIds": [
+        "disc_cs"
+      ],
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 3,
+        "ects": 6
+      },
+      "description": "Stanford CS246: MapReduce, PageRank, recommender systems, social network analysis, streaming algorithms.",
+      "learningOutcomes": [
+        "Implement MapReduce algorithms",
+        "Build recommendation systems",
+        "Analyze social network graphs",
+        "Apply streaming algorithms"
+      ],
+      "skills": [
+        "skill_sql",
+        "skill_python"
+      ],
+      "tags": [
+        "big-data",
+        "recommendations",
+        "stanford"
+      ],
+      "typicalYear": 5,
+      "isCore": false
+    },
+    {
+      "id": "course_psych_stan_neuro",
+      "name": "Introduction to Neuroscience",
+      "shortName": "PSYCH204",
+      "disciplineId": "disc_psych",
+      "level": "intermediate",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 4,
+        "ects": 7.5
+      },
+      "description": "Stanford: Neural signaling, sensory systems, motor control, learning and memory, brain development.",
+      "learningOutcomes": [
+        "Explain action potential mechanisms",
+        "Map sensory brain pathways",
+        "Analyze synaptic learning",
+        "Design fMRI paradigms"
+      ],
+      "skills": [
+        "skill_critical_thinking"
+      ],
+      "tags": [
+        "neuroscience",
+        "brain",
+        "stanford"
+      ],
+      "typicalYear": 2,
+      "isCore": false
+    },
+    {
+      "id": "course_psych_ox_perception",
+      "name": "Human Perception",
+      "shortName": "PERC",
+      "disciplineId": "disc_psych",
+      "level": "intermediate",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 7.5,
+        "uk": 15
+      },
+      "description": "Oxford: Vision, audition, touch, taste, multisensory integration. Psychophysics, signal detection theory.",
+      "learningOutcomes": [
+        "Apply signal detection theory",
+        "Design psychophysical experiments",
+        "Model perceptual decision-making",
+        "Analyze multisensory integration"
+      ],
+      "skills": [
+        "skill_critical_thinking",
+        "skill_statistics"
+      ],
+      "tags": [
+        "perception",
+        "psychophysics",
+        "oxford"
+      ],
+      "typicalYear": 2,
+      "isCore": false
+    },
+    {
+      "id": "course_econ_stan_game",
+      "name": "Game Theory & Economic Applications",
+      "shortName": "ECON280",
+      "disciplineId": "disc_econ",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 4,
+        "ects": 7.5
+      },
+      "description": "Stanford ECON 280: Nash equilibrium, subgame perfection, Bayesian games, mechanism design, auctions, evolutionary game theory.",
+      "learningOutcomes": [
+        "Compute Nash equilibria",
+        "Design incentive-compatible mechanisms",
+        "Analyze auction strategies",
+        "Apply evolutionary stability"
+      ],
+      "skills": [
+        "skill_econ_analysis",
+        "skill_analytical"
+      ],
+      "tags": [
+        "game-theory",
+        "mechanism-design",
+        "stanford"
+      ],
+      "typicalYear": 3,
+      "isCore": false
+    },
+    {
+      "id": "course_econ_ox_labor",
+      "name": "Labour Economics",
+      "shortName": "LAB",
+      "disciplineId": "disc_econ",
+      "level": "advanced",
+      "degreeLevel": "bachelor",
+      "credits": {
+        "us": 3,
+        "ects": 7.5,
+        "uk": 15
+      },
+      "description": "Oxford: Wage determination, human capital, discrimination, migration, unions, labor market policy.",
+      "learningOutcomes": [
+        "Analyze education returns via Mincer",
+        "Evaluate minimum wage effects",
+        "Model migration decisions",
+        "Assess labor market discrimination"
+      ],
+      "skills": [
+        "skill_econ_analysis",
+        "skill_statistics"
+      ],
+      "tags": [
+        "labor",
+        "wages",
+        "oxford"
+      ],
+      "typicalYear": 3,
+      "isCore": false
+    },
+    {
+      "id": "course_bus_stan_design",
+      "name": "Design Thinking & Innovation",
+      "shortName": "DSGN",
+      "disciplineId": "disc_mgmt",
+      "level": "advanced",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 3,
+        "ects": 6
+      },
+      "description": "Stanford d.school: Human-centered design — empathy, ideation, prototyping, testing, iteration. Applied to real-world challenges.",
+      "learningOutcomes": [
+        "Conduct empathy interviews",
+        "Facilitate ideation sessions",
+        "Build and test rapid prototypes",
+        "Apply design thinking to strategy"
+      ],
+      "skills": [
+        "skill_innovation",
+        "skill_leadership"
+      ],
+      "tags": [
+        "design-thinking",
+        "innovation",
+        "stanford"
+      ],
+      "typicalYear": 5,
+      "isCore": false
+    },
+    {
+      "id": "course_bus_harv_gov",
+      "name": "Corporate Governance & Boards",
+      "shortName": "GOV",
+      "disciplineId": "disc_mgmt",
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 3,
+        "ects": 6
+      },
+      "description": "HBS: Board structure, director duties, shareholder activism, executive compensation, governance across legal systems.",
+      "learningOutcomes": [
+        "Evaluate board composition",
+        "Design executive compensation",
+        "Analyze shareholder activism",
+        "Compare governance jurisdictions"
+      ],
+      "skills": [
+        "skill_strategy",
+        "skill_leadership"
+      ],
+      "tags": [
+        "governance",
+        "board",
+        "hbs"
+      ],
+      "typicalYear": 5,
+      "isCore": false
+    },
+    {
+      "id": "course_ds_mit_causal",
+      "name": "Causal Inference",
+      "shortName": "CI",
+      "disciplineId": "disc_ds",
+      "crossDisciplineIds": [
+        "disc_econ",
+        "disc_math"
+      ],
+      "level": "graduate",
+      "degreeLevel": "master",
+      "credits": {
+        "us": 4,
+        "ects": 7.5
+      },
+      "description": "MIT: Potential outcomes, DAGs, instrumental variables, difference-in-differences, RDD, and modern causal ML methods.",
+      "learningOutcomes": [
+        "Apply potential outcomes framework",
+        "Design instrumental variable studies",
+        "Implement difference-in-differences",
+        "Use causal graphical models"
+      ],
+      "skills": [
+        "skill_statistics",
+        "skill_python"
+      ],
+      "tags": [
+        "causality",
+        "econometrics",
+        "mit"
+      ],
+      "typicalYear": 5,
+      "isCore": false
+    }
+  ]
+}

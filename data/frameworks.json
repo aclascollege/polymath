@@ -1,0 +1,158 @@
+{
+  "version": "v1",
+  "frameworkCount": 4,
+  "frameworks": [
+    {
+      "id": "fw_eqf",
+      "name": "European Qualifications Framework",
+      "region": "EU",
+      "description": "The European Qualifications Framework (EQF) acts as a translation device to make national qualifications more readable across Europe. It covers all types and levels of qualifications from general and vocational education and training, higher education, and adult learning. Adopted in 2008 and revised in 2017, the EQF has 8 levels referenced to the Bologna three-cycle system.",
+      "levels": {
+        "5": {
+          "label": "Short-cycle tertiary",
+          "degreeLevel": "associate",
+          "typicalCredits": 120,
+          "description": "Short-cycle tertiary education. Typically 1-2 years. In the Bologna framework, this corresponds to short-cycle qualifications within or linked to the first cycle. EQF Level 5 qualifications include Higher National Diplomas (HND) and Foundation Degrees."
+        },
+        "6": {
+          "label": "Bachelor's level",
+          "degreeLevel": "bachelor",
+          "typicalCredits": 180,
+          "description": "Bachelor's level — first cycle of the Bologna Process. Advanced study of a field requiring mastery of a body of knowledge and critical understanding. Typically 180-240 ECTS over 3-4 years. Qualifies graduates for professional practice or master's study."
+        },
+        "7": {
+          "label": "Master's level",
+          "degreeLevel": "master",
+          "typicalCredits": 90,
+          "description": "Master's level — second cycle of the Bologna Process. Highly specialised knowledge at the forefront of a field, with capacity for critical analysis, innovation, and research. Typically 90-120 ECTS over 1-2 years beyond the bachelor's."
+        },
+        "8": {
+          "label": "Doctoral level",
+          "degreeLevel": "doctorate",
+          "typicalCredits": 180,
+          "description": "Doctoral level — third cycle of the Bologna Process. The most advanced level, requiring original research that extends the frontier of knowledge. Awarded as PhD or professional doctorates (DBA, EdD, etc.). Typically 3-5 years of independent research."
+        }
+      }
+    },
+    {
+      "id": "fw_us",
+      "name": "US Degree Framework",
+      "region": "US",
+      "description": "The US higher education qualification structure based on the Carnegie Classification and regional accreditation standards. While the US does not have a single national qualifications framework like the EQF, this taxonomy maps the de facto consensus across the six regional accrediting bodies and the Council for Higher Education Accreditation (CHEA).",
+      "levels": {
+        "5": {
+          "label": "Associate Degree",
+          "degreeLevel": "associate",
+          "typicalCredits": 60,
+          "description": "Associate of Arts (AA), Associate of Science (AS), or Associate of Applied Science (AAS). Typically 60 US semester credit hours over 2 years at a community college or junior college. Prepares students for entry-level positions or transfer to a bachelor's program."
+        },
+        "6": {
+          "label": "Bachelor's Degree",
+          "degreeLevel": "bachelor",
+          "typicalCredits": 120,
+          "description": "Bachelor of Arts (BA), Bachelor of Science (BS/BSc), or professional bachelor's degrees. Typically 120-128 US semester credit hours over 4 years. Includes general education (liberal arts core), major requirements, and electives."
+        },
+        "7": {
+          "label": "Master's Degree",
+          "degreeLevel": "master",
+          "typicalCredits": 30,
+          "description": "Master of Arts (MA), Master of Science (MS/MSc), or professional master's (MBA, MEng, MPH, etc.). Typically 30-60 US semester credit hours over 1-2 years beyond the bachelor's. May include a thesis, comprehensive exam, or capstone project."
+        },
+        "8": {
+          "label": "Doctoral Degree",
+          "degreeLevel": "doctorate",
+          "typicalCredits": 60,
+          "description": "Doctor of Philosophy (PhD), Doctor of Education (EdD), Doctor of Business Administration (DBA), or professional doctorates (JD, MD, PharmD). Requires original research and dissertation defense. Typically 3-7 years beyond the bachelor's depending on the field and whether a master's is earned en route."
+        }
+      }
+    },
+    {
+      "id": "fw_aqf",
+      "name": "Australian Qualifications Framework",
+      "region": "AU",
+      "description": "The Australian Qualifications Framework (AQF) is the national policy for regulated qualifications in Australia, established in 1995. It spans 10 levels from secondary school certificates to doctoral degrees. The AQF integrates qualifications from higher education, vocational education and training (VET), and schools into a single comprehensive framework.",
+      "levels": {
+        "5": {
+          "label": "Diploma",
+          "degreeLevel": "associate",
+          "typicalCredits": 120,
+          "description": "AQF Level 5 — Diploma. Prepares graduates for paraprofessional work. Typically 1-2 years at a TAFE or Registered Training Organisation (RTO). Provides broad and in-depth knowledge with some theoretical concepts."
+        },
+        "6": {
+          "label": "Advanced Diploma / Associate Degree",
+          "degreeLevel": "associate",
+          "typicalCredits": 144,
+          "description": "AQF Level 6 — Advanced Diploma or Associate Degree. Bridges VET and higher education. Typically 2 years. An Associate Degree includes more theoretical foundations and can articulate into a Bachelor's program with credit."
+        },
+        "7": {
+          "label": "Bachelor Degree",
+          "degreeLevel": "bachelor",
+          "typicalCredits": 144,
+          "description": "AQF Level 7 — Bachelor Degree. The standard undergraduate qualification. Typically 3-4 years (Honours adds a fourth year). Develops broad and coherent knowledge and skills for professional work and/or further learning."
+        },
+        "8": {
+          "label": "Bachelor Honours / Graduate Certificate / Graduate Diploma",
+          "degreeLevel": "bachelor",
+          "typicalCredits": 168,
+          "description": "AQF Level 8 — Bachelor Honours Degree, Graduate Certificate, or Graduate Diploma. Honours adds an advanced research component (typically 1 year post-bachelor). Graduate Certificates (6 months) and Graduate Diplomas (1 year) provide professional specialisation."
+        },
+        "9": {
+          "label": "Master's Degree",
+          "degreeLevel": "master",
+          "typicalCredits": 96,
+          "description": "AQF Level 9 — Master's Degree. Can be coursework, research, or extended. Typically 1-2 years. Masters (Research) requires a thesis (at least 2/3 research). Masters (Coursework) develops advanced professional knowledge with a capstone."
+        },
+        "10": {
+          "label": "Doctoral Degree",
+          "degreeLevel": "doctorate",
+          "typicalCredits": 144,
+          "description": "AQF Level 10 — Doctoral Degree. The highest level qualification. Requires a substantial original contribution to knowledge through independent research (PhD) or professional practice (professional doctorate). Typically 3-4 years full-time."
+        }
+      }
+    },
+    {
+      "id": "fw_nqf",
+      "name": "National Qualifications Framework (South Africa)",
+      "region": "ZA",
+      "description": "The South African National Qualifications Framework (NQF) is a comprehensive system established under the NQF Act of 2008 and managed by the South African Qualifications Authority (SAQA). It integrates education and training across three sub-frameworks: Higher Education, General and Further Education and Training, and Occupational Qualifications.",
+      "levels": {
+        "5": {
+          "label": "Higher Certificate",
+          "degreeLevel": "associate",
+          "typicalCredits": 120,
+          "description": "NQF Level 5 — Higher Certificate. The first tertiary-level qualification. Typically 1 year full-time (120 credits at 10 notional hours per credit). Provides introductory higher education knowledge and practical skills for the workplace."
+        },
+        "6": {
+          "label": "Diploma / Advanced Certificate",
+          "degreeLevel": "associate",
+          "typicalCredits": 240,
+          "description": "NQF Level 6 — Diploma (360 credits, 3 years) or Advanced Certificate (120 credits, 1 year post-level-5). Builds deeper theoretical and practical knowledge in a specific field, preparing for middle-management or paraprofessional roles."
+        },
+        "7": {
+          "label": "Bachelor's Degree / Advanced Diploma",
+          "degreeLevel": "bachelor",
+          "typicalCredits": 360,
+          "description": "NQF Level 7 — Bachelor's Degree (360+ credits, 3-4 years), Advanced Diploma (120 credits post-Diploma), or Postgraduate Certificate (120 credits). Develops systematic knowledge and professional competence. May include a research component."
+        },
+        "8": {
+          "label": "Bachelor Honours / Postgraduate Diploma",
+          "degreeLevel": "bachelor",
+          "typicalCredits": 480,
+          "description": "NQF Level 8 — Bachelor Honours Degree (120 credits, 1 year post-bachelor), Postgraduate Diploma (120 credits). Honours involves advanced research training and a mini-dissertation. Bridges to master's study."
+        },
+        "9": {
+          "label": "Master's Degree",
+          "degreeLevel": "master",
+          "typicalCredits": 180,
+          "description": "NQF Level 9 — Master's Degree. Requires a minimum of 180 credits (typically 1-2 years). Must include a significant research dissertation demonstrating capacity for independent research at an advanced level."
+        },
+        "10": {
+          "label": "Doctoral Degree",
+          "degreeLevel": "doctorate",
+          "typicalCredits": 360,
+          "description": "NQF Level 10 — Doctoral Degree. Requires a minimum of 360 credits (typically 3-5 years). A substantial, original thesis that makes a significant and novel contribution to knowledge in the field. Must be externally examined."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,260 @@
+{
+  "version": "v1",
+  "degreeCount": 5,
+  "degrees": [
+    {
+      "id": "degree_bscs",
+      "name": "Bachelor of Science in Computer Science",
+      "shortName": "BSc CS",
+      "level": "bachelor",
+      "disciplineId": "disc_cs",
+      "totalCredits": {
+        "us": 120,
+        "ects": 180,
+        "uk": 360
+      },
+      "typicalDuration": {
+        "years": 4,
+        "semesters": 8
+      },
+      "coreCourseIds": [
+        "course_cs_intro_py",
+        "course_cs_oop",
+        "course_cs_dsa",
+        "course_cs_discrete",
+        "course_cs_arch",
+        "course_cs_os",
+        "course_cs_db",
+        "course_cs_networks",
+        "course_cs_theory",
+        "course_se_intro",
+        "course_cs_capstone",
+        "course_math_calc1",
+        "course_math_calc2",
+        "course_math_linalg",
+        "course_math_stats"
+      ],
+      "electiveCourseIds": [
+        "course_cs_compilers",
+        "course_cs_hci",
+        "course_cs_graphics",
+        "course_se_web",
+        "course_se_mobile",
+        "course_se_cloud",
+        "course_se_cyber",
+        "course_ai_ml",
+        "course_ds_intro"
+      ],
+      "capstoneRequired": true,
+      "regions": [
+        "US",
+        "EU",
+        "UK",
+        "CN",
+        "IN",
+        "GLOBAL"
+      ],
+      "aliases": [
+        "BSc in Computing",
+        "BSc Computer Studies",
+        "Bachelor of Computer Science",
+        "BCS"
+      ]
+    },
+    {
+      "id": "degree_bba",
+      "name": "Bachelor of Business Administration",
+      "shortName": "BBA",
+      "level": "bachelor",
+      "disciplineId": "disc_bus",
+      "totalCredits": {
+        "us": 120,
+        "ects": 180,
+        "uk": 360
+      },
+      "typicalDuration": {
+        "years": 4,
+        "semesters": 8
+      },
+      "coreCourseIds": [
+        "course_bus_mgmt",
+        "course_bus_finacc",
+        "course_bus_micro",
+        "course_bus_macro",
+        "course_bus_stats",
+        "course_bus_corpfin",
+        "course_bus_mkt",
+        "course_bus_orgbh",
+        "course_bus_ops",
+        "course_bus_law",
+        "course_bus_strategy",
+        "course_bus_intl",
+        "course_bus_ethics",
+        "course_bus_leadership"
+      ],
+      "electiveCourseIds": [
+        "course_bus_entrep",
+        "course_bus_hr",
+        "course_bus_supply",
+        "course_bus_digital_mkt",
+        "course_bus_invest",
+        "course_bus_consumer",
+        "course_bus_project",
+        "course_bus_analytics",
+        "course_bus_negotiation",
+        "course_bus_ecom",
+        "course_bus_fintech"
+      ],
+      "capstoneRequired": true,
+      "regions": [
+        "US",
+        "EU",
+        "UK",
+        "CN",
+        "IN",
+        "GLOBAL"
+      ],
+      "aliases": [
+        "Bachelor of Management",
+        "Bachelor of Commerce",
+        "BComm",
+        "Bachelor of Business Management"
+      ]
+    },
+    {
+      "id": "degree_mcs",
+      "name": "Master of Computer Science",
+      "shortName": "MCS",
+      "level": "master",
+      "disciplineId": "disc_cs",
+      "totalCredits": {
+        "us": 30,
+        "ects": 90,
+        "uk": 180
+      },
+      "typicalDuration": {
+        "years": 2,
+        "semesters": 4
+      },
+      "coreCourseIds": [
+        "course_mcs_adv_algo",
+        "course_mcs_dist_sys",
+        "course_ai_dl",
+        "course_mcs_capstone"
+      ],
+      "electiveCourseIds": [
+        "course_ai_nlp",
+        "course_ai_cv",
+        "course_ds_mining",
+        "course_mcs_ai_ethics",
+        "course_ds_bigdata",
+        "course_math_numerical"
+      ],
+      "capstoneRequired": true,
+      "regions": [
+        "US",
+        "EU",
+        "UK",
+        "CN",
+        "IN",
+        "GLOBAL"
+      ],
+      "aliases": [
+        "MSc in Computer Science",
+        "MS Computer Science",
+        "Master of Science in Computing"
+      ]
+    },
+    {
+      "id": "degree_mba",
+      "name": "Master of Business Administration",
+      "shortName": "MBA",
+      "level": "master",
+      "disciplineId": "disc_bus",
+      "totalCredits": {
+        "us": 36,
+        "ects": 108,
+        "uk": 216
+      },
+      "typicalDuration": {
+        "years": 2,
+        "semesters": 4
+      },
+      "coreCourseIds": [
+        "course_mba_acct",
+        "course_mba_fin_mgmt",
+        "course_mba_mkt_strat",
+        "course_bus_leadership",
+        "course_bus_strategy",
+        "course_bus_orgbh",
+        "course_mba_capstone"
+      ],
+      "electiveCourseIds": [
+        "course_bus_entrep",
+        "course_bus_negotiation",
+        "course_bus_fintech",
+        "course_bus_invest",
+        "course_bus_analytics",
+        "course_bus_intl",
+        "course_bus_digital_mkt",
+        "course_mcs_ai_ethics"
+      ],
+      "capstoneRequired": true,
+      "regions": [
+        "US",
+        "EU",
+        "UK",
+        "CN",
+        "IN",
+        "GLOBAL"
+      ],
+      "aliases": [
+        "Executive MBA",
+        "International MBA",
+        "Master of Management",
+        "MIM"
+      ]
+    },
+    {
+      "id": "degree_dba",
+      "name": "Doctor of Business Administration",
+      "shortName": "DBA",
+      "level": "doctorate",
+      "disciplineId": "disc_bus",
+      "totalCredits": {
+        "us": 60,
+        "ects": 180,
+        "uk": 360
+      },
+      "typicalDuration": {
+        "years": 3.5,
+        "semesters": 7
+      },
+      "coreCourseIds": [
+        "course_dba_research",
+        "course_dba_strat_lead",
+        "course_dba_dissertation"
+      ],
+      "electiveCourseIds": [
+        "course_bus_strategy",
+        "course_bus_leadership",
+        "course_mba_fin_mgmt",
+        "course_mcs_ai_ethics"
+      ],
+      "capstoneRequired": true,
+      "regions": [
+        "US",
+        "EU",
+        "UK",
+        "CN",
+        "IN",
+        "GLOBAL"
+      ],
+      "aliases": [
+        "Doctor of Management",
+        "Executive Doctorate in Business",
+        "PhD in Business Administration"
+      ]
+    }
+  ]
+}

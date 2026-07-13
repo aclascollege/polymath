@@ -1,0 +1,44 @@
+{
+  "dataset": "Polymath — The Open Taxonomy of Global Higher Education",
+  "taxonomyVersion": "v1",
+  "generatedAt": "2026-07-13T10:47:17.019Z",
+  "counts": {
+    "disciplines": 12,
+    "courses": 94,
+    "prerequisites": 90,
+    "degrees": 5,
+    "skills": 57,
+    "careers": 28,
+    "frameworks": 4
+  },
+  "files": {
+    "disciplines.json": {
+      "bytes": 5192,
+      "sha256": "fe945110263c58b1a0f9d4a2747d0c8b79b961259296961057fc4cea35ea0aa1"
+    },
+    "courses.json": {
+      "bytes": 70404,
+      "sha256": "fae39bec5b73a34de21e3b949abda7b447461e4a5c50337aad4543ea25a939aa"
+    },
+    "prerequisites.json": {
+      "bytes": 11858,
+      "sha256": "64581aaba740a773bc5a5356f5a865addb94ff25951654b8585222eadb110c85"
+    },
+    "degrees.json": {
+      "bytes": 5935,
+      "sha256": "14d93814a31e9aa0e822a6e67fba2f85e69dea45c95aa9490fd7a0da0078f27a"
+    },
+    "skills.json": {
+      "bytes": 13229,
+      "sha256": "ae2da88fe6ab877cdcf2c3118d48a1340c4c1f94cabe94ce8506c11df7c8c926"
+    },
+    "careers.json": {
+      "bytes": 24147,
+      "sha256": "2c141bfc7f9650fb2c93f4c6866b15a9c115195606d7a8211076ba0e88e0a4bc"
+    },
+    "frameworks.json": {
+      "bytes": 10271,
+      "sha256": "18539463fe553132c5fe5499f4ced331c28e84853d5927dea95d15825d53b542"
+    }
+  }
+}
