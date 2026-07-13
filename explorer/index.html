@@ -133,7 +133,8 @@ canvas{position:fixed;inset:0;pointer-events:none}
 #empty-state h2{font-size:1.5rem;font-weight:300;color:var(--dim);letter-spacing:1px}
 
 /* ── RESPONSIVE ── */
-@media(max-width:767px){`n  #mobile-panel-btn{display:flex!important}
+@media(max-width:767px){
+  #mobile-panel-btn{display:flex!important}
   #panel{width:100%;z-index:20;transform:translateY(calc(100% - 44px));top:auto;bottom:0;height:60%;border-right:none;border-top:1px solid var(--bdr);border-radius:16px 16px 0 0;transition:transform .35s cubic-bezier(.4,0,.2,1)}
   #panel:not(.collapsed){transform:translateY(0)}
   #panel-header{padding:10px 16px 6px;text-align:center}
@@ -299,9 +300,10 @@ async function main(){
   const svg=d3.select('#graph-svg'),W=innerWidth,H=innerHeight;
   svg.attr('viewBox',`0 0 ${W} ${H}`);
   const g=svg.append('g');
+  const defaultZoom=innerWidth<768?.72:.95;
   const zoom=d3.zoom().scaleExtent([.1,5]).on('zoom',e=>g.attr('transform',e.transform));
-  svg.call(zoom).call(zoom.transform,d3.zoomIdentity.translate(W/2,H/2).scale(.5));
-  svg.on('dblclick.zoom',null).on('dblclick',()=>svg.transition().duration(600).call(zoom.transform,d3.zoomIdentity.translate(W/2,H/2).scale(.5)));
+  svg.call(zoom).call(zoom.transform,d3.zoomIdentity.translate(W/2,H/2+10).scale(defaultZoom));
+  svg.on('dblclick.zoom',null).on('dblclick',()=>svg.transition().duration(600).call(zoom.transform,d3.zoomIdentity.translate(W/2,H/2+10).scale(defaultZoom)));
 
   // Glow filters
   const defs=svg.append('defs');
@@ -313,12 +315,79 @@ async function main(){
   });
 
   // Nodes & Links
-  const nodes=D.courses.map(c=>({id:c.id,nm:c.shortName||c.name.slice(0,18),full:c.name,did:c.disciplineId,lvl:c.level,dl:c.degreeLevel,cl:dc(c.disciplineId),cr:c.credits,r:c.level==='doctoral'?8:c.level==='graduate'?7:c.level==='advanced'?6.2:c.level==='intermediate'?5.5:4.5,hash:Math.random()}));
+  function stableHash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return((h>>>0)%10000)/10000;}
+  const nodes=D.courses.map(c=>({id:c.id,nm:c.shortName||c.name.slice(0,18),full:c.name,did:c.disciplineId,lvl:c.level,dl:c.degreeLevel,cl:dc(c.disciplineId),cr:c.credits,r:c.level==='doctoral'?8:c.level==='graduate'?7:c.level==='advanced'?6.2:c.level==='intermediate'?5.5:4.5,hash:stableHash(c.id)}));
   const nm=new Map(nodes.map(n=>[n.id,n]));
   const links=D.prereqs.filter(p=>nm.has(p.courseId)&&nm.has(p.prerequisiteId)).map(p=>({source:p.courseId,target:p.prerequisiteId,st:p.strength}));
 
-  // 🗽 Statue of Liberty force layout
-  const sim=d3.forceSimulation(nodes).force('link',d3.forceLink(links).id(d=>d.id).distance(d=>d.st==='strict'?80:130).strength(.2)).force('charge',d3.forceManyBody().strength(-280)).force('center',d3.forceCenter(0,20)).force('collision',d3.forceCollide().radius(d=>d.r+6)).force('x',d3.forceX(d=>{const l=d.lvl;const dl=d.dl;if(l==='doctoral'||dl==='doctorate')return 0;if(l==='graduate'||dl==='master')return (d.hash||0)*60-30;if(l==='advanced')return (d.hash||0)*80-40;return (d.hash||0)*100-50}).strength(d=>d.lvl==='doctoral'?.12:d.lvl==='graduate'?.1:d.lvl==='advanced'?.06:.04)).force('y',d3.forceY(d=>{const l=d.lvl;const dl=d.dl;if(l==='doctoral'||dl==='doctorate')return -H*.38;if(l==='graduate'||dl==='master')return -H*.2;if(l==='advanced')return -H*.02;if(l==='intermediate')return H*.1;return H*.22}).strength(d=>d.lvl==='foundation'?.08:d.lvl==='doctoral'?.15:.05));
+  function linePoints(a,b,n){return d3.range(n).map(i=>{const t=n===1?.5:i/(n-1);return{x:a.x+(b.x-a.x)*t,y:a.y+(b.y-a.y)*t};});}
+  function ellipsePoints(cx,cy,rx,ry,n,a0=0,a1=Math.PI*2){return d3.range(n).map(i=>{const t=n===1?.5:i/(n-1),a=a0+(a1-a0)*t;return{x:cx+Math.cos(a)*rx,y:cy+Math.sin(a)*ry};});}
+  function robePoints(n){
+    const pts=[],rows=8,base=Math.floor(n/rows),extra=n%rows;let k=0;
+    for(let row=0;row<rows;row++){
+      const cols=base+(row<extra?1:0),y=-42+row*35,w=70+row*12;
+      for(let col=0;col<cols;col++){const c=col/(cols-1||1)-.5;pts.push({x:c*w*2+((k++%2)-.5)*7,y:y+(stableHash('robe'+row+':'+col)-.5)*10});}
+    }
+    return pts;
+  }
+  function libertyAnchors(total){
+    const basePts=[
+      ...ellipsePoints(176,-324,24,34,6,-Math.PI*.2,Math.PI*1.65),
+      ...linePoints({x:126,y:-270},{x:70,y:-82},11),
+      ...ellipsePoints(0,-158,42,38,11,-Math.PI*.12,Math.PI*2.12),
+      ...linePoints({x:-55,y:-197},{x:-96,y:-238},2),
+      ...linePoints({x:-28,y:-205},{x:-42,y:-260},2),
+      ...linePoints({x:0,y:-209},{x:0,y:-268},2),
+      ...linePoints({x:28,y:-205},{x:42,y:-260},2),
+      ...linePoints({x:55,y:-197},{x:96,y:-238},2),
+      ...linePoints({x:-67,y:-72},{x:-164,y:54},7),
+      ...linePoints({x:-128,y:8},{x:-188,y:42},4),
+      ...robePoints(32),
+      ...linePoints({x:-176,y:246},{x:176,y:246},6),
+      ...linePoints({x:-206,y:286},{x:206,y:286},7)
+    ];
+    if(total<=basePts.length)return basePts.slice(0,total);
+    const extraCount=total-basePts.length;
+    const extra=d3.range(extraCount).map(i=>{const t=extraCount===1?.5:i/(extraCount-1),a=t*Math.PI*2;return{x:Math.cos(a)*(58+t*90),y:42+Math.sin(a)*(95+t*135)};});
+    return basePts.concat(extra);
+  }
+  function libertyGuidePoints(){
+    return [
+      ...ellipsePoints(176,-324,30,42,22,-Math.PI*.2,Math.PI*1.65),
+      ...linePoints({x:126,y:-270},{x:70,y:-82},34),
+      ...ellipsePoints(0,-158,50,46,30,-Math.PI*.12,Math.PI*2.12),
+      ...linePoints({x:-55,y:-197},{x:-96,y:-238},8),
+      ...linePoints({x:-28,y:-205},{x:-42,y:-260},8),
+      ...linePoints({x:0,y:-209},{x:0,y:-268},8),
+      ...linePoints({x:28,y:-205},{x:42,y:-260},8),
+      ...linePoints({x:55,y:-197},{x:96,y:-238},8),
+      ...linePoints({x:-67,y:-72},{x:-164,y:54},24),
+      ...linePoints({x:-128,y:8},{x:-188,y:42},14),
+      ...robePoints(86),
+      ...linePoints({x:-176,y:246},{x:176,y:246},28),
+      ...linePoints({x:-206,y:286},{x:206,y:286},34)
+    ];
+  }
+  const levelRank={doctorate:0,doctoral:0,master:1,graduate:1,advanced:2,intermediate:3,bachelor:4,foundation:5};
+  const shapedNodes=[...nodes].sort((a,b)=>(levelRank[a.dl]??levelRank[a.lvl]??9)-(levelRank[b.dl]??levelRank[b.lvl]??9)||d3.ascending(a.did,b.did)||d3.ascending(a.id,b.id));
+  libertyAnchors(nodes.length).forEach((p,i)=>{
+    const n=shapedNodes[i];
+    if(n){n.tx=p.x;n.ty=p.y;n.x=p.x+(n.hash-.5)*18;n.y=p.y+(stableHash(n.id+'y')-.5)*18;}
+  });
+
+  // Statue of Liberty silhouette: prerequisite links still matter, but anchors hold the visible outline.
+  const sim=d3.forceSimulation(nodes).alpha(.95).alphaDecay(.028)
+    .force('link',d3.forceLink(links).id(d=>d.id).distance(d=>d.st==='strict'?34:52).strength(.02))
+    .force('charge',d3.forceManyBody().strength(-4))
+    .force('collision',d3.forceCollide().radius(d=>d.r+1).strength(.18))
+    .force('x',d3.forceX(d=>d.tx).strength(2.4))
+    .force('y',d3.forceY(d=>d.ty).strength(2.4));
+
+  // A faint guide makes the intended statue readable before the force settles.
+  const guide=g.append('g').attr('class','liberty-guide').attr('opacity',.32);
+  guide.append('path').attr('d','M176 -358 C154 -337 151 -304 176 -284 C202 -304 199 -337 176 -358 M126 -270 L70 -82 M-55 -197 L-96 -238 M-28 -205 L-42 -260 M0 -209 L0 -268 M28 -205 L42 -260 M55 -197 L96 -238 M-67 -72 L-164 54 L-188 42 M70 -82 C118 2 136 132 176 246 L206 286 L-206 286 L-176 246 C-136 132 -118 2 -70 -82 M-42 -158 C-42 -204 42 -204 42 -158 C42 -112 -42 -112 -42 -158').attr('fill','none').attr('stroke','rgba(218,165,32,.45)').attr('stroke-width',2).attr('stroke-linecap','round').attr('stroke-linejoin','round').attr('pointer-events','none');
+  guide.selectAll('circle').data(libertyGuidePoints()).join('circle').attr('cx',d=>d.x).attr('cy',d=>d.y).attr('r',1.15).attr('fill','rgba(218,165,32,.5)').attr('pointer-events','none');
+  guide.lower();
 
   // Edges
   const lg=g.append('g').attr('class','links');
@@ -427,7 +496,7 @@ async function main(){
   document.getElementById('search').addEventListener('input',e=>{const af=document.querySelector('.chip.active')?.dataset.filter||'all';buildList(af,e.target.value);});
 
   // Reset
-  document.getElementById('btn-reset').addEventListener('click',()=>{hil.clear();selNode=null;document.getElementById('detail-overlay').classList.remove('show');node.selectAll('circle').filter((_,i)=>i%3===2).transition().duration(300).attr('opacity',.85);link.transition().duration(300).attr('opacity',.5);svg.transition().duration(600).call(zoom.transform,d3.zoomIdentity.translate(W/2,H/2).scale(.5));buildList();});
+  document.getElementById('btn-reset').addEventListener('click',()=>{hil.clear();selNode=null;document.getElementById('detail-overlay').classList.remove('show');node.selectAll('circle').filter((_,i)=>i%3===2).transition().duration(300).attr('opacity',.85);link.transition().duration(300).attr('opacity',.5);svg.transition().duration(600).call(zoom.transform,d3.zoomIdentity.translate(W/2,H/2+10).scale(defaultZoom));buildList();});
 
   // Tour
   const tourPath=['course_cs_intro_py','course_cs_oop','course_cs_dsa','course_ai_ml','course_ai_dl','course_mcs_adv_algo','course_mcs_capstone','course_cs_capstone'];
@@ -438,7 +507,8 @@ async function main(){
   function runTour(){if(tourIdx>=tourPath.length)return;select(tourPath[tourIdx]);tourIdx++;tourTimer=setTimeout(runTour,2800);}
 
   // Sim tick
-  sim.on('tick',()=>{link.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);node.attr('transform',d=>`translate(${d.x},${d.y})`);});
+  let graphVisible=false;
+  sim.on('tick',()=>{if(!graphVisible){graphVisible=true;document.getElementById('empty-state').style.opacity=0;}link.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);node.attr('transform',d=>`translate(${d.x},${d.y})`);});
   sim.on('end',()=>{PUP(links);document.getElementById('empty-state').style.opacity=0;});
 
   buildLegend();buildList();window._sel=id=>select(id);
