@@ -1,0 +1,13 @@
+{
+  "name": "@aclascollege/polymath",
+  "version": "1.0.0",
+  "description": "The Open Taxonomy of Global Higher Education — open dataset and knowledge graph",
+  "type": "module",
+  "license": "ODbL-1.0",
+  "scripts": {
+    "validate": "node scripts/validate.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

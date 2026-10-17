@@ -13,7 +13,7 @@
   <a href="https://aclas.college"><img src="https://img.shields.io/badge/by-ACLAS%20College-8b5cf6?style=flat-square" alt="by ACLAS College"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/database-ODbL%201.0-3b82f6?style=flat-square" alt="License: ODbL"></a>
   <a href="LICENSE-CONTENT"><img src="https://img.shields.io/badge/content-CC%20BY--SA%204.0-22c55e?style=flat-square" alt="License: CC BY-SA"></a>
-  <img src="https://img.shields.io/badge/version-v0.1--alpha-6366f1?style=flat-square" alt="Version">
+  <img src="https://img.shields.io/badge/version-v1-6366f1?style=flat-square" alt="Version: v1">
 </p>
 
 ---
@@ -26,9 +26,9 @@ Polymath maps the architecture of higher education — across disciplines, degre
 
 **Current release:** 94 university courses, 90 prerequisite relationships, 15 academic disciplines, 59 skills, 28 career pathways, 5 degree pathways, and 4 global credit / qualification frameworks.
 
-## See it
+> **Note on the data:** course names, descriptions, salaries and similar fields are *synthesized examples* modeled on standard curricula (see `PROVENANCE.md`), not scraped from real universities. The taxonomy structure, classifications, and mappings are the real substance.
 
-![Constellation graph of global higher education](media/explorer-preview.png)
+## See it
 
 Every node is a university course, colored by discipline cluster. Every connection is a prerequisite, a credit pathway, or a career link. [Explore it interactively →](https://aclascollege.github.io/polymath/explorer/)
 
@@ -245,7 +245,7 @@ This dataset is **multi-licensed**:
 
 ### Attribution
 
-> Polymath Taxonomy (v0.1) · © ACLAS College · https://aclascollege.github.io/polymath/explorer/ · licensed under ODbL 1.0 (database) and CC BY-SA 4.0 (content).
+> Polymath Taxonomy (v1) · © ACLAS College · https://aclascollege.github.io/polymath/explorer/ · licensed under ODbL 1.0 (database) and CC BY-SA 4.0 (content).
 
 ## Roadmap
 
