@@ -22,7 +22,6 @@
 
 Polymath maps the architecture of higher education — across disciplines, degree levels, credit systems, and career pathways — into a single, open, machine-readable knowledge graph.
 
-**SEO keywords:** higher education taxonomy, university course dataset, curriculum knowledge graph, prerequisite graph, academic disciplines, degree pathways, credit transfer systems, ECTS, US credits, ISCED-F, CIP codes, skills taxonomy, career pathways, open education data.
 
 **Current release:** 94 university courses, 90 prerequisite relationships, 15 academic disciplines, 59 skills, 28 career pathways, 5 degree pathways, and 4 global credit / qualification frameworks.
 
@@ -92,11 +91,6 @@ Every node is a university course, colored by discipline cluster. Every connecti
 | Psychology | 5 | - | Shared skills graph |
 | **Total** | **94** | **5** | **59 skills** |
 
-## Repository topics
-
-Suggested GitHub topics for discovery:
-
-`higher-education` `taxonomy` `knowledge-graph` `curriculum` `open-data` `education-data` `university-courses` `prerequisites` `degree-pathways` `skills-taxonomy` `career-pathways` `ects` `isced-f` `cip-codes` `credit-transfer`
 
 ## Files
 
@@ -133,8 +127,7 @@ All data lives in [`data/`](data/) as UTF-8 JSON. See [`schema/`](schema/) for J
     "Select appropriate data structures for given problem constraints",
     "Design and implement graph traversal algorithms"
   ],
-  "skillIds": ["skill_python", "skill_algorithm_design", "skill_complexity_analysis"],
-  "prerequisiteIds": ["course_cs_programming_1", "course_math_discrete"]
+  "skills": ["skill_python", "skill_algorithm_design", "skill_complexity_analysis"],
 }
 ```
 
@@ -142,10 +135,10 @@ All data lives in [`data/`](data/) as UTF-8 JSON. See [`schema/`](schema/) for J
 
 ```json
 {
-  "courseId": "course_cs_machine_learning",
-  "prerequisiteId": "course_math_linear_algebra",
-  "strength": "hard",
-  "rationale": "ML models require understanding of vector spaces, matrix operations, and eigendecomposition"
+  "courseId": "course_ai_ml",
+  "prerequisiteId": "course_math_linalg",
+  "strength": "strict",
+  "reason": "ML models require understanding of vector spaces, matrix operations, and eigendecomposition"
 }
 ```
 
@@ -156,10 +149,10 @@ All data lives in [`data/`](data/) as UTF-8 JSON. See [`schema/`](schema/) for J
   "id": "career_data_scientist",
   "title": "Data Scientist",
   "category": "Technology & Analytics",
-  "medianSalaryUsd": 108000,
+  "salaryBand": "$90k–$130k",
   "growthOutlook": "strong",
   "requiredSkillIds": ["skill_python", "skill_machine_learning", "skill_statistics", "skill_data_visualization"],
-  "recommendedDegreeIds": ["degree_ms_data_science", "degree_ms_computer_science"]
+  "recommendedCourseIds": ["course_ai_ml", "course_cs_data_structures"]
 }
 ```
 
@@ -175,12 +168,32 @@ const byId = new Map(courses.courses.map(c => [c.id, c]));
 
 // Find all prerequisites for Machine Learning
 const mlPrereqs = prereqs.prerequisites
-  .filter(p => p.courseId === 'course_cs_machine_learning')
+  .filter(p => p.courseId === 'course_ai_ml')
   .map(p => ({
     course: byId.get(p.prerequisiteId).name,
     strength: p.strength,
-    rationale: p.rationale
+    reason: p.reason
   }));
+```
+
+```python
+import json
+
+with open("data/courses.json") as f:
+    courses = json.load(f)["courses"]
+with open("data/prerequisites.json") as f:
+    prereqs = json.load(f)["prerequisites"]
+
+by_id = {c["id"]: c for c in courses}
+
+# Find all prerequisites for Machine Learning
+ml_prereqs = [
+    {"course": by_id[p["prerequisiteId"]]["name"],
+     "strength": p["strength"],
+     "reason": p["reason"]}
+    for p in prereqs if p["courseId"] == "course_ai_ml"
+]
+print(ml_prereqs)
 ```
 
 ### Interactive explorer
@@ -273,7 +286,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). We welcome:
   title     = {Polymath: The Open Taxonomy of Global Higher Education},
   author    = {{ACLAS College}},
   year      = {2026},
-  version   = {v0.1},
+  version   = {v1},
   publisher = {ACLAS College},
   url       = {https://github.com/aclascollege/polymath}
 }
