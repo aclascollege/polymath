@@ -22,7 +22,6 @@
 
 Polymath maps the architecture of higher education — across disciplines, degree levels, credit systems, and career pathways — into a single, open, machine-readable knowledge graph.
 
-
 **Current release:** 94 university courses, 90 prerequisite relationships, 15 academic disciplines, 59 skills, 28 career pathways, 5 degree pathways, and 4 global credit / qualification frameworks.
 
 > **Note on the data:** course names, descriptions, salaries and similar fields are *synthesized examples* modeled on standard curricula (see `PROVENANCE.md`), not scraped from real universities. The taxonomy structure, classifications, and mappings are the real substance.
@@ -91,7 +90,6 @@ Every node is a university course, colored by discipline cluster. Every connecti
 | Psychology | 5 | - | Shared skills graph |
 | **Total** | **94** | **5** | **59 skills** |
 
-
 ## Files
 
 All data lives in [`data/`](data/) as UTF-8 JSON. See [`schema/`](schema/) for JSON Schemas.
@@ -111,23 +109,17 @@ All data lives in [`data/`](data/) as UTF-8 JSON. See [`schema/`](schema/) for J
 
 ```json
 {
-  "id": "course_cs_data_structures",
-  "name": "Data Structures & Algorithms",
-  "disciplineId": "disc_computer_science",
-  "level": "bachelor",
-  "credits": {
-    "us": 3,
-    "ects": 6,
-    "uk": 15
-  },
-  "description": "Abstract data types, algorithm analysis, and fundamental data structures including arrays, linked lists, trees, graphs, hash tables, and heaps. Emphasis on both theoretical foundations and practical implementations.",
+  "id": "course_ai_ml",
+  "name": "Machine Learning",
+  "disciplineId": "disc_ai",
+  "level": "advanced",
+  "credits": { "us": 4, "ects": 7.5, "uk": 20, "china": 4 },
+  "description": "Supervised and unsupervised learning algorithms: regression, classification, clustering, ensemble methods, and model evaluation.",
   "learningOutcomes": [
-    "Analyze time and space complexity using Big-O notation",
-    "Implement and compare fundamental data structures",
-    "Select appropriate data structures for given problem constraints",
-    "Design and implement graph traversal algorithms"
+    "Implement linear and logistic regression from scratch",
+    "Apply decision trees, random forests, and gradient boosting"
   ],
-  "skills": ["skill_python", "skill_algorithm_design", "skill_complexity_analysis"],
+  "skills": ["skill_ml", "skill_python"]
 }
 ```
 
@@ -138,7 +130,8 @@ All data lives in [`data/`](data/) as UTF-8 JSON. See [`schema/`](schema/) for J
   "courseId": "course_ai_ml",
   "prerequisiteId": "course_math_linalg",
   "strength": "strict",
-  "reason": "ML models require understanding of vector spaces, matrix operations, and eigendecomposition"
+  "reason": "Machine learning algorithms are expressed in linear algebra",
+  "crossDiscipline": true
 }
 ```
 
@@ -148,11 +141,12 @@ All data lives in [`data/`](data/) as UTF-8 JSON. See [`schema/`](schema/) for J
 {
   "id": "career_data_scientist",
   "title": "Data Scientist",
-  "category": "Technology & Analytics",
-  "salaryBand": "$90k–$130k",
-  "growthOutlook": "strong",
-  "requiredSkillIds": ["skill_python", "skill_machine_learning", "skill_statistics", "skill_data_visualization"],
-  "recommendedCourseIds": ["course_ai_ml", "course_cs_data_structures"]
+  "category": "Technology",
+  "iscoCode": "2120",
+  "typicalDegreeLevel": "master",
+  "growthOutlook": "rapid",
+  "requiredSkillIds": ["skill_python", "skill_sql", "skill_ml", "skill_stats"],
+  "recommendedCourseIds": ["course_cs_intro_py", "course_ds_intro", "course_ai_ml"]
 }
 ```
 
