@@ -190,6 +190,83 @@ ml_prereqs = [
 print(ml_prereqs)
 ```
 
+### End-to-end: plan a Data Scientist career path
+
+A complete walkthrough — load the graph, pick a career, expand the full
+prerequisite closure, and order it into a study sequence with credit totals.
+
+```python
+import json
+from collections import defaultdict, deque
+
+# 1. Load the knowledge graph
+def load(name):
+    with open(f"data/{name}.json") as f:
+        return json.load(f)
+
+courses = {c["id"]: c for c in load("courses")["courses"]}
+prereqs = load("prerequisites")["prerequisites"]
+careers = {c["id"]: c for c in load("careers")["careers"]}
+degrees = {d["id"]: d for d in load("degrees")["degrees"]}
+
+# 2. Pick a career and get its recommended courses
+career = careers["career_data_scientist"]
+print(f"Career: {career['title']}  (growth outlook: {career['growthOutlook']})")
+target_ids = career["recommendedCourseIds"]
+print("Recommended courses:", [courses[i]["name"] for i in target_ids])
+
+# 3. Expand the full prerequisite closure (BFS over the dependency graph)
+parents = defaultdict(list)          # course -> [its prerequisites]
+for p in prereqs:
+    parents[p["courseId"]].append(p["prerequisiteId"])
+
+needed, queue = set(), deque(target_ids)
+while queue:
+    cid = queue.popleft()
+    if cid in needed:
+        continue
+    needed.add(cid)
+    queue.extend(parents[cid])
+print(f"\nFull learning set: {len(needed)} courses (targets + all prerequisites)")
+
+# 4. Topologically order them into a study sequence (Kahn's algorithm)
+children = defaultdict(list)         # prerequisite -> [courses that need it]
+indeg = {cid: 0 for cid in needed}
+for cid in needed:
+    for par in parents[cid]:
+        if par in needed:
+            children[par].append(cid)
+            indeg[cid] += 1
+
+seq, ready = [], deque([c for c, d in indeg.items() if d == 0])
+while ready:
+    cid = ready.popleft()
+    seq.append(cid)
+    for ch in children[cid]:
+        indeg[ch] -= 1
+        if indeg[ch] == 0:
+            ready.append(ch)
+
+# 5. Print the study plan with credit totals (US + ECTS)
+total_us = total_ects = 0
+print("\nSuggested study sequence:")
+for i, cid in enumerate(seq, 1):
+    c = courses[cid]
+    us, ects = c["credits"]["us"], c["credits"]["ects"]
+    total_us += us
+    total_ects += ects
+    flag = "  <-- career target" if cid in target_ids else ""
+    print(f"  {i:2d}. [{c['level']:<12}] {c['name']} ({us} US cr / {ects} ECTS){flag}")
+
+print(f"\nTotal: {total_us} US credits / {total_ects} ECTS")
+
+# 6. (Optional) check which degree this maps to
+for d in degrees.values():
+    overlap = needed & set(d["coreCourseIds"])
+    if overlap:
+        print(f"Covers {len(overlap)}/{len(d['coreCourseIds'])} core courses of {d['name']}")
+```
+
 ### Interactive explorer
 
 Open [`explorer/index.html`](explorer/index.html) in any browser, or visit [aclascollege.github.io/polymath/explorer](https://aclascollege.github.io/polymath/explorer/). Features:
